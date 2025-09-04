@@ -1,7 +1,7 @@
 // 改进后 - 添加错误处理
 let requestDataArray = [];
 try {
-  requestDataArray = require("./程序员三千.json");
+  requestDataArray = require("./阿丽.json");
   console.log(`成功加载 ${requestDataArray.length} 条数据`);
 } catch (error) {
   console.error("加载JSON文件失败:", error.message);
@@ -31,8 +31,8 @@ function sendRequest(href, index) {
     entry_type: "ai",
     note_type: "link",
     source: "web",
-    topic_directory_id: "2155868",
-    topic_id: "1874944",
+    topic_directory_id: "2156181",
+    topic_id: "1875204",
   };
   pars.attachments[0].url = href;
   const raw = JSON.stringify(pars);
@@ -56,7 +56,6 @@ function sendRequest(href, index) {
       console.error(`请求 ${index + 1} 失败:`, error);
     });
 }
-
 
 // 批量发送请求，每个间隔3秒
 function batchSendRequests() {
