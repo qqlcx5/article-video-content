@@ -1,13 +1,14 @@
 // ==UserScript==
 // @name         抖音视频采集（简洁版）
 // @namespace    http://tampermonkey.net/
-// @version      2.0.0
+// @version      2.0.1
 // @description  抖音切换到我的喜欢和收藏列表，提取当前页面抖音视频链接，采集到第三方场景上，可以定制相关插件
 // @author       qqlcx5
 // @match        https://www.douyin.com/user/*
 // @match        https://www.douyin.com/search/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=douyin.com
 // @grant        GM_setClipboard
+// @grant        GM_download
 // @run-at       document-end
 // @license MIT
 // @downloadURL https://update.greasyfork.org/scripts/517736/%E6%8A%96%E9%9F%B3%E8%A7%86%E9%A2%91%E9%87%87%E9%9B%86%EF%BC%88%E7%AE%80%E6%B4%81%E7%89%88%EF%BC%89.user.js
@@ -37,51 +38,87 @@
    * Extracts all video links and like counts from the user's profile page
    */
   function extractVideoLinks() {
-    // 定义需要提取链接的节点选择器
+    // 定义需要提取链接的节点选择器 - 根据您提供的DOM结构调整
     const selectors = [
       'div[data-e2e="user-post-list"]',
       'div[data-e2e="user-like-list"]',
+      'ul[class*="wqW3g_Kl"]', // 根据您提供的DOM结构调整
+      'li[class*="wqW3g_Kl"]', // 根据您提供的DOM结构调整
     ];
-    const videoListContainer = document.querySelector(selectors);
+
+    let videoListContainer = null;
+    for (const selector of selectors) {
+      videoListContainer = document.querySelector(selector);
+      if (videoListContainer) break;
+    }
 
     if (!videoListContainer) {
       console.warn("未找到视频列表元素");
       return;
     }
 
+    // 查找所有视频链接
     const videoAnchorElements =
-      videoListContainer.querySelectorAll('a[href^="/video/"]');
-    videoLinks = Array.from(videoAnchorElements).map((anchor) => {
-      const videoElement = anchor.closest("li");
-      const likeCountElement = videoElement
-        ? videoElement.querySelector(".b3Dh2ia8")
-        : null;
-      const likeCount = likeCountElement
-        ? parseLikeCount(likeCountElement.textContent)
-        : 0;
+      videoListContainer.querySelectorAll('a[href*="/video/"]');
+    videoLinks = [];
 
-      // 获取视频标题（如果有）
-      const titleElement = videoElement
-        ? videoElement.querySelector('div[data-e2e="video-title"]')
-        : null;
-      const title = titleElement ? titleElement.textContent.trim() : "无标题";
+    Array.from(videoAnchorElements).forEach((anchor) => {
+      if (!anchor.href.includes("/video/")) return;
 
-      // 获取视频封面（如果有）
-      const imgElement = videoElement
-        ? videoElement.querySelector("img")
-        : null;
+      const videoElement = anchor.closest("li") || anchor.parentElement;
+
+      // 获取点赞数 - 根据您提供的DOM结构调整
+      let likeCount = 0;
+      const likeSelectors = [
+        ".uWre3Wbh .BgCg_ebQ", // 根据您提供的DOM结构
+        ".author-card-user-video-like .BgCg_ebQ",
+        '[data-e2e="video-like-count"]',
+        ".like-count",
+      ];
+
+      for (const selector of likeSelectors) {
+        const likeElement = videoElement.querySelector(selector);
+        if (likeElement) {
+          likeCount = parseLikeCount(likeElement.textContent);
+          break;
+        }
+      }
+
+      // 获取视频标题 - 根据您提供的DOM结构调整
+      let title = "无标题";
+      const titleSelectors = [
+        ".EtttsrEw", // 根据您提供的DOM结构
+        ".eJFBAbdI",
+        '[data-e2e="video-title"]',
+        ".video-title",
+      ];
+
+      for (const selector of titleSelectors) {
+        const titleElement = videoElement.querySelector(selector);
+        if (titleElement && titleElement.textContent.trim()) {
+          title = titleElement.textContent.trim();
+          break;
+        }
+      }
+
+      // 获取视频封面
+      const imgElement = videoElement.querySelector("img");
       const thumbnail = imgElement ? imgElement.src : "";
 
       // 构建完整URL
       const url = new URL(anchor.href, window.location.origin);
 
-      return {
-        href: url.toString(),
-        likeCount: likeCount,
-        title: title,
-        thumbnail: thumbnail,
-        id: url.pathname.split("/").pop(), // 提取视频ID
-      };
+      // 避免重复添加
+      const videoId = url.pathname.split("/").pop();
+      if (!videoLinks.some((video) => video.id === videoId)) {
+        videoLinks.push({
+          href: url.toString(),
+          likeCount: likeCount,
+          title: title,
+          thumbnail: thumbnail,
+          id: videoId,
+        });
+      }
     });
 
     console.info(`提取到 ${videoLinks.length} 个视频链接`);
@@ -95,10 +132,15 @@
    */
   function parseLikeCount(text) {
     if (!text) return 0;
-    if (text.includes("万")) {
-      return parseFloat(text) * 10000;
+    const cleanText = text.trim();
+
+    if (cleanText.includes("万")) {
+      return Math.round(parseFloat(cleanText) * 10000);
     }
-    return parseInt(text, 10) || 0;
+    if (cleanText.includes("亿")) {
+      return Math.round(parseFloat(cleanText) * 100000000);
+    }
+    return parseInt(cleanText.replace(/[^\d]/g, ""), 10) || 0;
   }
 
   /**
@@ -209,7 +251,9 @@
       const title = video.title.includes(",")
         ? `"${video.title}"`
         : video.title;
-      csvContent += `${title},${video.href},${video.likeCount},${video.id}\n`;
+      // 处理链接中的逗号
+      const href = video.href.includes(",") ? `"${video.href}"` : video.href;
+      csvContent += `${title},${href},${video.likeCount},${video.id}\n`;
     });
 
     const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
