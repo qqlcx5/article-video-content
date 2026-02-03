@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, reactive } from "vue";
-import { ElMessage } from "element-plus";
+import { ElMessage, ElMessageBox } from "element-plus";
 import {
   Database,
   Trash2,
@@ -9,7 +9,9 @@ import {
   FolderOpen,
   HardDrive,
   RefreshCw,
-  Check
+  Check,
+  Cloud,
+  CloudOff
 } from "lucide-vue-next";
 import Button from "../components/ui/Button.vue";
 import Card from "../components/ui/Card.vue";
@@ -18,6 +20,7 @@ import type { IAppDatabase } from "../app-database";
 import { createTauriAppDatabaseRepository } from "../tauri/app-database-repository";
 import { readTextFile, writeTextFile } from "@tauri-apps/plugin-fs";
 import { open, save } from "@tauri-apps/plugin-dialog";
+import { invoke } from "@tauri-apps/api/core";
 
 interface Props {
   db: IAppDatabase;
@@ -34,6 +37,18 @@ const emit = defineEmits<Emits>();
 const isExporting = ref(false);
 const isImporting = ref(false);
 const isClearing = ref(false);
+const webdavFileList = ref<Array<{ name: string; href: string }>>([]);
+const showWebdavFileList = ref(false);
+
+// WebDAV 配置
+const webdavConfig = reactive({
+  url: "https://dav.jianguoyun.com/dav/",
+  username: "893917884@qq.com",
+  password: "areb8rx6yqpk8e8i",
+  path: "/up_videos_backup"
+});
+const isTestingWebdav = ref(false);
+const webdavConnected = ref(false);
 
 // 数据库统计
 const dbStats = reactive({
@@ -113,7 +128,7 @@ async function importDatabase() {
       return;
     }
 
-    const confirm = await ElMessage.confirm(
+    await ElMessageBox.confirm(
       `导入数据库将覆盖当前数据，此操作不可撤销。是否继续？`,
       "确认导入",
       {
@@ -125,10 +140,8 @@ async function importDatabase() {
 
     const repo = await createTauriAppDatabaseRepository();
 
-    // 保存导入的数据
-    for (const [key, up] of Object.entries(imported.data.ups)) {
-      await repo.saveUp(up as any);
-    }
+    // 直接保存导入的数据库
+    await repo.save(imported.data);
 
     emit("reloadDb");
     ElMessage.success("数据库导入成功");
@@ -147,19 +160,19 @@ async function clearHiddenVideos() {
     isClearing.value = true;
 
     const repo = await createTauriAppDatabaseRepository();
-    const ups = Object.values(props.db.ups);
+    const currentDb = await repo.load();
 
     let clearedCount = 0;
-    for (const up of ups) {
+    for (const [key, up] of Object.entries(currentDb.ups)) {
       const visibleVideos = up.videos.filter((v) => !v.isHidden);
       if (visibleVideos.length < up.videos.length) {
-        const updated = { ...up, videos: visibleVideos };
-        await repo.saveUp(updated);
+        currentDb.ups[key] = { ...up, videos: visibleVideos };
         clearedCount += up.videos.length - visibleVideos.length;
       }
     }
 
     if (clearedCount > 0) {
+      await repo.save(currentDb);
       emit("reloadDb");
       ElMessage.success(`已清理 ${clearedCount} 个隐藏视频`);
     } else {
@@ -175,8 +188,8 @@ async function clearHiddenVideos() {
 // 清空所有数据
 async function clearAllData() {
   try {
-    const confirm = await ElMessage.confirm(
-      "此操作将清空所有数据，不可撤销！请输入 'DELETE ALL' 确认：",
+    await ElMessageBox.confirm(
+      "此操作将清空所有数据，不可撤销！是否继续？",
       "危险操作",
       {
         type: "error",
@@ -186,8 +199,12 @@ async function clearAllData() {
     );
 
     const repo = await createTauriAppDatabaseRepository();
-    await repo.clear();
+    const emptyDb = {
+      schemaVersion: 1,
+      ups: {}
+    };
 
+    await repo.save(emptyDb);
     emit("reloadDb");
     ElMessage.success("所有数据已清空");
   } catch (e) {
@@ -195,6 +212,175 @@ async function clearAllData() {
       ElMessage.error(`清空失败：${String(e)}`);
     }
   }
+}
+
+// ============ WebDAV 相关功能 ============
+
+// 测试 WebDAV 连接
+async function testWebdavConnection() {
+  if (!webdavConfig.url) {
+    ElMessage.warning("请先输入 WebDAV 服务器地址");
+    return;
+  }
+
+  try {
+    isTestingWebdav.value = true;
+
+    const result = await invoke<string>("webdav_test_connection", {
+      config: webdavConfig
+    });
+
+    if (result === "success") {
+      webdavConnected.value = true;
+      ElMessage.success("WebDAV 连接成功！");
+    } else {
+      webdavConnected.value = false;
+      ElMessage.error(`WebDAV 连接失败：${result}`);
+    }
+  } catch (e) {
+    webdavConnected.value = false;
+    ElMessage.error(`WebDAV 连接失败：${String(e)}`);
+  } finally {
+    isTestingWebdav.value = false;
+  }
+}
+
+// WebDAV 导出
+async function exportToWebdav() {
+  if (!webdavConnected.value) {
+    ElMessage.warning("请先测试 WebDAV 连接");
+    return;
+  }
+
+  try {
+    isExporting.value = true;
+
+    const exportData = {
+      version: "1.0",
+      exportedAt: new Date().toISOString(),
+      stats: {
+        totalUps: dbStats.totalUps,
+        totalVideos: dbStats.totalVideos,
+        hiddenVideos: dbStats.hiddenVideos,
+        usedVideos: dbStats.usedVideos,
+        lostVideos: dbStats.lostVideos
+      },
+      data: props.db
+    };
+
+    const jsonData = JSON.stringify(exportData, null, 2);
+    const filename = `up_videos_backup_${Date.now()}.json`;
+
+    const success = await invoke<boolean>("webdav_upload", {
+      config: webdavConfig,
+      filename,
+      content: jsonData
+    });
+
+    if (success) {
+      ElMessage.success(`已导出到 WebDAV：${filename}`);
+    } else {
+      ElMessage.error("导出失败：服务器返回错误");
+    }
+  } catch (e) {
+    ElMessage.error(`导出失败：${String(e)}`);
+  } finally {
+    isExporting.value = false;
+  }
+}
+
+// WebDAV 导入
+async function importFromWebdav() {
+  if (!webdavConnected.value) {
+    ElMessage.warning("请先测试 WebDAV 连接");
+    return;
+  }
+
+  try {
+    isImporting.value = true;
+
+    // 获取文件列表
+    const files = await invoke<Array<{ name: string; href: string }>>("webdav_list_files", {
+      config: webdavConfig
+    });
+
+    if (!files || files.length === 0) {
+      ElMessage.info("WebDAV 上没有找到备份文件");
+      return;
+    }
+
+    // 按文件名排序（最新的在前）
+    files.sort((a, b) => b.name.localeCompare(a.name));
+    webdavFileList.value = files;
+    showWebdavFileList.value = true;
+  } catch (e) {
+    ElMessage.error(`获取文件列表失败：${String(e)}`);
+  } finally {
+    isImporting.value = false;
+  }
+}
+
+// 下载并恢复选中的备份
+async function restoreFromWebdav(file: { name: string; href: string }) {
+  try {
+    isImporting.value = true;
+    showWebdavFileList.value = false;
+
+    await ElMessageBox.confirm(
+      `从 WebDAV 导入备份文件 ${file.name} 将覆盖当前数据，是否继续？`,
+      "确认导入",
+      {
+        type: "warning",
+        confirmButtonText: "继续",
+        cancelButtonText: "取消"
+      }
+    );
+
+    // 下载文件
+    const jsonData = await invoke<string>("webdav_download", {
+      config: webdavConfig,
+      filename: file.name
+    });
+
+    const imported = JSON.parse(jsonData);
+
+    if (!imported.data || !imported.data.ups) {
+      ElMessage.error("备份文件格式不正确");
+      return;
+    }
+
+    // 导入数据
+    const repo = await createTauriAppDatabaseRepository();
+    await repo.save(imported.data);
+
+    emit("reloadDb");
+    ElMessage.success(`已从 WebDAV 导入：${file.name}`);
+  } catch (e) {
+    if (e !== "cancel") {
+      ElMessage.error(`导入失败：${String(e)}`);
+    }
+  } finally {
+    isImporting.value = false;
+  }
+}
+
+// 格式化文件名显示
+function formatFileName(filename: string): string {
+  // 文件名格式: up_videos_backup_1234567890.json
+  const match = filename.match(/up_videos_backup_(\d+)\.json/);
+  if (match) {
+    const timestamp = parseInt(match[1]);
+    const date = new Date(timestamp);
+    return date.toLocaleString("zh-CN", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit"
+    });
+  }
+  return filename;
 }
 </script>
 
@@ -339,6 +525,99 @@ async function clearAllData() {
         </template>
       </Card>
 
+      <!-- WebDAV Backup -->
+      <Card class="mb-4">
+        <template #default>
+          <div class="card-header">
+            <div class="card-title">
+              <Cloud :size="18" />
+              <span>WebDAV 云备份</span>
+            </div>
+            <div :class="['status-badge', webdavConnected ? 'status-ok' : 'status-off']">
+              <CloudOff v-if="!webdavConnected" :size="14" />
+              <Check v-else :size="14" />
+              <span>{{ webdavConnected ? "已连接" : "未连接" }}</span>
+            </div>
+          </div>
+
+          <div class="webdav-config">
+            <div class="form-group">
+              <label class="form-label">服务器地址</label>
+              <Input
+                v-model="webdavConfig.url"
+                placeholder="https://dav.example.com"
+                :disabled="webdavConnected"
+              />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">用户名</label>
+                <Input
+                  v-model="webdavConfig.username"
+                  placeholder="username"
+                  :disabled="webdavConnected"
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label">密码</label>
+                <Input
+                  v-model="webdavConfig.password"
+                  type="password"
+                  placeholder="•••••••"
+                  :disabled="webdavConnected"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">备份路径</label>
+              <Input
+                v-model="webdavConfig.path"
+                placeholder="/up_videos_backup"
+                :disabled="webdavConnected"
+              />
+            </div>
+
+            <div class="action-buttons">
+              <Button
+                variant="default"
+                :icon="RefreshCw"
+                :loading="isTestingWebdav"
+                @click="testWebdavConnection"
+              >
+                测试连接
+              </Button>
+            </div>
+          </div>
+
+          <div class="action-section">
+            <h3 class="section-title">云备份操作</h3>
+            <div class="action-buttons">
+              <Button
+                variant="default"
+                :icon="Upload"
+                :loading="isExporting"
+                :disabled="!webdavConnected"
+                @click="exportToWebdav"
+              >
+                导出到云端
+              </Button>
+              <Button
+                variant="default"
+                :icon="Download"
+                :loading="isImporting"
+                :disabled="!webdavConnected"
+                @click="importFromWebdav"
+              >
+                从云端恢复
+              </Button>
+            </div>
+            <p class="action-hint">
+              支持 WebDAV 协议的云存储服务（如坚果云、Nextcloud 等）。导出会自动创建备份文件，导入会自动选择最新的备份文件。
+            </p>
+          </div>
+        </template>
+      </Card>
+
       <!-- About -->
       <Card>
         <template #default>
@@ -366,6 +645,35 @@ async function clearAllData() {
         </template>
       </Card>
     </div>
+
+    <!-- WebDAV 文件列表弹窗 -->
+    <el-dialog
+      v-model="showWebdavFileList"
+      title="选择要恢复的备份文件"
+      width="600px"
+      :close-on-click-modal="false"
+    >
+      <div class="file-list">
+        <div
+          v-for="file in webdavFileList"
+          :key="file.name"
+          class="file-item"
+          @click="restoreFromWebdav(file)"
+        >
+          <div class="file-info">
+            <Download :size="20" />
+            <div class="file-details">
+              <div class="file-name">{{ formatFileName(file.name) }}</div>
+              <div class="file-original">{{ file.name }}</div>
+            </div>
+          </div>
+          <Upload :size="18" />
+        </div>
+      </div>
+      <template #footer>
+        <Button variant="ghost" @click="showWebdavFileList = false">取消</Button>
+      </template>
+    </el-dialog>
   </div>
 </template>
 
@@ -547,5 +855,102 @@ async function clearAllData() {
   font-size: 13px;
   font-weight: 500;
   color: #18181B;
+}
+
+.status-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-ok {
+  background: rgba(34, 197, 94, 0.1);
+  color: #16A34A;
+}
+
+.status-off {
+  background: rgba(107, 114, 128, 0.1);
+  color: #64748B;
+}
+
+.webdav-config {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+  background: #F9F9FB;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.form-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #71717A;
+}
+
+.file-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.file-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  background: #F9F9FB;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.file-item:hover {
+  background: #F3F4F6;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.file-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.file-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.file-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #18181B;
+}
+
+.file-original {
+  font-size: 11px;
+  color: #71717A;
 }
 </style>
