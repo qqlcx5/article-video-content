@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useRouter, useRoute } from "vue-router";
-import { RefreshCw, Upload, Settings, Database, FolderOpen } from "lucide-vue-next";
+import { RefreshCw, Upload, Settings, FolderOpen, X } from "lucide-vue-next";
+import { ElMessageBox } from "element-plus";
 import Button from "../components/ui/Button.vue";
-import Card from "../components/ui/Card.vue";
 
 interface UpInfo {
   key: string;
@@ -25,9 +25,10 @@ interface Emits {
   (e: "selectUp", key: string): void;
   (e: "reloadDb"): void;
   (e: "importJson"): void;
+  (e: "deleteUp", key: string): void;
 }
 
-const props = defineProps<Props>();
+defineProps<Props>();
 const emit = defineEmits<Emits>();
 
 const router = useRouter();
@@ -44,6 +45,26 @@ function selectUp(key: string) {
   if (currentPath.value !== "/videos") {
     navigateTo("/videos");
   }
+}
+
+async function handleDeleteUp(up: UpInfo, event: Event) {
+  event.stopPropagation();
+
+  const ok = await ElMessageBox.confirm(
+    `确定要删除 UP主"${up.displayName}"吗？这将删除其所有视频数据（包含 ${up.totalVideos} 个视频），此操作不可恢复。`,
+    "删除确认",
+    {
+      type: "warning",
+      confirmButtonText: "确定删除",
+      cancelButtonText: "取消"
+    }
+  )
+    .then(() => true)
+    .catch(() => false);
+
+  if (!ok) return;
+
+  emit("deleteUp", up.key);
 }
 </script>
 
@@ -88,7 +109,16 @@ function selectUp(key: string) {
             @click="selectUp(up.key)"
           >
             <span class="up-name">{{ up.displayName }}</span>
+            <div class="up-item-right">
+              <button
+              class="delete-btn"
+              @click="handleDeleteUp(up, $event)"
+              title="删除UP主"
+              >
+              <X :size="12" />
+            </button>
             <span class="up-count">{{ up.totalVideos }}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -240,6 +270,13 @@ function selectUp(key: string) {
   flex: 1;
 }
 
+.up-item-right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
 .up-count {
   font-size: 11px;
   font-weight: 500;
@@ -247,7 +284,28 @@ function selectUp(key: string) {
   background: rgba(0, 0, 0, 0.06);
   padding: 2px 6px;
   border-radius: 4px;
-  flex-shrink: 0;
+}
+
+.delete-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: transparent;
+  color: #EF4444;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.up-item:hover .delete-btn {
+  display: flex;
+}
+
+.delete-btn:hover {
+  background: rgba(239, 68, 68, 0.1);
 }
 
 .sidebar-actions {

@@ -3,7 +3,7 @@ import { computed, onMounted, ref, provide } from "vue";
 import { ElMessage } from "element-plus";
 import type { IAppDatabase, UpKey } from "./app-database";
 import { createEmptyAppDatabase } from "./app-database";
-import { loadAppDatabase } from "./app-ops";
+import { loadAppDatabase, deleteUp } from "./app-ops";
 import { createTauriAppDatabaseRepository } from "./tauri/app-database-repository";
 import { readTextFile } from "@tauri-apps/plugin-fs";
 import { open } from "@tauri-apps/plugin-dialog";
@@ -154,6 +154,32 @@ function updateSelectedUpKey(key: UpKey) {
   selectedUpKey.value = key;
 }
 
+async function handleDeleteUp(upKey: UpKey) {
+  try {
+    isLoading.value = true;
+    const repo = await createTauriAppDatabaseRepository();
+    const newDb = await deleteUp(upKey, repo);
+
+    if (!newDb) {
+      ElMessage.error("删除失败：UP主不存在");
+      return;
+    }
+
+    db.value = newDb;
+
+    // 如果删除的是当前选中的UP主，则选中第一个UP主
+    if (selectedUpKey.value === upKey) {
+      selectedUpKey.value = upList.value[0]?.key ?? "";
+    }
+
+    ElMessage.success("删除成功");
+  } catch (e) {
+    ElMessage.error(`删除失败：${String(e)}`);
+  } finally {
+    isLoading.value = false;
+  }
+}
+
 onMounted(async () => {
   await reloadDb();
 });
@@ -167,6 +193,7 @@ onMounted(async () => {
     @select-up="updateSelectedUpKey"
     @reload-db="reloadDb"
     @import-json="importJsonFiles"
+    @delete-up="handleDeleteUp"
   >
     <RouterView
       :db="db"

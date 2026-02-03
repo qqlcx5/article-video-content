@@ -200,7 +200,7 @@ async function clearAllData() {
 
     const repo = await createTauriAppDatabaseRepository();
     const emptyDb = {
-      schemaVersion: 1,
+      schemaVersion: 1 as const,
       ups: {}
     };
 

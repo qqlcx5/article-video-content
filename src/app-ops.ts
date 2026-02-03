@@ -132,3 +132,15 @@ export async function setUpVideosHidden(
   return db.ups[upKey];
 }
 
+export async function deleteUp(
+  upKey: UpKey,
+  repository: IAppDatabaseRepository
+): Promise<IAppDatabase | null> {
+  const db = await loadAppDatabase(repository);
+  if (!db.ups[upKey]) return null;
+
+  delete db.ups[upKey];
+  await repository.save(db);
+  return db;
+}
+

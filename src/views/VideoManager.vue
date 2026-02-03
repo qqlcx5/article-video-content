@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import { computed, onMounted, ref, watch } from "vue";
+import { computed, ref, watch } from "vue";
 import { ElMessage, ElMessageBox } from "element-plus";
 import type { IAppDatabase, IUpStore, UpKey } from "../app-database";
 import type { ILocalVideo } from "../types";
-import { createEmptyAppDatabase } from "../app-database";
 import {
-  loadAppDatabase,
   setUpVideosHidden,
   setUpVideosUsed,
   syncManyUpVideoData,
