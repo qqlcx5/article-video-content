@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from "vue";
+import { computed, onMounted, ref, watch } from "vue";
 import { ElMessage, ElMessageBox } from "element-plus";
 import type { IAppDatabase, IUpStore, UpKey } from "./app-database";
 import type { ILocalVideo } from "./types";
@@ -17,16 +17,19 @@ import { readTextFile, writeTextFile } from "@tauri-apps/plugin-fs";
 import { open, save } from "@tauri-apps/plugin-dialog";
 import { openUrl } from "@tauri-apps/plugin-opener";
 import {
-  Check,
-  Delete,
-  Download,
-  Refresh,
-  RefreshRight,
+  RefreshCw,
+  Upload,
   Search,
-  Setting,
-  UploadFilled,
-  View
-} from "@element-plus/icons-vue";
+  Check,
+  Trash2,
+  Download,
+  ExternalLink,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-vue-next";
+import Button from "./components/ui/Button.vue";
+import Card from "./components/ui/Card.vue";
+import Input from "./components/ui/Input.vue";
 
 type ImportSummary = {
   importedFiles: number;
@@ -69,9 +72,12 @@ const searchText = ref("");
 const showHidden = ref(false);
 const showUsedOnly = ref(false);
 const showLostOnly = ref(false);
-const settingsOpen = ref(false);
 const selectedRows = ref<ILocalVideo[]>([]);
 const lastImport = ref<ImportSummary | null>(null);
+
+// 分页
+const pageSize = 50;
+const currentPage = ref(1);
 
 const upList = computed(() => {
   const items = Object.values(db.value.ups);
@@ -88,25 +94,50 @@ const currentUp = computed<IUpStore | null>(() => {
   return key ? db.value.ups[key] ?? null : null;
 });
 
-const filteredVideos = computed(() => {
-  const up = currentUp.value;
-  if (!up) return [];
+// 缓存过滤后的视频
+const filteredVideos = ref<ILocalVideo[]>([]);
 
-  const keyword = searchText.value.trim().toLowerCase();
+// 优化：使用 watch 来更新过滤后的视频
+watch(
+  [currentUp, searchText, showHidden, showUsedOnly, showLostOnly],
+  ([up]) => {
+    if (!up) {
+      filteredVideos.value = [];
+      currentPage.value = 1;
+      return;
+    }
 
-  return up.videos
-    .filter((v) => (showHidden.value ? true : !v.isHidden))
-    .filter((v) => (showUsedOnly.value ? v.isUsed : true))
-    .filter((v) => (showLostOnly.value ? v.localStatus === "lost" : true))
-    .filter((v) => {
-      if (!keyword) return true;
-      return (
-        v.id.toLowerCase().includes(keyword) ||
-        v.title.toLowerCase().includes(keyword) ||
-        v.href.toLowerCase().includes(keyword)
-      );
-    })
-    .sort((a, b) => b.likeCount - a.likeCount);
+    const keyword = searchText.value.trim().toLowerCase();
+
+    const result = up.videos
+      .filter((v) => (showHidden.value ? true : !v.isHidden))
+      .filter((v) => (showUsedOnly.value ? v.isUsed : true))
+      .filter((v) => (showLostOnly.value ? v.localStatus === "lost" : true))
+      .filter((v) => {
+        if (!keyword) return true;
+        return (
+          v.id.toLowerCase().includes(keyword) ||
+          v.title.toLowerCase().includes(keyword) ||
+          v.href.toLowerCase().includes(keyword)
+        );
+      })
+      .sort((a, b) => b.likeCount - a.likeCount);
+
+    filteredVideos.value = result;
+    currentPage.value = 1;
+  },
+  { immediate: true }
+);
+
+// 分页后的视频
+const paginatedVideos = computed(() => {
+  const start = (currentPage.value - 1) * pageSize;
+  const end = start + pageSize;
+  return filteredVideos.value.slice(start, end);
+});
+
+const totalPages = computed(() => {
+  return Math.ceil(filteredVideos.value.length / pageSize);
 });
 
 const stats = computed(() => {
@@ -148,7 +179,8 @@ async function reloadDb(): Promise<void> {
   }
 }
 
-function selectUp(key: string) {
+async function selectUp(key: string) {
+  if (key === selectedUpKey.value) return;
   selectedUpKey.value = key;
   selectedRows.value = [];
 }
@@ -251,7 +283,7 @@ async function hideSelectedVideos(): Promise<void> {
   }
 
   const ok = await ElMessageBox.confirm(
-    `将隐藏 ${ids.length} 条记录（软删除，不会丢失“已使用”标记）。继续吗？`,
+    `将隐藏 ${ids.length} 条记录（软删除，不会丢失"已使用"标记）。继续吗？`,
     "删除选中",
     { type: "warning", confirmButtonText: "继续", cancelButtonText: "取消" }
   )
@@ -350,354 +382,558 @@ function videoRowClassName({ row }: { row: ILocalVideo }) {
   return classes.join(" ");
 }
 
+function goToPage(page: number) {
+  if (page < 1 || page > totalPages.value) return;
+  currentPage.value = page;
+  selectedRows.value = [];
+}
+
 onMounted(async () => {
   await reloadDb();
 });
 </script>
 
 <template>
-  <el-container class="app-root">
-    <el-header class="app-header">
-      <div class="title">抖音UP主视频管理器</div>
-      <div class="header-actions">
-        <el-input
-          v-model="searchText"
-          class="search"
-          placeholder="搜索：ID / 标题 / URL"
-          clearable
-        >
-          <template #prefix>
-            <el-icon><Search /></el-icon>
-          </template>
-        </el-input>
-        <el-button :icon="Setting" @click="settingsOpen = true">设置</el-button>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <!-- Header -->
+      <div class="sidebar-header">
+        <h1 class="app-title">抖音UP主视频管理器</h1>
       </div>
-    </el-header>
 
-    <el-container class="app-body">
-      <el-aside width="320px" class="aside">
-        <el-card class="panel" shadow="never">
-          <template #header>
-            <div class="panel-header">
-              <div class="panel-title">UP主列表</div>
-              <el-button :icon="Refresh" text @click="reloadDb" />
-            </div>
-          </template>
-
-          <el-scrollbar height="420px">
-            <el-menu
-              :default-active="selectedUpKey"
-              class="up-menu"
-              @select="selectUp"
-            >
-              <el-menu-item v-for="up in upList" :key="up.key" :index="up.key">
-                <div class="up-item">
-                  <span class="up-name">{{ up.displayName }}</span>
-                  <el-tag size="small" type="info">{{ up.totalVideos }}</el-tag>
-                </div>
-              </el-menu-item>
-            </el-menu>
-          </el-scrollbar>
-
-          <div class="aside-actions">
-            <el-button :icon="UploadFilled" type="primary" plain @click="importJsonFiles">
-              + 导入新UP主
-            </el-button>
-            <el-button :icon="Refresh" plain @click="reloadDb">刷新列表</el-button>
+      <!-- UP List -->
+      <div class="sidebar-section">
+        <div class="section-header">
+          <span class="section-title">UP主列表 ({{ upList.length }})</span>
+          <Button variant="ghost" size="sm" :icon="RefreshCw" @click="reloadDb" />
+        </div>
+        <div class="up-list">
+          <div
+            v-for="up in upList"
+            :key="up.key"
+            :class="['up-item', { 'up-item-active': selectedUpKey === up.key }]"
+            @click="selectUp(up.key)"
+          >
+            <span class="up-name">{{ up.displayName }}</span>
+            <span class="up-count">{{ up.totalVideos }}</span>
           </div>
-        </el-card>
+        </div>
+      </div>
 
-        <el-card class="panel stats" shadow="never">
-          <template #header>
-            <div class="panel-title">统计面板</div>
-          </template>
-          <div class="stats-grid">
-            <div class="stat">
-              <div class="k">总UP主</div>
-              <div class="v">{{ stats.totalUps }}</div>
-            </div>
-            <div class="stat">
-              <div class="k">总视频</div>
-              <div class="v">{{ stats.totalVideos }}</div>
-            </div>
-            <div class="stat">
-              <div class="k">已使用</div>
-              <div class="v">{{ stats.usedVideos }}</div>
-            </div>
-            <div class="stat">
-              <div class="k">疑似已删</div>
-              <div class="v">{{ stats.lostVideos }}</div>
-            </div>
-          </div>
-          <div v-if="lastImport" class="import-tip">
-            上次导入：{{ lastImport.importedFiles }} 文件 / 新增约 {{ lastImport.addedVideos }}
-          </div>
-        </el-card>
-      </el-aside>
+      <!-- Actions -->
+      <div class="sidebar-actions">
+        <Button variant="default" size="sm" :icon="Upload" @click="importJsonFiles" class="w-full">
+          导入JSON
+        </Button>
+      </div>
 
-      <el-main class="main">
-        <el-card class="panel" shadow="never">
-          <template #header>
-            <div class="panel-header">
-              <div class="panel-title">视频列表</div>
-              <div class="panel-subtitle" v-if="currentUp">
-                {{ currentUp.displayName }}（上次同步：{{ formatLocalTime(currentUp.lastSyncAt) }}）
+      <!-- Stats -->
+      <div class="sidebar-stats">
+        <div class="stat-row">
+          <span class="stat-label">总视频</span>
+          <span class="stat-value">{{ stats.totalVideos }}</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">已使用</span>
+          <span class="stat-value">{{ stats.usedVideos }}</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">疑似已删</span>
+          <span class="stat-value stat-value-warn">{{ stats.lostVideos }}</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="content-header">
+        <div class="header-left">
+          <h2 class="page-title">{{ currentUp?.displayName || "选择UP主" }}</h2>
+          <span v-if="currentUp" class="page-subtitle">
+            上次同步：{{ formatLocalTime(currentUp.lastSyncAt) }}
+          </span>
+        </div>
+        <div class="header-right">
+          <Input
+            v-model="searchText"
+            placeholder="搜索视频..."
+            :icon="Search"
+            class="search-input"
+            size="sm"
+          />
+        </div>
+      </header>
+
+      <!-- Content -->
+      <div class="content-body">
+        <Card>
+          <template #default>
+            <!-- Toolbar -->
+            <div class="toolbar">
+              <div class="toolbar-left">
+                <Button variant="default" size="sm" :icon="Upload" @click="importJsonFiles">
+                  导入
+                </Button>
+                <Button variant="ghost" size="sm" :icon="RefreshCw" @click="reloadDb">
+                  刷新
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  :icon="Trash2"
+                  :disabled="selectedRows.length === 0"
+                  @click="hideSelectedVideos"
+                >
+                  删除
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  :icon="Check"
+                  :disabled="selectedRows.length === 0"
+                  @click="markSelectedUsed(true)"
+                >
+                  标记已用
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  :disabled="selectedRows.length === 0"
+                  @click="markSelectedUsed(false)"
+                >
+                  取消已用
+                </Button>
+                <Button variant="ghost" size="sm" :icon="Download" @click="exportReport">
+                  导出
+                </Button>
+              </div>
+              <div class="toolbar-right">
+                <label class="filter-toggle">
+                  <input type="checkbox" v-model="showUsedOnly" />
+                  <span>仅已用</span>
+                </label>
+                <label class="filter-toggle">
+                  <input type="checkbox" v-model="showLostOnly" />
+                  <span>疑似已删</span>
+                </label>
+                <label class="filter-toggle">
+                  <input type="checkbox" v-model="showHidden" />
+                  <span>显示已删除</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Video Count -->
+            <div class="video-count">
+              显示 {{ paginatedVideos.length }} / {{ filteredVideos.length }} 条
+            </div>
+
+            <!-- Video Table -->
+            <div class="video-table-wrapper" v-loading="isLoading">
+              <el-table
+                :data="paginatedVideos"
+                height="calc(100vh - 260px)"
+                border
+                stripe
+                row-key="id"
+                :row-class-name="videoRowClassName"
+                @selection-change="onSelectionChange"
+              >
+                <el-table-column type="selection" width="44" />
+                <el-table-column label="视频ID" prop="id" width="180" />
+                <el-table-column label="标题" min-width="260">
+                  <template #default="{ row }">
+                    <div class="title-cell">
+                      <div class="title-text">{{ row.title || "无标题" }}</div>
+                      <div class="title-url">{{ row.href }}</div>
+                    </div>
+                  </template>
+                </el-table-column>
+                <el-table-column label="状态" width="120">
+                  <template #default="{ row }">
+                    <span v-if="row.localStatus === 'lost'" class="status-tag status-warn">
+                      已删
+                    </span>
+                    <span v-else class="status-tag status-ok">正常</span>
+                  </template>
+                </el-table-column>
+                <el-table-column label="点赞" prop="likeCount" width="80" sortable />
+                <el-table-column label="已使用" width="90">
+                  <template #default="{ row }">
+                    <span v-if="row.isUsed" class="status-tag status-info">✓</span>
+                    <span v-else class="text-zinc-400">—</span>
+                  </template>
+                </el-table-column>
+                <el-table-column label="最近出现" width="140">
+                  <template #default="{ row }">{{ formatLocalTime(row.lastSeen) }}</template>
+                </el-table-column>
+                <el-table-column label="操作" width="100" fixed="right">
+                  <template #default="{ row }">
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      :icon="ExternalLink"
+                      :disabled="!row.href"
+                      @click="openVideoLink(row)"
+                    >
+                      打开
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      @click="hideOneVideo(row)"
+                      class="text-red-600"
+                    >
+                      删除
+                    </Button>
+                  </template>
+                </el-table-column>
+              </el-table>
+
+              <!-- Pagination -->
+              <div v-if="totalPages > 1" class="pagination">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  :icon="ChevronLeft"
+                  :disabled="currentPage === 1"
+                  @click="goToPage(currentPage - 1)"
+                >
+                  上一页
+                </Button>
+                <span class="pagination-info">
+                  {{ currentPage }} / {{ totalPages }}
+                </span>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  :icon="ChevronRight"
+                  :disabled="currentPage === totalPages"
+                  @click="goToPage(currentPage + 1)"
+                >
+                  下一页
+                </Button>
               </div>
             </div>
           </template>
-
-          <div class="toolbar">
-            <div class="toolbar-left">
-              <el-button :icon="UploadFilled" @click="importJsonFiles">导入JSON</el-button>
-              <el-tooltip content="暂不做抖音端请求检测（后续按你的插件脚本方案接入）" placement="top">
-                <span>
-                  <el-button :icon="Search" disabled>检测状态</el-button>
-                </span>
-              </el-tooltip>
-              <el-button :icon="RefreshRight" @click="importJsonFiles">对比更新</el-button>
-              <el-button :icon="Delete" :disabled="selectedRows.length === 0" @click="hideSelectedVideos">
-                删除选中
-              </el-button>
-              <el-button :icon="Check" :disabled="selectedRows.length === 0" @click="markSelectedUsed(true)">
-                标记已用
-              </el-button>
-              <el-button :disabled="selectedRows.length === 0" @click="markSelectedUsed(false)">
-                取消已用
-              </el-button>
-              <el-button :icon="Download" @click="exportReport">导出报告</el-button>
-            </div>
-            <div class="toolbar-right">
-              <el-switch v-model="showUsedOnly" active-text="仅已用" />
-              <el-switch v-model="showLostOnly" active-text="仅疑似已删" />
-              <el-switch v-model="showHidden" active-text="显示已删除" />
-            </div>
-          </div>
-
-          <el-table
-            v-loading="isLoading"
-            :data="filteredVideos"
-            height="610"
-            border
-            stripe
-            row-key="id"
-            :row-class-name="videoRowClassName"
-            @selection-change="onSelectionChange"
-          >
-            <el-table-column type="selection" width="44" />
-            <el-table-column label="视频ID" prop="id" width="200" />
-            <el-table-column label="标题" min-width="260">
-              <template #default="{ row }">
-                <div class="title-cell">
-                  <div class="t">{{ row.title || "无标题" }}</div>
-                  <div class="s">{{ row.href }}</div>
-                </div>
-              </template>
-            </el-table-column>
-            <el-table-column label="状态" width="150">
-              <template #default="{ row }">
-                <el-tag v-if="row.localStatus === 'lost'" type="warning">可能已删除</el-tag>
-                <el-tag v-else type="success">正常</el-tag>
-              </template>
-            </el-table-column>
-            <el-table-column label="点赞" prop="likeCount" width="90" sortable />
-            <el-table-column label="已使用" width="110">
-              <template #default="{ row }">
-                <el-tag v-if="row.isUsed" type="info">✅ 已使用</el-tag>
-                <span v-else>❌</span>
-              </template>
-            </el-table-column>
-            <el-table-column label="最近出现" width="160">
-              <template #default="{ row }">{{ formatLocalTime(row.lastSeen) }}</template>
-            </el-table-column>
-            <el-table-column label="操作" width="150" fixed="right">
-              <template #default="{ row }">
-                <el-button :icon="View" text @click="openVideoLink(row)" :disabled="!row.href">
-                  打开
-                </el-button>
-                <el-button text type="danger" @click="hideOneVideo(row)">删除</el-button>
-              </template>
-            </el-table-column>
-          </el-table>
-        </el-card>
-      </el-main>
-    </el-container>
-
-    <el-drawer v-model="settingsOpen" title="设置" size="420px">
-      <el-alert
-        title="提示：目前仅实现本地导入/合并/软删除/已用标记与导出。抖音侧“检测状态/对比更新脚本化”会按你后续插件脚本方案再接入。"
-        type="info"
-        :closable="false"
-      />
-      <div class="settings">
-        <el-divider>显示</el-divider>
-        <el-checkbox v-model="showUsedOnly">仅显示已使用</el-checkbox>
-        <el-checkbox v-model="showLostOnly">仅显示疑似已删</el-checkbox>
-        <el-checkbox v-model="showHidden">显示已删除（隐藏）</el-checkbox>
-
-        <el-divider>操作</el-divider>
-        <el-button :icon="Refresh" @click="reloadDb">重新加载数据库</el-button>
+        </Card>
       </div>
-    </el-drawer>
-  </el-container>
+    </main>
+  </div>
 </template>
 
 <style scoped>
-.app-root {
+.app-container {
+  display: flex;
   height: 100vh;
-  background: #f6f7fb;
+  background: #F9F9FB;
+  overflow: hidden;
 }
 
-.app-header {
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  background: #F4F4F5;
+  border-right: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.sidebar-header {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.app-title {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #18181B;
+  margin: 0;
+}
+
+.sidebar-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.section-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  padding: 10px 14px;
-  border-bottom: 1px solid #e6e8ee;
-  background: #ffffff;
+  padding: 12px 16px 8px;
 }
 
-.title {
-  font-size: 18px;
-  font-weight: 700;
-}
-
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.search {
-  width: 420px;
-}
-
-.app-body {
-  height: calc(100vh - 60px);
-}
-
-.aside {
-  padding: 14px;
-}
-
-.main {
-  padding: 14px 14px 14px 0;
-}
-
-.panel {
-  border-radius: 12px;
-}
-
-.panel-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-}
-
-.panel-title {
-  font-weight: 700;
-}
-
-.panel-subtitle {
-  color: #909399;
+.section-title {
   font-size: 12px;
+  font-weight: 600;
+  color: #71717A;
+  letter-spacing: -0.01em;
 }
 
-.up-menu {
-  border-right: none;
+.up-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 8px;
 }
 
 .up-item {
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  padding: 6px 8px;
+  margin-bottom: 1px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.up-item:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.up-item-active {
+  background-color: rgba(0, 0, 0, 0.06);
 }
 
 .up-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: #18181B;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  flex: 1;
 }
 
-.aside-actions {
-  display: grid;
-  gap: 10px;
-  margin-top: 12px;
+.up-count {
+  font-size: 11px;
+  font-weight: 500;
+  color: #71717A;
+  background: rgba(0, 0, 0, 0.06);
+  padding: 2px 6px;
+  border-radius: 4px;
+  flex-shrink: 0;
 }
 
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+.sidebar-actions {
+  padding: 12px 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-.stat {
-  padding: 10px 12px;
-  border-radius: 10px;
-  background: #f6f7fb;
-  border: 1px solid #ebeef5;
+.sidebar-stats {
+  padding: 12px 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
-.stat .k {
-  color: #909399;
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-size: 12px;
 }
 
-.stat .v {
-  font-size: 18px;
-  font-weight: 700;
-  margin-top: 4px;
+.stat-label {
+  color: #71717A;
 }
 
-.import-tip {
-  margin-top: 10px;
+.stat-value {
+  font-weight: 600;
+  color: #18181B;
+}
+
+.stat-value-warn {
+  color: #F59E0B;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.content-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: #FFFFFF;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.page-title {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #18181B;
+  margin: 0;
+}
+
+.page-subtitle {
   font-size: 12px;
-  color: #909399;
+  color: #71717A;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-input {
+  width: 240px;
+}
+
+.content-body {
+  flex: 1;
+  padding: 14px;
+  overflow: hidden;
 }
 
 .toolbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
   margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .toolbar-left {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
 }
 
 .toolbar-right {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
-.title-cell .t {
-  font-weight: 600;
-}
-
-.title-cell .s {
-  color: #909399;
+.filter-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   font-size: 12px;
+  color: #71717A;
+  cursor: pointer;
+  user-select: none;
+}
+
+.filter-toggle input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+
+.video-count {
+  font-size: 12px;
+  color: #71717A;
+  margin-bottom: 8px;
+}
+
+.video-table-wrapper {
+  position: relative;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.pagination-info {
+  font-size: 13px;
+  font-weight: 500;
+  color: #71717A;
+  min-width: 60px;
+  text-align: center;
+}
+
+.title-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.title-text {
+  font-weight: 500;
+  color: #18181B;
+  font-size: 13px;
+}
+
+.title-url {
+  font-size: 11px;
+  color: #71717A;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.settings {
-  margin-top: 14px;
-  display: grid;
-  gap: 8px;
+.status-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.status-ok {
+  background: rgba(34, 197, 94, 0.1);
+  color: #16A34A;
+}
+
+.status-warn {
+  background: rgba(245, 158, 11, 0.1);
+  color: #F59E0B;
+}
+
+.status-info {
+  background: rgba(59, 130, 246, 0.1);
+  color: #2563EB;
+}
+
+/* Element Plus table overrides */
+:deep(.el-table) {
+  font-size: 13px;
+}
+
+:deep(.el-table th.el-table__cell) {
+  background: #F9F9FB;
+  color: #71717A;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: -0.015em;
+}
+
+:deep(.el-table td.el-table__cell) {
+  color: #18181B;
 }
 
 :deep(.row-lost) td {
-  color: #a8abb2;
+  color: #A1A1AA;
   text-decoration: line-through;
 }
 
@@ -707,5 +943,28 @@ onMounted(async () => {
 
 :deep(.row-hidden) td {
   opacity: 0.45;
+}
+
+:deep(.el-checkbox__input.is-checked .el-checkbox__inner) {
+  background-color: #18181B;
+  border-color: #18181B;
+}
+
+/* Scrollbar */
+.up-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.up-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.up-list::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+.up-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.15);
 }
 </style>

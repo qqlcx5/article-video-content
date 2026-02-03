@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind utilities;
+
+/* Linear Light Palette - CSS Variables */
+:root {
+  /* Base Colors (HSL values) */
+  --background: 240 5% 98%; /* #F9F9FB - App Background */
+  --sidebar: 240 4% 96%; /* #F4F4F5 - Sidebar Background */
+  --surface: 0 0% 100%; /* #FFFFFF - Card/Surface */
+  --border: 0 0% 0%; /* Base for transparent borders */
+
+  /* Text Colors */
+  --text-primary: 240 10% 11%; /* #18181B - Zinc 900 */
+  --text-secondary: 240 5% 45%; /* #71717A - Zinc 500 */
+
+  /* Semantic Colors */
+  --primary: 240 6% 10%;
+  --primary-foreground: 0 0% 98%;
+  --muted: 240 5% 96%;
+  --muted-foreground: 240 5% 45%;
+  --accent: 240 5% 96%;
+  --accent-foreground: 240 6% 10%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+
+  /* Border & Shadow */
+  --border-subtle: rgba(0, 0, 0, 0.06);
+  --shadow-sm: 0 2px 8px -2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.08);
+
+  /* Radius */
+  --radius: 10px;
+}
+
+/* Global Typography & Anti-aliasing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 13px; /* Desktop high-density standard */
+  line-height: 1.5;
+  letter-spacing: -0.015em; /* Tight tracking for premium feel */
+  color: hsl(var(--text-primary));
+  background-color: #F9F9FB;
+}
+
+/* Base element resets */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+/* Selection */
+::selection {
+  background-color: rgba(0, 0, 0, 0.08);
+  color: inherit;
+}
+
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid rgba(0, 0, 0, 0.15);
+  outline-offset: 2px;
+}
