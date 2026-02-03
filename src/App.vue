@@ -26,6 +26,7 @@ import {
   ExternalLink,
   ChevronLeft,
   ChevronRight,
+  RotateCcw,
 } from "lucide-vue-next";
 import Button from "./components/ui/Button.vue";
 import Card from "./components/ui/Card.vue";
@@ -67,6 +68,7 @@ function formatLocalTime(ts: number): string {
 const db = ref<IAppDatabase>(createEmptyAppDatabase());
 const repoReady = ref(false);
 const isLoading = ref(false);
+const isSwitchingUp = ref(false); // UP主切换加载状态
 const selectedUpKey = ref<UpKey>("");
 const searchText = ref("");
 const showHidden = ref(false);
@@ -140,18 +142,45 @@ const totalPages = computed(() => {
   return Math.ceil(filteredVideos.value.length / pageSize);
 });
 
+// 当前UP主的统计
+const currentUpStats = computed(() => {
+  const up = currentUp.value;
+  if (!up) return null;
+
+  const videos = up.videos.filter((v) => !v.isHidden);
+  const lostVideos = videos.filter((v) => v.localStatus === "lost");
+  const usedVideos = videos.filter((v) => v.isUsed);
+  const totalLikes = videos.reduce((sum, v) => sum + v.likeCount, 0);
+  const avgLikes = videos.length > 0 ? Math.round(totalLikes / videos.length) : 0;
+
+  return {
+    total: videos.length,
+    lost: lostVideos.length,
+    used: usedVideos.length,
+    totalLikes,
+    avgLikes,
+    lostRate: videos.length > 0 ? Math.round((lostVideos.length / videos.length) * 100) : 0,
+    usedRate: videos.length > 0 ? Math.round((usedVideos.length / videos.length) * 100) : 0,
+  };
+});
+
 const stats = computed(() => {
   const ups = Object.values(db.value.ups);
   const allVideos = ups.flatMap((u) => u.videos);
   const visibleVideos = allVideos.filter((v) => !v.isHidden);
   const lostVideos = visibleVideos.filter((v) => v.localStatus === "lost");
   const usedVideos = visibleVideos.filter((v) => v.isUsed);
+  const hiddenVideos = allVideos.filter((v) => v.isHidden);
+  const totalLikes = visibleVideos.reduce((sum, v) => sum + v.likeCount, 0);
 
   return {
     totalUps: ups.length,
     totalVideos: visibleVideos.length,
     usedVideos: usedVideos.length,
-    lostVideos: lostVideos.length
+    lostVideos: lostVideos.length,
+    hiddenVideos: hiddenVideos.length,
+    totalLikes,
+    avgLikes: visibleVideos.length > 0 ? Math.round(totalLikes / visibleVideos.length) : 0,
   };
 });
 
@@ -181,8 +210,15 @@ async function reloadDb(): Promise<void> {
 
 async function selectUp(key: string) {
   if (key === selectedUpKey.value) return;
+
+  isSwitchingUp.value = true;
   selectedUpKey.value = key;
   selectedRows.value = [];
+
+  // 延迟清除 loading 状态，让数据有时间加载
+  setTimeout(() => {
+    isSwitchingUp.value = false;
+  }, 300);
 }
 
 function onSelectionChange(rows: ILocalVideo[]) {
@@ -330,6 +366,50 @@ async function hideOneVideo(video: ILocalVideo): Promise<void> {
     ElMessage.success("已隐藏该视频。");
   } catch (e) {
     ElMessage.error(`删除失败：${String(e)}`);
+  } finally {
+    isLoading.value = false;
+  }
+}
+
+// 恢复单个视频
+async function restoreOneVideo(video: ILocalVideo): Promise<void> {
+  const up = currentUp.value;
+  if (!up) return;
+  if (!video.id) return;
+
+  try {
+    isLoading.value = true;
+    const repo = await createTauriAppDatabaseRepository();
+    const updated = await setUpVideosHidden(up.key, [video.id], false, repo);
+    if (!updated) return;
+    db.value = { ...db.value, ups: { ...db.value.ups, [updated.key]: updated } };
+    ElMessage.success("已恢复该视频。");
+  } catch (e) {
+    ElMessage.error(`恢复失败：${String(e)}`);
+  } finally {
+    isLoading.value = false;
+  }
+}
+
+// 批量恢复视频
+async function restoreSelectedVideos(): Promise<void> {
+  const up = currentUp.value;
+  if (!up) return;
+  const ids = uniqStrings(selectedRows.value.map((r) => r.id));
+  if (ids.length === 0) {
+    ElMessage.warning("请先勾选要恢复的视频。");
+    return;
+  }
+
+  try {
+    isLoading.value = true;
+    const repo = await createTauriAppDatabaseRepository();
+    const updated = await setUpVideosHidden(up.key, ids, false, repo);
+    if (!updated) return;
+    db.value = { ...db.value, ups: { ...db.value.ups, [updated.key]: updated } };
+    ElMessage.success(`已恢复 ${ids.length} 个视频。`);
+  } catch (e) {
+    ElMessage.error(`恢复失败：${String(e)}`);
   } finally {
     isLoading.value = false;
   }
@@ -491,6 +571,16 @@ onMounted(async () => {
                 <Button
                   variant="ghost"
                   size="sm"
+                  :icon="RotateCcw"
+                  :disabled="selectedRows.length === 0"
+                  @click="restoreSelectedVideos"
+                  class="text-green-600"
+                >
+                  恢复
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
                   :icon="Check"
                   :disabled="selectedRows.length === 0"
                   @click="markSelectedUsed(true)"
@@ -525,16 +615,42 @@ onMounted(async () => {
               </div>
             </div>
 
+            <!-- Stats Cards -->
+            <div v-if="currentUpStats" class="stats-cards">
+              <div class="stat-card">
+                <div class="stat-label">总视频</div>
+                <div class="stat-value">{{ currentUpStats.total }}</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">已使用</div>
+                <div class="stat-value">{{ currentUpStats.used }}</div>
+                <div class="stat-rate">{{ currentUpStats.usedRate }}%</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">疑似已删</div>
+                <div class="stat-value stat-value-warn">{{ currentUpStats.lost }}</div>
+                <div class="stat-rate">{{ currentUpStats.lostRate }}%</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">总点赞</div>
+                <div class="stat-value">{{ currentUpStats.totalLikes.toLocaleString() }}</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">平均点赞</div>
+                <div class="stat-value">{{ currentUpStats.avgLikes.toLocaleString() }}</div>
+              </div>
+            </div>
+
             <!-- Video Count -->
             <div class="video-count">
               显示 {{ paginatedVideos.length }} / {{ filteredVideos.length }} 条
             </div>
 
             <!-- Video Table -->
-            <div class="video-table-wrapper" v-loading="isLoading">
+            <div class="video-table-wrapper" v-loading="isLoading || isSwitchingUp">
               <el-table
                 :data="paginatedVideos"
-                height="calc(100vh - 260px)"
+                height="calc(100vh - 340px)"
                 border
                 stripe
                 row-key="id"
@@ -569,7 +685,7 @@ onMounted(async () => {
                 <el-table-column label="最近出现" width="140">
                   <template #default="{ row }">{{ formatLocalTime(row.lastSeen) }}</template>
                 </el-table-column>
-                <el-table-column label="操作" width="100" fixed="right">
+                <el-table-column label="操作" width="140" fixed="right">
                   <template #default="{ row }">
                     <Button
                       variant="ghost"
@@ -581,6 +697,17 @@ onMounted(async () => {
                       打开
                     </Button>
                     <Button
+                      v-if="row.isHidden"
+                      variant="ghost"
+                      size="sm"
+                      :icon="RotateCcw"
+                      @click="restoreOneVideo(row)"
+                      class="text-green-600"
+                    >
+                      恢复
+                    </Button>
+                    <Button
+                      v-else
                       variant="ghost"
                       size="sm"
                       @click="hideOneVideo(row)"
@@ -847,6 +974,49 @@ onMounted(async () => {
   font-size: 12px;
   color: #71717A;
   margin-bottom: 8px;
+}
+
+/* Stats Cards */
+.stats-cards {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 12px;
+  background: #F9F9FB;
+  border-radius: 8px;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 12px;
+  background: #FFFFFF;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.stat-label {
+  font-size: 11px;
+  color: #71717A;
+  font-weight: 500;
+}
+
+.stat-value {
+  font-size: 18px;
+  font-weight: 600;
+  color: #18181B;
+}
+
+.stat-value-warn {
+  color: #F59E0B;
+}
+
+.stat-rate {
+  font-size: 11px;
+  color: #71717A;
+  margin-top: 2px;
 }
 
 .video-table-wrapper {
