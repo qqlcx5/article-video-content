@@ -1,933 +1,1192 @@
 [
   {
+    "href": "https://www.douyin.com/video/7583648439607512355",
+    "likeCount": 21000,
+    "title": "【抖音独家】机器人没那么简单！解密具身智能背后的技术难点 #燃起来了大国重器  #上抖音精选app看国之重器   #抖音热点记忆2025   #展望十五五 #AI新星计划",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/27565bbe4e9b4fe9abe13e060b776203~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=zMlC45ex0npqcHVFDluwvf49MvA%3D",
+    "id": "7583648439607512355"
+  },
+  {
+    "href": "https://www.douyin.com/video/7549149038587710755",
+    "likeCount": 26000,
+    "title": "效果炸裂！8种实测玩法带你 玩转豆包Seedream4.0 #豆包P图已经nextlevel了#豆包P图4  #AI新星计划  #AIGC #AI生图",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/e559b8557e534f7c9546049d9c956dc1~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=xk7bPwfYS%2BFO7z4VsI%2BqdwKzYvM%3D",
+    "id": "7549149038587710755"
+  },
+  {
+    "href": "https://www.douyin.com/video/7602254713521851688",
+    "likeCount": 1994,
+    "title": "openclaw没思路？多场景分享+官方推荐的成本优化方案 #AI新星计划 #openclaw #clawdbot #Github #kimi",
+    "thumbnail": "https://p9-pc-sign.douyinpic.com/tos-cn-i-dy/3591f882018b49fd94d7e729716d6f38~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=axgu1HUe6FrXS4UjSnBO4VGIYCQ%3D",
+    "id": "7602254713521851688"
+  },
+  {
+    "href": "https://www.douyin.com/video/7601414920546078004",
+    "likeCount": 4716,
+    "title": "「Github一周热点102期」爆火的AI助理到底好用吗？ 1、项目名称：openclaw – 个人AI助理\n2、项目名称：remotion – React 生成视频\n3、项目名称：kimi K2.5 – kimi最新开源模型\n4、项目名称：PageIndex – 新型 RAG\n5、项目名称：langextract – 提取非结构化文本的库\n#Github #AI新星计划 #clawdbot #remotion #kimi",
+    "thumbnail": "https://p9-pc-sign.douyinpic.com/tos-cn-i-dy/14f1d66e405d4b37a8c2cd07ee6397e6~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=tBveZKMY73pnqGHJew65fUuvYzk%3D",
+    "id": "7601414920546078004"
+  },
+  {
+    "href": "https://www.douyin.com/video/7600795819960274210",
+    "likeCount": 3752,
+    "title": "更适合中国宝宝的clawdbot玩法 云上部署+钉钉接入实操教程\n#AI新星计划 #clawdbot #moltbot #IT咖啡馆 #阿里云",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/eb8359bedde94a6e9103628dd5083b51~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=71%2BQNJ%2B47NEU4XOs57cgVZ7%2BkVw%3D",
+    "id": "7600795819960274210"
+  },
+  {
+    "href": "https://www.douyin.com/video/7600269875394792719",
+    "likeCount": 6520,
+    "title": "5分钟上手Clawdbot！ 风靡硅谷的开源AI神器，到底怎么玩？\n#AI新星计划#Clawdbot #人工智能 #IT咖啡馆 #Github",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/8e914d8efd1c4ff78297605e8f465204~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=eom%2FDosuFELMHnY90Yg%2BBOjsLNE%3D",
+    "id": "7600269875394792719"
+  },
+  {
+    "href": "https://www.douyin.com/video/7598788493468372258",
+    "likeCount": 1774,
+    "title": "「Github一周热点101期」IT咖啡馆的开源项目 1、项目名称：Githubweekly – Github一周热点\n2、项目名称：Eigent – 开源cowork\n3、项目名称：data-engineering-zoomcamp – 数据工程实战课程\n4、项目名称：chrome-devtools-mcp – 浏览器MCP\n5、项目名称：ui-ux-pro-max-skill – 专业设计agent skill\n6、项目名称：VoidNovelEngine – 无代码galgame引擎\n#AI新星计划 #AI #Github #IT咖啡馆 #数据工程",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/ef14492ff0dd425d8312730d3841f048~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=Qkr9mjtYE8tuG2oWz382qpbyyLo%3D",
+    "id": "7598788493468372258"
+  },
+  {
+    "href": "https://www.douyin.com/video/7597409869242584335",
+    "likeCount": 9822,
+    "title": "彻底搞懂Agent skill！用TRAE实战玩转skill #TRAE  #AI新星计划 #skill #Agentskill #人工智能",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/5410e08632954177b6298f6265bce70e~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=9t73V5q0UPmjhxR4y5PnEKftcaU%3D",
+    "id": "7597409869242584335"
+  },
+  {
+    "href": "https://www.douyin.com/video/7596260211384388904",
+    "likeCount": 5233,
+    "title": "「Github一周热点100期」替换ClaudeCode！ 1、项目名称：opencode – 开源的 AI 编程代理\n2、项目名称：Superpowers – AI 开发技能框架\n3、项目名称：TARS – AI操作电脑\n4、项目名称：MiroThinker – 开源的深度研究agent\n5、项目名称：icloud_photos_downloader – icloud下载工具\n6、项目名称：wechat-article-exporter – 微信公众号文章导出工具\n#Github #AI新星计划 #AI编程 #程序员 #IT咖啡馆",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/3e8d55b1b4494a62bf1373bd043fda0a~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=yXODjOwbbscqDIqve7RZbw182mc%3D",
+    "id": "7596260211384388904"
+  },
+  {
+    "href": "https://www.douyin.com/video/7590695395454373155",
+    "likeCount": 3134,
+    "title": "「Github一周热点99期」提升AI编程效率10倍的工具？ 1、项目名称：vibe-kanban – AI 编码代理的编排平台\n2、项目名称：skills – Claude skill\n3、项目名称：A2UI – agent生成UI\n4、项目名称：Mole – macOS 系统清理工具\n5、项目名称：fresh – 终端文本编辑器\n6、项目名称：rendercv – 简历生成器\n#AI新星计划 #Github #AI #vibecoding #IT咖啡馆",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/e3cc4242d65c46239e7540036592bbf9~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=DaGBChoy7aDz2mM%2BeVg2U%2B3efkw%3D",
+    "id": "7590695395454373155"
+  },
+  {
+    "href": "https://www.douyin.com/video/7589860925843295528",
+    "likeCount": 4001,
+    "title": "AI怎么认出你的声音 #火山引擎智能视频云  #音视频互动智能体  #真人感体验升级 #AI新星计划 #智能体",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/3511d075311144288d73a67779120407~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=MzCHnssLPGao9yvZQVeykBjImDA%3D",
+    "id": "7589860925843295528"
+  },
+  {
+    "href": "https://www.douyin.com/video/7588727017625898255",
+    "likeCount": 4096,
+    "title": "抖音知识年终大赏 | 盘点2025年的GitHub热门项目 #抖音知识年终大赏  #ai新星计划  #2025年度精选内容盘点  #抖音精选宠粉福利 #Github \n包含项目：\nDeepSeek：国产大模型\ngpt-oss：OpenAI 开源模型\nQwen：最大开源模型族\nMCP：大模型扩展协议\nvLLM：高性能推理引擎\nn8n：AI 自动化工作流\nLeRobot： AI 机器人\nCodex：终端编程代理\nCline：开源编程助手\nComfyUI：节点式生图神器\nVisual Studio Code：最火IDE\nGodot：2D\\3D游戏引擎\nZen Browser：隐私优先浏览器\nExpo：跨端开发框架\nTrivy：全能安全扫描器\nNocoDB：开源开源多维表\nBongoCat：桌面猫咪宠物\nExcalidraw：手绘白板工具\nAlist：多云文件索引",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/970695c0357d4567be23643335e38d8e~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=gKJ%2B%2Faw8N2%2BIy0xS%2F0vrs%2Faw%2B6s%3D",
+    "id": "7588727017625898255"
+  },
+  {
+    "href": "https://www.douyin.com/video/7588014736801877289",
+    "likeCount": 4753,
+    "title": "拒绝拖延！实战用TRAE开发一个智能愿望清单 @TRAE.ai #TRAELAND  #TRAE #AI新星计划 #拖延症 #程序员",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/bf0166a08acb4180a58e3afecbb15206~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=82LevhMyUpGyl0jxxXW%2F8NiV9bE%3D",
+    "id": "7588014736801877289"
+  },
+  {
+    "href": "https://www.douyin.com/video/7587273369243094324",
+    "likeCount": 3207,
+    "title": "用AI搞定高级感汇报PPT，升职加薪稳稳的! #AI新星计划 #PPT #Lovart #人工智能 #nanobanana",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/4ced1b3af5904710b2e044c5a6c762e3~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=qwCKZCL71QJDuN%2Fb9z2ZJ0FCKxw%3D",
+    "id": "7587273369243094324"
+  },
+  {
+    "href": "https://www.douyin.com/video/7587234691443461428",
+    "likeCount": 5511,
+    "title": "抖音知识年终大赏 | 2025年实用的AI工具大盘点 #抖音知识年终大赏  #ai新星计划  #2025年度AI工具盘点 #AI #IT咖啡馆",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/6b5e9d5b38b64e2a999895b3f8ff718a~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=3SmiGQ8Xs0PQ3%2BV2z7Nq59M7zpk%3D",
+    "id": "7587234691443461428"
+  },
+  {
+    "href": "https://www.douyin.com/video/7586128435773295907",
+    "likeCount": 1330,
+    "title": "GitHub 一周热点第98期 1、项目名称：WeKnora – 文档理解检索框架\n2、项目名称：VibeVoice – 微软TTS框架\n3、项目名称：claude-mem – Claude Code 记忆插件\n4、项目名称：zerobyte – 自动化备份工具\n5、项目名称：jellyfin-desktop – jellyfin桌面端\n6、项目名称：cosmic – linux桌面环境\n#AI新星计划 #送ta上精选 #Github #人工智能 #程序员",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/1f1393d8d7ba4bc78a1e6fb2377a9ed7~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=OQ5fwVNxlz64ptMXzV1mGpCVQ8Q%3D",
+    "id": "7586128435773295907"
+  },
+  {
+    "href": "https://www.douyin.com/video/7583537212692663587",
+    "likeCount": 8079,
+    "title": "GitHub 一周热点第97期 1、项目名称：Open-AutoGLM – 手机端智能助理\n2、项目名称：next-ai-draw-io – AI画架构图\n3、项目名称：agents.md – AI编码的指导\n4、项目名称：fizzy – 看板工具\n5、项目名称：kaiju – GO语言的游戏引擎\n6、项目名称：Embodied-AI-Guide – 具身智能资料库\n#AI新星计划 #Github #AI手机 #具身智能 #IT咖啡馆",
+    "thumbnail": "https://p9-pc-sign.douyinpic.com/tos-cn-i-dy/a97452d64e44492da3ba41bd79231b4b~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=dyRK1sy2jBJ36qLKCyODoUlBud8%3D",
+    "id": "7583537212692663587"
+  },
+  {
+    "href": "https://www.douyin.com/video/7581024175029030178",
+    "likeCount": 2647,
+    "title": "AI拍电影原来这么简单？5分钟教你自制疯狂动物城 #AI新星计划 #nanobananapro #Lovart #kling #AI视频",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/391f208ac6bf4f2691eae08bf8f03573~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=jfpIATrQw3zbQTIMlR4JPzJx5qs%3D",
+    "id": "7581024175029030178"
+  },
+  {
+    "href": "https://www.douyin.com/video/7580651091742723343",
+    "likeCount": 1425,
+    "title": "GitHub 一周热点第96期 1、Flux2 – 最新AI绘图模型\n2、HunyuanVideo – 腾讯的视频生成模型\n3、Cognee – AI的个性化动态记忆\n4、LaunchNext – 开源版的MAC Launchpad\n5、NoteDiscovery – 笔记和知识库系统\n6、nginx-proxy-manager – Nginx可视化管理工具\n#AI新星计划 #Github #人工智能 #智能体 #Mac",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/791a950b0b8d4d66b354c6b66cd599fc~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=p5wJVlqvUiVaJbfg4QJGAnU0x0E%3D",
+    "id": "7580651091742723343"
+  },
+  {
+    "href": "https://www.douyin.com/video/7577619365592419610",
+    "likeCount": 1661,
+    "title": "GitHub 一周热点第95期 1、SAM 3D – 3D 建模模型\n2、Memori – AI 记忆系统\n3、Milvus – 向量数据库\n4、PlayCanvas Engine – Web 原生 3D 引擎\n5、Librepods – airpods扩展工具\n6、DBeaver – 通用数据库管理工具\n#Github #AI新星计划 #大模型 #智能体 #数据库",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/035a1becac174a74ac39904cbef0040b~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=%2B38MFaaSK5ETnJ1y7EKvZJYEIb0%3D",
+    "id": "7577619365592419610"
+  },
+  {
+    "href": "https://www.douyin.com/video/7574424840065568009",
+    "likeCount": 13000,
+    "title": "人人可搭系统?实战飞书多维表格应用模式，2小时搞定教务ERP #AI新星计划 #飞书多维表格 #低代码 #飞书 #ERP",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/c7d216261ca741e887ffb35a7da5a17c~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=DtOpoTi6nXS%2FX5NEj4knnlr0Qzg%3D",
+    "id": "7574424840065568009"
+  },
+  {
+    "href": "https://www.douyin.com/video/7572885579721903387",
+    "likeCount": 1515,
+    "title": "GitHub 一周热点第94期 1、项目名称：Strix – AI 智能渗透测\n2、项目名称：MagicMirror² – 模块化智能镜子\n3、项目名称：DeepCode – 开源 Agentic Coding \n4、项目名称：TrendRadar – 多平台热点聚合与 AI 分析\n5、项目名称：iptv-org/iptv – 全球公开 IPTV 频道集合\n6、项目名称：open-source-games – 开源游戏合集\n#AI新星计划 #Github #网络安全 #游戏 #智能硬件",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/923250174fa5476f9410a5084481918e~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=uuQTK1PJ3q2OSxNDM3Oym2ZH%2Bxs%3D",
+    "id": "7572885579721903387"
+  },
+  {
+    "href": "https://www.douyin.com/video/7572174902250245385",
+    "likeCount": 11000,
+    "title": "AI 难堪大任？TRAE SOLO正式版挑战接手大型开源项目 #TRAE #AI新星计划 #AI编程 #程序员 #人工智能",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/2b070ffea14d4f61a1476a1909dedc2f~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=TlK6Ic029gfvDEVFQ0HobvMwJZU%3D",
+    "id": "7572174902250245385"
+  },
+  {
+    "href": "https://www.douyin.com/video/7571415208581680384",
+    "likeCount": 2529,
+    "title": "钱都去哪了?为了不乱买东西，我搞了个AI专门骂我 #AI新星计划 #智谱 #GLM #Claudecode #编程",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/e0eda5a091654cb7a2cae8591846b398~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=BWrtxOBdo6SEey9CMf2CDICLO0E%3D",
+    "id": "7571415208581680384"
+  },
+  {
+    "href": "https://www.douyin.com/video/7570936384081382666",
+    "likeCount": 260,
+    "title": "看盘不用眼？它把行情信息全部讲给我听 #AI新星计划  #你AI了吗  #AI涨乐  #早点听  #AI播客",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/929d9d5112c749b19a845457f4ef9363~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=Wlvhx9Cyp48vu4rf865kVrBbBA0%3D",
+    "id": "7570936384081382666"
+  },
+  {
+    "href": "https://www.douyin.com/video/7570300524965186825",
+    "likeCount": 2172,
+    "title": "GitHub 一周热点第93期 1、项目名称：BettaFish - 多智能体舆情分析系统\n2、项目名称：Everywhere - 跨平台桌面 AI 助手\n3、项目名称：smart-excalidraw-next - 自然语言画图工具\n4、项目名称：gpui-component - Rust 跨平台桌面组件库\n5、项目名称：How-To-Secure-A-Linux-Server - Linux 服务器安全指南\n6、项目名称：GreenWall - 在 GitHub 上画画\n#AI新星计划 #Github #人工智能 #编程 #舆情",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/5f049abfad114954a9316dae500117ca~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=sUjwEcph2cchfi5ItCDgCfoHdoY%3D",
+    "id": "7570300524965186825"
+  },
+  {
+    "href": "https://www.douyin.com/video/7567788287021026611",
+    "likeCount": 1246,
+    "title": "「Github一周热点92期」智能机器人操作系统、语音转文本 GitHub 一周热点第92期(2025/10/26 - 11/1），AI部分包括了智能机器人操作系统、语音转文本桌面应用、机械臂系统。工具部分包括： 虚拟音频工具、图片添加盲水印和开源多功能终端\n#AI新星计划 #github #人工智能 #机器人 #编程",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/9caf6b78fb3e4db98fbadf98d27c1efe~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=YUB%2B%2FfUH9%2FXcDw9mBv0ySh5lh34%3D",
+    "id": "7567788287021026611"
+  },
+  {
+    "href": "https://www.douyin.com/video/7566620893154250010",
+    "likeCount": 737,
+    "title": "从零开始，5分钟开发一个AI桌宠助手 不用再羡慕别人的可爱桌宠了，现在来一块动手，5分钟开发属于自己的桌面助手+学习搭子。\n#数字人 #AI新星计划 #桌面宠物 #魔珐星云 #智能体",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/56e0c6b5e15c44d4adb15f29545131ec~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=BgZhApt9KsXNajUt00GBVpM2ACo%3D",
+    "id": "7566620893154250010"
+  },
+  {
+    "href": "https://www.douyin.com/video/7565217821467233571",
+    "likeCount": 1445,
+    "title": "「Github一周热点91期」deepseek-OCR等 GitHub 一周热点第91期(2025/9/15 - 9/27），AI部分包括了deepseek OCR、量化交易工具和Notebook LM的开源替代\n工具部分包括： Linux&docker换源工具、Windows 优化项目和API 客户端\n最后还有2份资料分享。\n#AI新星计划 #Github #Deepseek #量化交易 #Linux",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/35c1fa559c6b4a57b4ede97e9923cb4c~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=cpdaWpKwFL6Wxr%2FpY%2BEbrWMSCwM%3D",
+    "id": "7565217821467233571"
+  },
+  {
+    "href": "https://www.douyin.com/video/7562597473244564788",
+    "likeCount": 847,
+    "title": "「Github一周热点90期」规格驱动开发、AI记忆引擎等 GitHub 一周热点第90期，\nAI部分包括了github出的规格驱动开发工具，AI记忆引擎和AI agent的开源基础设施\n工具部分包括：开源流媒体平台、开源电商平台和密钥管理平台\n#Github  #AI新星计划 #AI编程 #人工智能 #电商",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/e02da5f39ad4459b9d4234baab39f766~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=UlXzbdN45f6b21llUadEbzA3Jes%3D",
+    "id": "7562597473244564788"
+  },
+  {
+    "href": "https://www.douyin.com/video/7554997428957580544",
+    "likeCount": 2715,
+    "title": "对开发者来说从创意到变现，什么最难？ #MCP  #程序员   #AI新星计划   #百度搜索开放平台 #百度ai",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/198ee7791773437db29d9acb0d9b4fa3~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=AvIqLYTm%2BBSA46ylfcQR2rovUWI%3D",
+    "id": "7554997428957580544"
+  },
+  {
+    "href": "https://www.douyin.com/video/7554962209500073216",
+    "likeCount": 1777,
+    "title": "「Github一周热点89期」老乡鸡开源、Qwen开源汇总等 GitHub 一周热点第89期(2025/9/15 - 9/27），AI部分因为这周qwen一口气发布了7个模型，我们来快速汇总一下，接下来是给应用加装AI助手的工具和Agent开发框架。\n工具部分包括：像老乡鸡那样做饭、白板工具和Arch Linux一键配置工具\n#AI新星计划  #Github #大模型 #程序员 #Linux",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/79521c32532d4f838c41770301398fbc~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=93Zq29tmpNkmTyKu5P3Aumld0qo%3D",
+    "id": "7554962209500073216"
+  },
+  {
+    "href": "https://www.douyin.com/video/7554350451219582260",
+    "likeCount": 1481,
+    "title": "开发Agent只懂拖拉拽？你真的能跟上生产级开发的节奏了吗？ 风向一个开源的agent开发框架\n#GitHub #AI新星计划  #云栖大会 #智能体 #通义千问",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/85c65ff5a81f40a9990ebef00c8517b2~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=eKqNv1vVoVrT4YIgSnhT1O1jRcw%3D",
+    "id": "7554350451219582260"
+  },
+  {
+    "href": "https://www.douyin.com/video/7552001073725132084",
+    "likeCount": 2602,
+    "title": "「Github一周热点88期」开源机器人、OCR工具库等 GitHub 一周热点第88期(2025/9/14 - 9/20），AI部分包括 ：深度研究Agent模型、OCR工具库、开源机器人，工具部分包括：开源免费的UI元素平台、免费的音乐程序、高速处理JSON库。最后还有2份资料分享。\n#Github #AI新星计划  #开学季 #机器人 #OCR",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/4f1691408a6743eb98a695872227025b~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=Js3XWLrfkntszwtqo0ASXFt1EOA%3D",
+    "id": "7552001073725132084"
+  },
+  {
+    "href": "https://www.douyin.com/video/7549778665408646400",
+    "likeCount": 573,
+    "title": "「Github一周热点87期」TTS模型、n8n工作流等 GitHub 一周热点第87期(2025/9/07 - 9/13），AI部分包括 ：目前最强的文本转语音模型、n8n工作流大全、流式数据处理引擎，工具部分包括：ReactUI 库、基于WEB的服务器管理工具和X 推荐算法的源码。最后还有2份资料分享。\n#Github #AI #AI新星计划  #2025开学季 #程序员",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/2e4b03871e08456c815049b2755dfdbc~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=E1i6dD50Y5D31noqCM%2FYUudQrm8%3D",
+    "id": "7549778665408646400"
+  },
+  {
+    "href": "https://www.douyin.com/video/7548816943629749519",
+    "likeCount": 1383,
+    "title": "Claude封锁中国？专业开发者有什么更好的选择 #ClaudeCode #Codebuddy #AICoding #AI新星计划  #AI编程",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/440f613279b348ee8dede32dd4f9f670~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=oaK0FJuT4NsHK%2BArdgZtV9ii694%3D",
+    "id": "7548816943629749519"
+  },
+  {
+    "href": "https://www.douyin.com/video/7547161446640061730",
+    "likeCount": 2525,
+    "title": "「Github一周热点86」 多模式创意助手、 声音生视频 GitHub 一周热点第86期(2025/8/31 - 9/06），本期的内容还是分两部分，AI部分包括 ：多模式创意助手、 声音生成视频模型和代码仓库wiki生成器，工具部分包括：文件快速传输工具、资源访问加速引擎和项目管理系统。\n#Github #AI新星计划  #人工智能 #新学期在抖音选修人工智能 #实用工具",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/8f11f429d4f747c6a21cf1423ae16242~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=8CL0aE0FkPWCkWDQkU2DyN%2BttLU%3D",
+    "id": "7547161446640061730"
+  },
+  {
     "href": "https://www.douyin.com/video/7545183817519074594",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/6b0762cca4b1467f94753ef7bd470c2d~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=Oe0B%2BFMjI02BtXhT5q3xi86gFJU%3D",
+    "likeCount": 1737,
+    "title": "一个视频速通Nano Banana，解锁10种邪修玩法 #AI新星计划  #新学期在抖音选修人工智能 #nanobanana #p图 #AIGC",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/6b0762cca4b1467f94753ef7bd470c2d~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=gUgiw%2FVEoYkH9%2FLbSKes4Kc8RQE%3D",
     "id": "7545183817519074594"
   },
   {
     "href": "https://www.douyin.com/video/7544935519713660160",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/c0286b305a2e40f982dde265dffe064b~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=n7Cqth4oFMkT8T5hvaZQt8S%2Fv5M%3D",
+    "likeCount": 11000,
+    "title": "一个视频搞定AI问题技巧，6大框架抄作业 #AI新星计划  #2025开学季 #新学期在抖音选修人工智能 #提问技巧 #提示词工程 #开学的精选",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/c0286b305a2e40f982dde265dffe064b~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=dBRMhNzgogsyfyjUrFgn1PVC8BA%3D",
     "id": "7544935519713660160"
   },
   {
     "href": "https://www.douyin.com/video/7544332818822794496",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/684d2e41d8be4655966e84e245e33973~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=eumUwvqBQytOenXvGYNP2FQMmy8%3D",
+    "likeCount": 1896,
+    "title": "「Github一周热点85期」 n8n替代品、白板工具、录屏 本期AI部分包括 ：AI Agent工作流构建器、通义千问的图像生成模型和AI-Native 的表格，工具部分包括：开源白板工具、Linux运行win应用和录屏软件。\n#Github #AI新星计划  #2025开学季 #AI #白板工具",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/684d2e41d8be4655966e84e245e33973~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=Vy7TSoJLaO7YkMM%2BUwWf4G3TLjk%3D",
     "id": "7544332818822794496"
   },
   {
     "href": "https://www.douyin.com/video/7542756405061750068",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/3411627c4f0a4a1a8ff074b4ad60f696~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=SbfOwsGKIrm7AEqvaMYSsiWT%2Bdk%3D",
+    "likeCount": 11000,
+    "title": "2分钟从设计变产品！TRAE x Figma实战开发教程 #TRAE #AI新星计划  #AI编程 #Figma #程序员",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/3411627c4f0a4a1a8ff074b4ad60f696~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=x42pS6MGrHmtu7iEwDA5%2FLjXm4Q%3D",
     "id": "7542756405061750068"
   },
   {
     "href": "https://www.douyin.com/video/7541981426787372303",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/f73841dbd7e34940a3bc26550d9e69e1~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=uDEo7HZMoRLfdm9K53tTDq57T5U%3D",
+    "likeCount": 2959,
+    "title": "「Github一周热点84期」本地AI女友、win优化工具 本期分成AI和工具两个模块。\n本期AI内容包括 ：本地数字伴侣、AI 编程助手的指挥中心 和FastAPI转MCP 工具。\n工具类的内容包括：windows定制平台，屎山代码鉴定器和通用 2D 编辑器\n#Github #AI新星计划  #2025开学季 #数字人 #程序员",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/f73841dbd7e34940a3bc26550d9e69e1~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=ocL40HHk4KU9e3aETU45abcXHDI%3D",
     "id": "7541981426787372303"
   },
   {
     "href": "https://www.douyin.com/video/7541606477597854976",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/8b63e1f2b3264646b63bd67fd9f02b1c~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=Xm6jgVVCl%2BQ3UYzBCcBa%2FvVR%2BpY%3D",
+    "likeCount": 184,
+    "title": "别被坏情绪支配！我做了一个治愈情绪困扰的AI工具 利用 Gemini 强大的上下文理解和情绪分析能力，结合 Veo3 模型惊人的视频生成技术，开发了一个AI疗愈助手。\n#ai新星计划  #2025开学季 #Google #Google开发者大会 #公益正能量",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/8b63e1f2b3264646b63bd67fd9f02b1c~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=MlVn4wgjdDVOwoOzTs8QuJuiLLc%3D",
     "id": "7541606477597854976"
   },
   {
     "href": "https://www.douyin.com/video/7539379961514265908",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/709b3c5eda6d448a8c48470f3b628188~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=kg6tTF1SlD9pqNmD2CxNDBx7ncc%3D",
+    "likeCount": 933,
+    "title": "「Github一周热点83期」谷歌分析替代、Mac清理工具等 GitHub 一周热点第83期(2025/8/10 - 8/16），本期内容包括 Google Analytics替代、Mac应用清理工具、prompt的编排标记语言、个人理财应用和网盘搜索工具。\n#ai新星计划  #GIthub #提示词 #网盘 #清理工具",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/709b3c5eda6d448a8c48470f3b628188~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=Xr7%2ByThv22In%2F7wL4nD%2FpFLa52E%3D",
     "id": "7539379961514265908"
   },
   {
     "href": "https://www.douyin.com/video/7536421242123930895",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/793f6cd6b730498598a1f21b59c9e5f0~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=C%2B0emfrNjiyqf05lm9x6OUYaulM%3D",
+    "likeCount": 1258,
+    "title": "「Github一周热点82期」OpenAI最强开源模型等 GitHub 一周热点第82期(2025/8/3 - 8/9），本期内容包括OpenAI最新开源模型、实时语音活动检测工具、团队知识库工具、 本地 AI 应用开发工具和命令行工具的帮助集合。#AI新星计划  #Github #OpenAI #gpt5 #程序员",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/793f6cd6b730498598a1f21b59c9e5f0~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=D9Z2v%2BzPGAlQodMiKVCI9BgXcFw%3D",
     "id": "7536421242123930895"
   },
   {
     "href": "https://www.douyin.com/video/7536081234837900544",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/aacf4245ff0b41cca032c410ede8f9e9~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=1Xj1p6crnqGYh2OuxyrfxXZSM9c%3D",
+    "likeCount": 619,
+    "title": "GPT-5发布，3分钟核心内容解读 今天凌晨OpenAI发布了自己最新一代大模型，练习时长两年半的GPT-5和大家见面了\n#ai新星计划  #gpt5 #OpenAI #ChatGPT #大模型",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/aacf4245ff0b41cca032c410ede8f9e9~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=T5%2F4R23g2iqSSq2Lb24%2BDDjLB3s%3D",
     "id": "7536081234837900544"
   },
   {
     "href": "https://www.douyin.com/video/7535437110325546292",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/c4768714cc3d41cc828b6a5ad668452d~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=p%2FlT3dkjQewoyYgGkvX3RkFwdFs%3D",
+    "likeCount": 389,
+    "title": "时隔六年，OpenAI发布新开源模型 gpt-oss本地部署实测及使用教程\n#AI新星计划  #OpenAI #AI  #大模型 #gptoss",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/c4768714cc3d41cc828b6a5ad668452d~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=aaMWDKrEv4%2FStBhT05x40mMo1vI%3D",
     "id": "7535437110325546292"
   },
   {
     "href": "https://www.douyin.com/video/7534006693072588067",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p9-pc-sign.douyinpic.com/tos-cn-i-dy/1067666cd5854d8f8431e2b4d6532833~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=UZyZEdooN4Sr2ZPsxPQyXv%2F1HUo%3D",
+    "likeCount": 1761,
+    "title": "「Github一周热点81期」开源模型汇总、Coze的开源版 GitHub 一周热点第81期(2025/7/20 - 8/2），本期内容包括最近一段的开源模型汇总、Coze的开源版本、开源HR管理系统、 多功能文件分享工具和开简历优化工具。\n#AI新星计划  #Github #Coze #大模型 #实用工具",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/1067666cd5854d8f8431e2b4d6532833~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=4U9%2Fp5vM4ulwVGei1IhW%2FkvxEBw%3D",
     "id": "7534006693072588067"
   },
   {
     "href": "https://www.douyin.com/video/7533582362286771491",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/9c40b4ee21ce4478a7363db0d5c9cf8d~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=dTr3qANZ1zUgekhP4r6SDuWHjc8%3D",
+    "likeCount": 236,
+    "title": "AI落地比进球还难？你必须注意的5个“坑” #AI新星计划  #华为云MaaS #大模型 #智能体 #苏超",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/9c40b4ee21ce4478a7363db0d5c9cf8d~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=aQHTj%2BX9Ey8LZPPprOC8G6jS17I%3D",
     "id": "7533582362286771491"
   },
   {
     "href": "https://www.douyin.com/video/7533170318278544640",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/5dc9cb3ff010407f94c8ee638769a9a4~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=eHt%2BDtAyQQFdytH97r9fj54nZ1M%3D",
+    "likeCount": 1401,
+    "title": "爱上数学？可能因为一个男人 听说我超喜欢的3blue1brown也来抖音了，真实太惊喜了。\n#3blue1brown #ai新星计划  #科普 #宝藏博主 #Manim",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/5dc9cb3ff010407f94c8ee638769a9a4~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=vgx7zGWfT1z%2BMeQM5TQQxZ5etZM%3D",
     "id": "7533170318278544640"
   },
   {
     "href": "https://www.douyin.com/video/7529839247574977792",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/dbf5616215b141fa9a68d99e2ee26583~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=6A6x4%2BL0lkiIu%2FvtKcwCrjCPCuU%3D",
+    "likeCount": 5772,
+    "title": "搞定工作，只要SOLO一下！ TRAE升级2.0！3分钟教你用SOLO自主完成开发任务。\n邀请码我目前有5个，想要的朋友可以留言，我明天给大家抽一下，公平公正。\n#TRAE  #AI编程  #AI新星计划   #程序员  #IDE",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/dbf5616215b141fa9a68d99e2ee26583~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=ysESYS1xQ8ppphuU8MlpN6w8kuU%3D",
     "id": "7529839247574977792"
   },
   {
     "href": "https://www.douyin.com/video/7528714369509657856",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p9-pc-sign.douyinpic.com/tos-cn-i-dy/737c8defd4004a3bbc419314e1526017~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=sRrRk8lMX1fr2LmWblS11MenCT4%3D",
+    "likeCount": 1476,
+    "title": "「Github一周热点80期」Kimi的最新开源大模型等 GitHub 一周热点第80期(2025/7/13 - 7/19），本期内容包括Kimi的最新开源大模型、Alist的开源延续、免费开发资源汇总、 数据库MCP工具箱和开源桌面机器人\n#Github #AI新星计划  #大模型 #MCP #huggingface",
+    "thumbnail": "https://p9-pc-sign.douyinpic.com/tos-cn-i-dy/737c8defd4004a3bbc419314e1526017~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=0XIdGHHcAvzOehdELC1aONgXmK4%3D",
     "id": "7528714369509657856"
   },
   {
     "href": "https://www.douyin.com/video/7526117210058673423",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/9ad72488d2f64361ae25b577b0bf2a95~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=tCgRkuqlekxSRQT1c7W0pteAzIQ%3D",
+    "likeCount": 1778,
+    "title": "「Github一周热点79期」谷歌终端智能体、自媒体爬虫等 GitHub 一周热点第79期(2025/7/6 - 7/12），本期内容包括谷歌的终端智能体、多平台自媒体数据采集工具、多智能体金融交易框架、分布式对象存储和自动驾驶辅助系统。\n#AI新星计划  #Github #Gemini #智能驾驶 #爬虫",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/9ad72488d2f64361ae25b577b0bf2a95~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=DpTMA6GJgiDcm7PGNy4BarGQQiY%3D",
     "id": "7526117210058673423"
   },
   {
     "href": "https://www.douyin.com/video/7524388023484632354",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/360c8faa4d8b428bbc6e3c9a7fcb4364~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=MNByfJ2EfiuR3sDaaWFU0VMoLwM%3D",
+    "likeCount": 1067,
+    "title": "搭建AI智能帮助文档只要5分钟？ 开源利器Pandawiki手把手实战教程\n#AI新星计划  #Github #人工智能 #RAG #智能助手",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/360c8faa4d8b428bbc6e3c9a7fcb4364~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=HY4f83qsPdJ1ad%2Fmm6UL0r2gWyQ%3D",
     "id": "7524388023484632354"
   },
   {
     "href": "https://www.douyin.com/video/7523512325190520116",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/44d4df2c7c214b0a8be8dffb541fddc7~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=8ziT0zKPQImcH4TjXsA4jjzTuxk%3D",
+    "likeCount": 1265,
+    "title": "「Github一周热点78期」2D 画图工具、网安知识库等 GitHub 一周热点第78期(2025/06/29 - 7/5），本期内容包括2D 内容创作工具、网络安全知识库、JavaScript 3D 引擎、命令行的文本编辑器和个人图书馆。\n#AI新星计划  #Github #threejs #网络安全 #实用工具",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/44d4df2c7c214b0a8be8dffb541fddc7~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=2S%2Frn7usYlXIb%2FZujbmciKqIs7I%3D",
     "id": "7523512325190520116"
   },
   {
     "href": "https://www.douyin.com/video/7521392113272081704",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p9-pc-sign.douyinpic.com/tos-cn-i-dy/6636717fa91b4a09bb9be93f65abdf44~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=l5sZ7e%2BYJqv4RgHmgFuiWPVv34Y%3D",
+    "likeCount": 3555,
+    "title": "挣脱重复的工作！免费IDEA插件重塑你的工作方式 #AI新星计划   #AI编程  #程序员  #飞算JavaAI  #IDEA插件",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/6636717fa91b4a09bb9be93f65abdf44~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=qdl5%2FsCrX%2Fz5vJLezrnHFqtV5qc%3D",
     "id": "7521392113272081704"
   },
   {
     "href": "https://www.douyin.com/video/7520913136375975183",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/5ccfc4af22294836bd78867d619a0632~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=nE60irsAolhM5RJkD%2FW10PkYsgM%3D",
+    "likeCount": 1570,
+    "title": "「Github一周热点77期」AI工具背后的提示词 GitHub 一周热点第76期(2025/06/22 - 6/28），本期内容包括。AI工具背后的提示词，一体化项目管理工具、终端模拟器、LaTeX替代和备份工具。\n#Github #AI新星计划 #提示词 #终端 #latex",
+    "thumbnail": "https://p9-pc-sign.douyinpic.com/tos-cn-i-dy/5ccfc4af22294836bd78867d619a0632~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=DmqqcI%2BffEAXpUqcOd0Kqnop0kM%3D",
     "id": "7520913136375975183"
   },
   {
     "href": "https://www.douyin.com/video/7518329297732455680",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/be533f5524ed4a1192b86c0845aeaddb~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=6r1bEWIA2aaljKTsZKg1IbiU%2F30%3D",
+    "likeCount": 1075,
+    "title": "「Github一周热点76期」工作流自动化，AI wiki等 GitHub 一周热点第76期(2025/06/15 - 6/21），本期内容包括工作流自动化工具、开源AI知识库系统、网络管理平台、AI驱动的任务管理系统和基于web的3D CAD。\n#GitHub #AI新星计划  #自动化 #wiki #CAD",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/be533f5524ed4a1192b86c0845aeaddb~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=NFIyKpN3rFsjV3mg%2FJD%2F14fQju0%3D",
     "id": "7518329297732455680"
   },
   {
     "href": "https://www.douyin.com/video/7516009183632837922",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/26a0ca1293c843299d5b8c0be15c8f93~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=dMTS9WERgRb4XSMT7ZFCN0kcL8w%3D",
+    "likeCount": 5415,
+    "title": "「Github一周热点75期」windows桌面增强工具等 GitHub 一周热点第75期(2025/06/08 - 6/14），本期内容包括windows桌面增强工具、健康学习到150岁 、实用网页工具集合、优秀大模型 APP集合和 浏览器编排工具。#Github #AI新星计划  #AI #浏览器 #大模型",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/26a0ca1293c843299d5b8c0be15c8f93~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=8q%2B7qfigNmILwb3w%2FeFWOGQZ3qc%3D",
     "id": "7516009183632837922"
   },
   {
     "href": "https://www.douyin.com/video/7514566555837943074",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/b9cda8cc9e1240ffbd339e56caca25d0~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=bS3swB7nYmtyYaidJwaD6wtQs70%3D",
+    "likeCount": 1475,
+    "title": "「Github一周热点74期」设计师专属的 Cursor GitHub 一周热点第74期(2025/06/01 - 6/08），本期内容包括设计师专属的 Cursor、Python爬虫框架、提示词工程的交互式教程、Markdown排版工具和电子邮件营销平台。#AI新星计划  #Github #cursor #markdown #爬虫",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/b9cda8cc9e1240ffbd339e56caca25d0~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=yDHAMlp%2BiGMIsVbDzAAIsYVwK%2BM%3D",
     "id": "7514566555837943074"
   },
   {
     "href": "https://www.douyin.com/video/7513249292107123983",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/5d3b47046aca49668bd4ea92f0d009e9~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=QC%2ByucnaN7bqN9XQOWE1jHPT71M%3D",
+    "likeCount": 1405,
+    "title": "AI 写高考作文，谁更强？ 今天我让AI玩一场高考作文的“谁是卧底”，看看谁写的文章更好，谁能找出人类卧底。\n#AI新星计划 #高考作文 #豆包 #大模型 #AI",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/5d3b47046aca49668bd4ea92f0d009e9~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=%2Bg2ET%2BechY8clkh2AZ7ZW%2BG06jg%3D",
     "id": "7513249292107123983"
   },
   {
     "href": "https://www.douyin.com/video/7512693470746676480",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/57e548a5f3ab43c093cec8950b4a7d06~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=e43W7bePUtkdNX9ARhgLBbTPOZs%3D",
+    "likeCount": 435,
+    "title": "Mac studio值不值得换？治好购物纠结症我有办法 #抖音搜索app  #Mac  #AI新星计划   #AI搜索  #苹果\n【抖音搜索APP】已正式升级为【AI抖音】，快来体验下这种AI+抖音的新模式吧~",
+    "thumbnail": "https://p9-pc-sign.douyinpic.com/tos-cn-i-dy/57e548a5f3ab43c093cec8950b4a7d06~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=rFWhtgxVe1pe%2FCpq4tbuR8HLZB0%3D",
     "id": "7512693470746676480"
   },
   {
     "href": "https://www.douyin.com/video/7512371337206320384",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/be5875a74540401aa14400cadb8acb00~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=EhiBlLVTMc9kAcva8jCFIs%2BUr0E%3D",
+    "likeCount": 253,
+    "title": "AI起飞，算力兜底？如何打造AI算力底座 AI不断前进的同时，背后的“兜底工程”怎么办？今天想和大家聊聊AI算力底座，也是前几天看了鲲鹏昇腾开发者大会之后的思考。\n#AI #AI新星计划  #鲲鹏 #算力底座 #华为",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/be5875a74540401aa14400cadb8acb00~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=vhhYSvZzyr5A15W1Pl8QoqL%2FDtY%3D",
     "id": "7512371337206320384"
   },
   {
     "href": "https://www.douyin.com/video/7510796263093325090",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/656efea88b2d417c896121510fec98db~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=VZQ5%2BcD0lbSbS7kKfdBe0SEYIIY%3D",
+    "likeCount": 1199,
+    "title": "「Github一周热点73期」manus替代，AI数据引擎等 GitHub 一周热点第73期(2025/05/25 - 5/31），本期内容包括本地manus替代，AI 数据查询引擎 ，小智AI 聊天机器人，动态人像生成和一栈式后端开发平台。最后还有2份资料分享。#AI新星计划  #Github #机器人 #程序员 #智能体",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/656efea88b2d417c896121510fec98db~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=ZiKSMBmHQyhSuNAVmH%2Bn86J80qM%3D",
     "id": "7510796263093325090"
   },
   {
     "href": "https://www.douyin.com/video/7510531005283978530",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/3d520383a64d4f46b1be47226aa1ea8f~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=%2F8gjP240MHmySOkuUdDDyld7mKU%3D",
+    "likeCount": 612,
+    "title": "2分钟老网站加装AI助手？用开源项目打通AI最后一公里 今天我们 用开源项目给网站快速增加AI助手。\n#AI新星计划  #Github #AI助手 #Copilot #程序员",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/3d520383a64d4f46b1be47226aa1ea8f~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=IHuxiZrWK3tCs0rkc9ovOiGCYcs%3D",
     "id": "7510531005283978530"
   },
   {
     "href": "https://www.douyin.com/video/7507939105553140992",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/bcad45c171404190a1a5c2e633267a07~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=zvChcaBc3U47srp%2B6yyEOEZbufw%3D",
+    "likeCount": 14000,
+    "title": "「Github一周热点72期」小初高PDF教材、微信数字分身 GitHub 一周热点第72期(2025/05/11 - 5/24），本期内容包括小初高大学的PDF教材、从聊天记录创造数字分身、Linux子系统、油管音乐客户端和U盘启动工具。最后还有2份资料分享。\n#Github #AI新星计划  #Linux #U盘 #数字分身",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/bcad45c171404190a1a5c2e633267a07~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=yzU10rpk%2BuL31Sq9z5mg1ErHdz4%3D",
     "id": "7507939105553140992"
   },
   {
     "href": "https://www.douyin.com/video/7506799070552345891",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/677231e1e04c4025abd8dc16b243761e~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=VHegtLRGXrIABAKbmCmORrasOWk%3D",
+    "likeCount": 1959,
+    "title": "人人必备的翻译工具，AI加持的翻译神器 人人必备的翻译工具，网页翻译、视频翻译、文档翻译样样精通[沉浸式翻译]\n#沉浸式翻译 #AI新星计划  #AI #实用工具 #翻译",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/677231e1e04c4025abd8dc16b243761e~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=enufGo9FPOZzzT3OUdP5QIADPsU%3D",
     "id": "7506799070552345891"
   },
   {
     "href": "https://www.douyin.com/video/7506458503209291042",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/aa6203ccf8b748f197c247424d24b8f8~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=7%2FaHmgfbhSSwtu51JJOPin0LZFA%3D",
+    "likeCount": 345,
+    "title": "两岁半女儿问倒老父亲，AI科普大作战 “为什么大模型推理使用GPU而不是CPU呢？” 如何用AI搜索来解答女儿的灵魂拷问#百度AI满血版  #百度AI搜索  #你的AI超人 #AI新星计划  #DeepSeek",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/aa6203ccf8b748f197c247424d24b8f8~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=e5gB%2BojVqerv5v0Zw8KBL1O5cPs%3D",
     "id": "7506458503209291042"
   },
   {
     "href": "https://www.douyin.com/video/7504636008890223887",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/c5b849c5aa6440c3b4f4d76ca7dd6691~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=8s%2F0%2BFLccZmjZyDTneGJpzzm2Gg%3D",
+    "likeCount": 2464,
+    "title": "实用教程，小程序接入腾讯地图MCP，开发AI旅游助手 实用教程，小程序接入腾讯地图MCP，开发AI旅游助手 #AI新星计划  #小程序开发 #MCP #程序员 #智能体",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/c5b849c5aa6440c3b4f4d76ca7dd6691~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=A%2FMDEP%2B8dYg146VEXqLvcTTHqFI%3D",
     "id": "7504636008890223887"
   },
   {
     "href": "https://www.douyin.com/video/7502805032643857683",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/b8b7163184eb45a587e782bacb794451~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=%2FNUjrrNOEcuebT%2BPMjKq7nT6s8A%3D",
+    "likeCount": 2681,
+    "title": "「Github一周热点71期」互动桌面宠物、K8sAI助手等 GitHub 一周热点第70期(2025/04/27 - 5/10），本期内容包括互动桌面宠物、K8s的AI助手、WEB 3D引擎、云原生安全扫描工具和为AI agent 设计的弹性云。最后还有2份资料分享。#AI新星计划  #Github #AI #云原生 #web",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/b8b7163184eb45a587e782bacb794451~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=r5NvZ%2F8DgPnERoLDKQu2atABmnk%3D",
     "id": "7502805032643857683"
   },
   {
     "href": "https://www.douyin.com/video/7501887790615989516",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/1783365686554721bc588e943e228305~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=stJC9TiPiCXlFvoeJaotVfH2NxQ%3D",
+    "likeCount": 6766,
+    "title": "Trae+智能体，开发者效率翻倍 2分钟实战教程，Trae+智能体快速开发web项目，开发者效率翻倍 \n#随机捏一个ai员工 # #vibeagent  #ai新星计划  #Trae  #开发工具",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/1783365686554721bc588e943e228305~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=3BYMhQbEluLDdUY8Gm7UtPui9ps%3D",
     "id": "7501887790615989516"
   },
   {
     "href": "https://www.douyin.com/video/7497452311426452777",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/6778bedd760e462691dd4a2b3c1a3dc9~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=6qn3JSgyBdNnDz%2FPb83YeB4rZMw%3D",
+    "likeCount": 1656,
+    "title": "「Github一周热点70期」原生1bit模型，程序要做饭等 GitHub 一周热点第70期(2025/04/20 - 4/26），本期内容包括微软的原生1bit模型、无限长度影片生成模型、程序员在家做饭方法指南、浏览器中运行VSCode和命令行的视频下载器。\n#ai新星计划 #Github#程序员 #大模型 #vscode",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/6778bedd760e462691dd4a2b3c1a3dc9~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=UwXDH943T8gA%2Bq%2FoFpS5zx7K1Ko%3D",
     "id": "7497452311426452777"
   },
   {
     "href": "https://www.douyin.com/video/7496887260009434422",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/a67a649ffe3f489499d3b554b6b8d134~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=J8dXn89qJt90mH888gifbXqIaKE%3D",
+    "likeCount": 1566,
+    "title": "AI 爬虫泛滥？如何用开源防火墙，让爬虫不越雷池一步 现在AI加持下爬虫越来越泛滥，今天我们讲一下怎么使用开源的雷池WAF来反爬虫。雷池，是一款简单好用, 效果突出的 Web 应用防火墙(WAF)，可以保护 Web 服务不受黑客攻击。\n#爬虫 #GitHub #AI新星计划 #网络安全 #防火墙",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/a67a649ffe3f489499d3b554b6b8d134~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=Y40PUH1PsCe%2FNunfVaqlCaa9Z50%3D",
     "id": "7496887260009434422"
   },
   {
     "href": "https://www.douyin.com/video/7496339054481476876",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/45619f9836774c9c9f90c10788a3a7bf~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=6vNq2NuW865NzcuQN9%2F1FJIEuCs%3D",
+    "likeCount": 626,
+    "title": "选择合适的大模型，也没那么复杂 模型太多挑花眼，可以逛逛鲸智社区，大模型的大众点评\n#AI在抖音 #大模型 #人工智能 #DeepSeek #LLM",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/45619f9836774c9c9f90c10788a3a7bf~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=7HoXB2e5AYuaGH5hVvrwSY5kYRg%3D",
     "id": "7496339054481476876"
   },
   {
     "href": "https://www.douyin.com/video/7495242901631339830",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/1fabf254726441f2beeaa28dff147f3d~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=RSGk2vPS7ME72bM3HR3JfoR4pxM%3D",
+    "likeCount": 6401,
+    "title": "「Github一周热点69期」轻量编程智能体，前端动画库等 GitHub 一周热点第69期(2025/04/13 - 4/19），本期内容包括OpenAI的轻量级编程智能体，前端动画库，音视频翻译工具，可穿戴AI设备和构建终端风格的网站。\n#AI在抖音 #Github #超硬核玩家 #AI #程序员",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/1fabf254726441f2beeaa28dff147f3d~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=gtzEEP%2Fs89YSb550BJwb09LNiJk%3D",
     "id": "7495242901631339830"
   },
   {
     "href": "https://www.douyin.com/video/7493925242792889611",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p9-pc-sign.douyinpic.com/tos-cn-i-dy/ed3482c71cea4d37ae636e4358817f89~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=9sApxbE72YWAkczhFqZ47oBElPY%3D",
+    "likeCount": 399,
+    "title": "最快开源模型？GLM-Z1首发超长上手实测 智谱发布了最新的GLM-4-32B-0414开源模型系列，这个号称目前最快的模型，今天来测试一下怎么样。\n#AI在抖音 #超硬核玩家 #大模型 #AI #GitHub",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/ed3482c71cea4d37ae636e4358817f89~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=wOKxhRVBXxsKjXQE2aneMwcVvsQ%3D",
     "id": "7493925242792889611"
   },
   {
     "href": "https://www.douyin.com/video/7493388855756852516",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/31c0c1f4f7464b4989b86511c5d0e299~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=TJzAGMinPO270Odl9A4E0mFoCdc%3D",
+    "likeCount": 3407,
+    "title": "小程序也支持MCP，人人可以零代码开发智能体小程序 小程序也支持MCP，人人可以零代码开发智能体小程序\n#AI在抖音 #超硬核玩家 #MCP #智能体 #小程序开发",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/31c0c1f4f7464b4989b86511c5d0e299~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=sl9FG%2FK4rrVkmADS86obLiIDiCI%3D",
     "id": "7493388855756852516"
   },
   {
     "href": "https://www.douyin.com/video/7492639707847789836",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/bfbb0d5b00504453aee19daa0ce47df6~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=fLafWcze5pFJVYVvvyywYvrMnyY%3D",
+    "likeCount": 3601,
+    "title": "「Github一周热点68期」A2A协议、无代码爬虫等 GitHub 一周热点第68期(2025/04/4 - 4/12），本期内容包括谷歌开源的agent通信协议、无代码Web数据提取、网盘聚合工具、cursor无限续杯和 MCP 开发SDK。最后也还有小附赠。#Github #AI在抖音 #MCP #爬虫 #超硬核玩家",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/bfbb0d5b00504453aee19daa0ce47df6~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=mkPcFQ1rTHEARJvLF8ZDCdPHIiA%3D",
     "id": "7492639707847789836"
   },
   {
     "href": "https://www.douyin.com/video/7492040453890542884",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/bbda4ff66bf0439a9871e19d450c0905~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=tgVzeGRR%2F0udUpu%2B%2F3iaWwHIsjk%3D",
+    "likeCount": 1197,
+    "title": "AI 进入新阶段？5分钟实战入门百炼MCP+智能体 实战的角度带你上手带你上手智能体 + MCP #AI在抖音  #超硬核玩家  #2025AI应用潜力赛道有哪些 #智能体 #MCP",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/bbda4ff66bf0439a9871e19d450c0905~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=0AbU2G%2BoogLymjJ0T4CUFmpdVKM%3D",
     "id": "7492040453890542884"
   },
   {
     "href": "https://www.douyin.com/video/7490870053303242003",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/af674eb02a234bff95858bf757dfa282~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=roJDPmwyTmQPcn91b4VyLm1vvuM%3D",
+    "likeCount": 272,
+    "title": "高分低能？llama4真实上手测评，来看看效果 上手测评Llama4，目前也有消息说Llama测评作假，所以测评的分数种感觉水分很大。#AI在抖音 #超硬核玩家 #Llama #大模型 #AI",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/af674eb02a234bff95858bf757dfa282~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=mU20yLPLEvkjVOuXv4C8oJgeW2I%3D",
     "id": "7490870053303242003"
   },
   {
     "href": "https://www.douyin.com/video/7488938900464028991",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/7234e465f105416398cabfcfdd52256e~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=I6NxJisx5TigHIrHDfQax47Anl0%3D",
+    "likeCount": 1651,
+    "title": "「Github一周热点67期」AI agent入门课等 GitHub 一周热点第67期(2025/03/27 - 4/3），本期内容包括AI agent入门课，全网热点聚合，生成SVG的多模态模型， AI量化投资平台和GitHub 架构图生成器。最后也还有个小附赠。#AI在抖音  #超硬核玩家  #2025AI应用潜力赛道有哪些 #Github #agent",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/7234e465f105416398cabfcfdd52256e~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=cXDsMbuiS25DZbXiKT%2BWmCAFSU0%3D",
     "id": "7488938900464028991"
   },
   {
     "href": "https://www.douyin.com/video/7488220816224619787",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/a1e3e1a6951440fc86d2e5585eb445f1~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=8yyRM8tRgPQ6bo%2FL6Btflid69hg%3D",
+    "likeCount": 5852,
+    "title": "既能思考也能操作的免费AI智能体，深度测评AutoGLM沉思 现在智能体开始从卷模型过渡到卷动手能力了\n#AI #AI在抖音  #超硬核玩家 #智能体 #AutoGLM",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/a1e3e1a6951440fc86d2e5585eb445f1~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=YgB4Idmom84b2%2FNhqyXh%2FQitCWA%3D",
     "id": "7488220816224619787"
   },
   {
     "href": "https://www.douyin.com/video/7486342253468847399",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/79b1ac7d2b2141e0860e89cf6c81285b~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=K8B6%2FAZppOKGE852CXgIrkb3Q%2FE%3D",
+    "likeCount": 4430,
+    "title": "「Github一周热点66期」动化AI工作流编排工具 GitHub 一周热点汇总第66期(2025/03/17 - 3/26），本期内容包括，自动化工作流编排工具、浏览器文件分享工具、微信好友检测工具、自托管的信息仪表盘和构建和训练自己的机器人，最后也还有些小附赠。\n#GitHub #AI在抖音  #超硬核玩家  #2025AI应用潜力赛道有哪些 #实用工具",
+    "thumbnail": "https://p9-pc-sign.douyinpic.com/tos-cn-i-dy/79b1ac7d2b2141e0860e89cf6c81285b~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=l68eI2ionfDSIdQFhNuVWWJFz9E%3D",
     "id": "7486342253468847399"
   },
   {
     "href": "https://www.douyin.com/video/7482712245806402857",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/ba0220ce687647b89bceba4be7b8bcd3~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=1MHU2e6LdtTng3uMsRDwAyfxa3w%3D",
+    "likeCount": 1442,
+    "title": "DeepSeek为什么开源？深扒DeepSeek的开源逻辑 一个视频代理了解什么是开源，DeepSeek为什么要开源，带你理解它背后的开源逻辑。\n#DeepSeek #AI在抖音  #超硬核玩家  #2025AI应用潜力赛道有哪些 #开源",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/ba0220ce687647b89bceba4be7b8bcd3~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=LWNix2%2FoTEbr%2FG%2FiGCpbIdPSFrY%3D",
     "id": "7482712245806402857"
   },
   {
     "href": "https://www.douyin.com/video/7481922040711187748",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/3a3392fe8ef24b50921015cf6a60dbaf~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=PDtK996yrkKYyxt80gKP6hV%2BJ9w%3D",
+    "likeCount": 4288,
+    "title": "「Github一周热点65期」OpenAI的AgentSDK GitHub 一周热点汇总第64期(2025/03/09 - 3/15），本期内容包括，OpenAI的Agent开发工具，开源视频生成模型，MCP server合集，shell 连接中心和多智能体量化交易，还有一个小附赠在最后。\n#AI在抖音  #超硬核玩家  #2025AI应用潜力赛道有哪些 #GitHub #人工智能",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/3a3392fe8ef24b50921015cf6a60dbaf~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=Lz%2Fv%2BJTGBgwx%2B%2BhyPkPlNA77QSk%3D",
     "id": "7481922040711187748"
   },
   {
     "href": "https://www.douyin.com/video/7480785833927249171",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/a7ae596e7a61447ca553aaae9c089941~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=NaOJ9d04TXzHAGdKPQRGK7txg%2F8%3D",
+    "likeCount": 3054,
+    "title": "Github热门怎么找？手把手教你上手 AI 编程 这期是AI编程实战，手把手带大家用AI来做一个Github热点统计，全程不用自己写代码。\n#AI在抖音  #超硬核玩家  #2025AI应用潜力赛道有哪些 #Trae #Github",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/a7ae596e7a61447ca553aaae9c089941~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=B%2FSLcouORC4sfL0KIdtww%2F6UQss%3D",
     "id": "7480785833927249171"
   },
   {
     "href": "https://www.douyin.com/video/7480021784268606761",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/84b3afa667694456bfbd62e39fcb1382~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=LqJVZWcpDGzPOKZ8OnfBPv9zSgk%3D",
+    "likeCount": 1195,
+    "title": "1分钟教你用deepseek搞定PPT，仅需3步 程序员用deepseek+ 正版AiPPT，3步搞定PPT，效率翻几倍，再也不愁汇报材料\n#AiPPT  #PPT  #pptai自动生成  #AI工具   #DeepSeek",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/84b3afa667694456bfbd62e39fcb1382~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=ZHl0aSEazZi%2FyVwonrsY3c69Opg%3D",
     "id": "7480021784268606761"
   },
   {
     "href": "https://www.douyin.com/video/7479470864094727443",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/4d56d9c00f494e3c857dbe99ef289d8d~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=sGjbj5F0MeF2mfo8xcyE6%2Fxqla8%3D",
+    "likeCount": 3408,
+    "title": "「Github一周热点64期」5人3小开源实现Manus GitHub 一周热点汇总第63期(2025/03/02 - 3/08），本期内容包括Manus开源实现、AI Agent的工具集、C语言写的2D UI 布局库、高性能游戏数据库和红警系列游戏。\n#AI #Manus #Github #数据库 #游戏",
+    "thumbnail": "https://p9-pc-sign.douyinpic.com/tos-cn-i-dy/4d56d9c00f494e3c857dbe99ef289d8d~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=nTI70Uwp8ARmDeyD5DtvItTpeCk%3D",
     "id": "7479470864094727443"
   },
   {
     "href": "https://www.douyin.com/video/7478751664644558119",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/f3cd562a9bf0469883613136777617ac~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=5I0zDfgnJFRG0%2FwWIFHs1J5JA5M%3D",
+    "likeCount": 1193,
+    "title": "比肩DeepSeekR1？开源QwQ-32B超长首发评测！ 今天是一期干货的模型部署实战。阿里开源了全新的推理模型通义千问QwQ-32B，既然是开源模型，我就来带大家尝个鲜也做下教程，咱们第一时间部署测试一下。\n#AI #QwQ #通义千问 #开源 #大模型",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/f3cd562a9bf0469883613136777617ac~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=4A2oOlCbkLUOgBz6588YT8pfwVI%3D",
     "id": "7478751664644558119"
   },
   {
     "href": "https://www.douyin.com/video/7477800021115620671",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/fb9e6d2783e94ef79073948682bd090e~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=%2Fbh9vkzWk2bcbRVwL9W97cdDDlI%3D",
+    "likeCount": 915,
+    "title": "DeepSeek理论利润率545%，解读技术细节和商业思考 DeepSeek理论利润率545%，今天我就想和你详细聊一聊这个利润率背后的商业思考以及 DeepSeek的极致优化。\n#DeepSeek #开源 #商业模式 #AI #Github",
+    "thumbnail": "https://p9-pc-sign.douyinpic.com/tos-cn-i-dy/fb9e6d2783e94ef79073948682bd090e~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=O24i6JyOBwJQAs50zUCuDhCwHDo%3D",
     "id": "7477800021115620671"
   },
   {
     "href": "https://www.douyin.com/video/7477061382366694719",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/c4df06316cfd4ad18849470d90cd58a1~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=ri0sUFegBJhlv5XrSHJy3TSI15U%3D",
+    "likeCount": 833,
+    "title": "「Github一周热点63期」DeepSeek 开源周汇总等 GitHub 一周热点汇总第63期(2025/02/23 - 3/01），本期内容包括DeepSeek 开源周汇总 、超过Sora的万象2.1、AI数据分析库、Notion 替代品和AI 助手平台，一起来看具体内容吧。 #人工智能 #DeepSeek #GitHub #Notion #Cherrystudio",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/c4df06316cfd4ad18849470d90cd58a1~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=eJapG37Bu8ZBWusUIjbmLMqhDV0%3D",
     "id": "7477061382366694719"
   },
   {
     "href": "https://www.douyin.com/video/7476428277310147903",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/c997affe3f3741988de8ce14d1eb6649~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=AhMEuYaZSC24Nxqt%2FiRRTu1oSxE%3D",
+    "likeCount": 330,
+    "title": "DeepSeek开源周第四弹，揭开V3背后的并行秘密 今天一下子连发3个，解密了DeepSeek V3背后的并行秘密。\n#DeepSeek #AI #人工智能 #大模型 #GitHub",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/c997affe3f3741988de8ce14d1eb6649~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=W3l%2BLT%2F%2BWT8HKm0Mhn4xDj5Ehms%3D",
     "id": "7476428277310147903"
   },
   {
     "href": "https://www.douyin.com/video/7475700739466136851",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/45842e4b91524cfa9775361f74fad96c~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=T2X2iajfjjkOr%2BYG56JwU0AURu0%3D",
+    "likeCount": 760,
+    "title": "DeepSeek开源周第三弹：300行代码效果翻倍 DeepSeek第三个项目，DeepGEMM 是一个 FP8 通用矩阵乘法 (GEMM) 库，仅仅300行代码，就把性能提升了2.7倍。\n#DeepSeek #AI #github #大模型 #机器学习",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/45842e4b91524cfa9775361f74fad96c~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=1j1G4RpdElgkpKCyvcWbLr7wFGc%3D",
     "id": "7475700739466136851"
   },
   {
     "href": "https://www.douyin.com/video/7475303947184508199",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/45710523627c4f0481e30ddee9442ba1~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=R3BaKByFe8wVbSc02vM3OdXkO%2Bw%3D",
+    "likeCount": 610,
+    "title": "DeepSeek开源周第二弹，极致通信效率的DeepEP DeepSeek的开源第二弹来了 ，今天开源的项目是第一个用于MOE模型训练和推理的开源EP通信库 #DeepSeek #github #MOE #大模型 #英伟达",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/45710523627c4f0481e30ddee9442ba1~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=RWmt3Wq%2BVVW97HusaesTa9K%2FFzk%3D",
     "id": "7475303947184508199"
   },
   {
     "href": "https://www.douyin.com/video/7474928706037796108",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/aa8ed05e31954b9189947855d994a101~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=359qqT%2B4fjZLSazPaLAi9nXjTUQ%3D",
+    "likeCount": 684,
+    "title": "技术解读，DeepSeek开源周第一弹：FlashMLA DeepSeek开源周第一个项目FlashMLA，为H架构 GPU优化的MLA解码内核，挑战算力极限\n#DeepSeek #github #flashMLA #AI #GPU",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/aa8ed05e31954b9189947855d994a101~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=j6YJuBHxe%2F%2B0SCwOYlRUoGVDSSY%3D",
     "id": "7474928706037796108"
   },
   {
     "href": "https://www.douyin.com/video/7474453732487384331",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/e18987ea15184ce4952b2201b503c19e~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=kTAW78mpumx0ITSsC%2FTmTSqaDGQ%3D",
+    "likeCount": 4006,
+    "title": "「Github一周热点62期」DeepSeek 实用集成大全 GitHub 一周热点汇总第61期(2025/02/16 - 2/22），本期内容包括DeepSeek 实用集成 、开源多模态模型、Markdown换行工具、视觉AI工具和V社的游戏SDK，一起来看具体内容吧。 #AI #DeepSeek #阶跃星辰 #GitHub #valve",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/e18987ea15184ce4952b2201b503c19e~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=rArKJnBcLViEb2g2RNM5uG0bXmE%3D",
     "id": "7474453732487384331"
   },
   {
     "href": "https://www.douyin.com/video/7473435449726405942",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/61872f040952493795f19319c4f7fb7f~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=ABLVFcTbQ9dwSbTCCtbOzaI115o%3D",
+    "likeCount": 15000,
+    "title": "DeepSeek王炸组合，打败99%人的学习方法，建议收藏 飞书的多维表格+加上DeepSeek绝对是王炸组合，在飞书多维表格里甚至可以同时批量使用R1来处理任务，用起来真的太爽了，可以用来学会任何知识。#飞书 #飞书多维表格 #DeepSeek #DeepSeek使用技巧 #DeepSeek组合",
+    "thumbnail": "https://p9-pc-sign.douyinpic.com/tos-cn-i-dy/61872f040952493795f19319c4f7fb7f~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=RjJpuZNFM0KS%2FpG%2FlAP4g%2F81dMI%3D",
     "id": "7473435449726405942"
   },
   {
     "href": "https://www.douyin.com/video/7471846851172404534",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/ded4ab2324c54c6291edb44fa01f87ae~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=zZA3iSLleIh%2BaPMmARoNmMpH0Ww%3D",
+    "likeCount": 5327,
+    "title": "GitHub 一周热点汇总第61期 GitHub 一周热点汇总第61期(2025/02/9 - 2/15），本期内容包括更快运行DeepSeek的推理框架、大模型微调工具、AI数据可视化工具、API调试工具和开源图标库，一起来看具体内容吧。 #AI #人工智能 #DeepSeek #大模型 #程序员",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/ded4ab2324c54c6291edb44fa01f87ae~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=mMTPNKTVvmaW%2BMv4OTP9EaFLQd4%3D",
     "id": "7471846851172404534"
   },
   {
     "href": "https://www.douyin.com/video/7471183054128598326",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/148ad50ed84c4db6b9260891db3accb4~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=vlOD8LtuMxnXZH2F6D0pqwdGWqQ%3D",
+    "likeCount": 437,
+    "title": "苹果看上它了？阿里最强视觉模型 Qwen2.5-VL测评解析 最近看到有新闻说，Apple选择阿里云 作为中国地区的AI提供商，而阿里云正好发布了Qwen2.5-VL视觉模型，这会不会是为此而做的铺垫呢？今天来带大家一起解析这个新开源模型，中国不止DeepSeek，Qwen也很不错。\n#人工智能 #大模型 #阿里云 #阿里 #苹果",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/148ad50ed84c4db6b9260891db3accb4~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=Zjke%2Bn8vbCE6KdSEm3WLKf7a4QA%3D",
     "id": "7471183054128598326"
   },
   {
     "href": "https://www.douyin.com/video/7469259432011107620",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/191a2decf916422caaa8e3dbe27e1bad~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=Yx2ExcDucqe5dX9cXJzHmxYVpcM%3D",
+    "likeCount": 3488,
+    "title": "「Github一周热点60期」DeepSeek多模态等5个 GitHub 一周热点汇总第60期(2025/01/26 - 2/8），本期内容包括端到端的基础模型平台、DeepSeek的多模态模型、Qwen2.5的视觉模型、AI控制浏览器和开源BI工具，一起来看具体内容吧。 #人工智能 #Deepseek #大模型 #GitHub #内容启发搜索",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/191a2decf916422caaa8e3dbe27e1bad~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=kv5HXYLJjiHf8zaXAaBZniszqbI%3D",
     "id": "7469259432011107620"
   },
   {
     "href": "https://www.douyin.com/video/7468528596039027980",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/c333ee7ea0c34f27be1c48a39f2fc87b~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=A3enG9O0LNjpkPk3ajpn9p5wzCQ%3D",
+    "likeCount": 2358,
+    "title": "使用DeepSeek避免这5个误区，效果超过95%的人 整理下新手在使用DeepSeek时经常遇到的误区，让你的使用效果超过95%的人。\n#AI #DeepSeek #内容启发搜索 #新手教程 #人工智能",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/c333ee7ea0c34f27be1c48a39f2fc87b~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=V0Z7%2FpcOf27FaWkLG%2BuTiCuhd6A%3D",
     "id": "7468528596039027980"
   },
   {
     "href": "https://www.douyin.com/video/7464838415750548763",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/706c0883219e4fcfaf6250841f7cf24b~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=vlsWIfpKc14BlrnYP3rXYRjP%2Ba0%3D",
+    "likeCount": 3843,
+    "title": "打破算力泡沫，DeepSeek发布janus模型 吊打DALL-E3，DeepSeek多模态模型Janus来了\n#人工智能 #DeepSeek #Github  #aigc #内容启发搜索",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/706c0883219e4fcfaf6250841f7cf24b~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=iDm9GZRmh8EOUgirSNCSjjO8ivY%3D",
     "id": "7464838415750548763"
   },
   {
     "href": "https://www.douyin.com/video/7464477509942332726",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/53cea8dd25e048c99b0c898e9e8af36a~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=sNXkc8zR1I6mDczelXuRU0OBQVg%3D",
+    "likeCount": 6380,
+    "title": "DeepSeek R1试用、解析加部署，一个视频速通R1模型 DeepSeek R1试用、解析加部署 #人工智能 #deepseek#大模型 #内容启发搜索 #ai",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/53cea8dd25e048c99b0c898e9e8af36a~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=kaKfJ8oL1LPRvz9NP2ZnLn0EVGI%3D",
     "id": "7464477509942332726"
   },
   {
     "href": "https://www.douyin.com/video/7463486748794948873",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/1005c90c4b714bd8bbe085f1f28bdbab~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=Bcqx1EisdlYL4%2Bpph6xq%2BpTjiJk%3D",
+    "likeCount": 6516,
+    "title": "Github一周热点59期」DeepSeek R1等 GitHub 一周热点汇总第59期(2025/01/19 - 1/25），本期内容包括DeepSeek R1推理模型、实时语音转文字、自托管PaaS平台、轻量监控工具和终端文件管理工具，一起来看具体内容吧。#人工智能 #ai #DeepSeek #内容启发搜索 #Github",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/1005c90c4b714bd8bbe085f1f28bdbab~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=AbRh%2FThNac%2BdFX1DveTL6VQcrow%3D",
     "id": "7463486748794948873"
   },
   {
     "href": "https://www.douyin.com/video/7462616550755929356",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/9955ef5f968e4e5e84e0ef701ff38ffa~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=SLblYAWZDKk0MsrinuN2P52h0Ts%3D",
+    "likeCount": 534,
+    "title": "平替Cursor？字节出手AI编程助手 平替Cursor？字节AI编程助手，Claude3.5免费用#程序员 #ai #一分钟干货教学 #代码 #Cursor",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/9955ef5f968e4e5e84e0ef701ff38ffa~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=5FWuntj4FTXiVDywnOf%2BpteDWvE%3D",
     "id": "7462616550755929356"
   },
   {
     "href": "https://www.douyin.com/video/7462225945840078092",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/9629e279d94e4637ab344eb3eb71b5b0~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=SU%2BlANKFUfFzrUq3JEIdXhFDbOI%3D",
+    "likeCount": 217,
+    "title": "DeepSeek R1发布，同等性能只要1/50的价格 DeepSeek再一次的震撼了整个人工智能领域，深度思考模型R1在价格与开源化上震撼市场。#Deepseek #AI #人工智能 #大模型 #OpenAI",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/9629e279d94e4637ab344eb3eb71b5b0~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=sQo7Db2%2F1%2FY6xo3y%2Fv02cMJJBb0%3D",
     "id": "7462225945840078092"
   },
   {
     "href": "https://www.douyin.com/video/7461467149014404364",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/ce3ab0fe9f0c4ea5ad64d0943d182af6~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=rol4fHAJaH4koNxPD3x7gRTblKw%3D",
+    "likeCount": 1862,
+    "title": "「Github一周热点58期」自托管 AI 代码助手等 GitHub 一周热点汇总第58期(2025/01/12 - 1/18），本期内容包括自托管 AI 代码助手、从0训练微型语言模型、AI SQL助手、文生图模型和开源电子商务平台，一起来看具体内容吧。\n#Github  #人工智能 #大模型 #内容启发搜索 #玩转AI工具",
+    "thumbnail": "https://p9-pc-sign.douyinpic.com/tos-cn-i-dy/ce3ab0fe9f0c4ea5ad64d0943d182af6~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=j2iFBIZXzLlaXuk6cnpk%2FMDKRI8%3D",
     "id": "7461467149014404364"
   },
   {
     "href": "https://www.douyin.com/video/7459236145986096423",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/45722270a2b841b1bc25d62f8585082a~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=A5%2FfOeqnKPh87ZCcW4xPnc%2BOwjY%3D",
+    "likeCount": 388,
+    "title": "把显示器打造成产力工具！？程序员如何选择合适的编程显示器 程序员使用最多生产力工具就是键盘、鼠标、显示器，作为资深牛马，今天就分享下怎么选一个适合的显示器。#程序员 #程序猿日常 #显示器 #Macmini #内容启发搜索",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/45722270a2b841b1bc25d62f8585082a~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=OyhadtxhMdfjmGk1VFEBRiWqyaw%3D",
     "id": "7459236145986096423"
   },
   {
     "href": "https://www.douyin.com/video/7458673798229822770",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/aab34cdcef4f49c28f849f738a319f44~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=6KcEImPcN46dV4jFk0tdRVSsOso%3D",
+    "likeCount": 575,
+    "title": "世界基础模型平台、区块链、AI搜索、国产CPU、PS4模拟器 GitHub 一周热点汇总第56期(2025/01/05 - 1/11），本期内容包括新的区块链、世界基础模型平台、AI搜索引擎、国产开源CPU和PS4模拟器，一起来看具体内容吧。 \n#Github #人工智能 #英伟达  #玩转AI工具 #内容启发搜索",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/aab34cdcef4f49c28f849f738a319f44~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=3ODsbrGLjo07dOQZUGuSeQfN0hM%3D",
     "id": "7458673798229822770"
   },
   {
     "href": "https://www.douyin.com/video/7457768579518221579",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/4fd7492527df4674a6147bf6c678ae96~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=TmK%2BAiDlTlVe16npC7E8m%2BZUnk4%3D",
+    "likeCount": 5336,
+    "title": "小白也能听懂的DeepSeek深度解析，带你了解它的神秘 现在都在讨论DeepSeek，今天我就来深入聊一聊DeepSeek到底怎么样，好不好用，怎么用，以及技术上有什么神奇之处。\n#ai #大模型  #DeepSeek #人工智能 #玩转AI工具",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/4fd7492527df4674a6147bf6c678ae96~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=zISqARCZqASYsdzwWUA1TIe6s6A%3D",
     "id": "7457768579518221579"
   },
   {
     "href": "https://www.douyin.com/video/7456287708197981503",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/ddf846ebe551484e935bb7de33067637~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=eZRmYCPu5BIE5XQ8tXfiPI6x4Pw%3D",
+    "likeCount": 2601,
+    "title": "「Github一周热点56期」DeepSeek、免电子书等 GitHub 一周热点汇总第56期(2024/12/29-2025/1/04），本期内容包括DeepSeek开源大模型、免费编程电子书、电子书转有声书，思源笔记和轻量推荐系统，这一期中国产项目含量极高，一起来看具体内容吧。 #程序员 #人工智能 #大模型 #GitHub #Notion",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/ddf846ebe551484e935bb7de33067637~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=TIgT3%2FgGKtjZGF4SwQTFvjgpv7k%3D",
     "id": "7456287708197981503"
   },
   {
     "href": "https://www.douyin.com/video/7454493531567115559",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p9-pc-sign.douyinpic.com/tos-cn-i-dy/54e5936a97164d6fb09e708e5696f4c5~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=WWs%2FtWepSmIpHAuX9E8XHLaqxSI%3D",
+    "likeCount": 7531,
+    "title": "2024 年度Github热点汇总 2024 github 年度汇总来了。这一次我把时间维度从一周，拉长到一年，带你看看这一年里你不能错过的热门项目。\n#GitHub #人工智能 #程序员 #计算机 #软件开发",
+    "thumbnail": "https://p9-pc-sign.douyinpic.com/tos-cn-i-dy/54e5936a97164d6fb09e708e5696f4c5~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=v95Vqwo0P33wf8tTonWEly%2Bp%2B1I%3D",
     "id": "7454493531567115559"
   },
   {
     "href": "https://www.douyin.com/video/7453688304114961699",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/ccbeefc05f0948b483947738c9931559~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=ehTI8ZSlmQIOBkkSMm%2BsejcwIh0%3D",
+    "likeCount": 532,
+    "title": "Github一周热点55期，架构师必备指南、自动化测试工具包 GitHub 一周热点汇总第54期(2024/12/22-12/28），本期内容包括架构师必备指南、自动化测试工具包、无限画布白板、AI 测试框架和广告拦截器，一起来看具体内容吧。#人工智能 #程序员 #测试  #架构师 #github",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/ccbeefc05f0948b483947738c9931559~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=1cXO2MuUe2bK%2FaiIxaSaSo%2B0taY%3D",
     "id": "7453688304114961699"
   },
   {
     "href": "https://www.douyin.com/video/7452584103901138176",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/cd9c3f803fd44800900676381b08b13f~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=IblWqN%2BUpQLEcNqdo7FUixZqf58%3D",
+    "likeCount": 186,
+    "title": "500PB的史诗级云上迁移？！5分钟，带你复刻迷你版过程 小红书进行了一次超500PB数据的云上迁移，可以说是2024年的一次史诗级迁移，今天就想和你聊聊这次迁移和背后的技术，并且一块来做一些动手实践\n#云计算 #对象存储 #程序员 #云存储 #小红书",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/cd9c3f803fd44800900676381b08b13f~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=0YcnUvwCc8WyJFMfrOUtBvn7PBQ%3D",
     "id": "7452584103901138176"
   },
   {
     "href": "https://www.douyin.com/video/7451086961068035380",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/11db5ea983a54a6a9657cabb3aa1b141~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=lv1BjNIgAJ9g0JeamUhMJFGnKGk%3D",
+    "likeCount": 1501,
+    "title": "4D世界生成式物理引擎效果炸裂，米家集成开源，卡通图片转动画 GitHub 一周热点汇总第54期(2024/12/15-12/21），本周真可谓神仙打架，前三的项目都是热度超级高的重量级内容。本期内容包括4D世界生成式物理引擎、官方版米家集成、意图为中心的区块链、PDF翻译工具和卡通图片变动画，一起来看具体内容吧。\n#GitHub  #ai #物理引擎 #区块链 #翻译工具",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/11db5ea983a54a6a9657cabb3aa1b141~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=SwRJeh75SRZYQzXDiPYtuh8v7kw%3D",
     "id": "7451086961068035380"
   },
   {
     "href": "https://www.douyin.com/video/7450714405383277839",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/d4138c23e0734b07a6871975c175ecd1~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=kYa%2FKtcvozRnkcKQmZrX3xTF4JE%3D",
+    "likeCount": 2132,
+    "title": "什么开源项目让人爱？能搞钱的，拆解开源量化投资的好帮手 在GitHub一周热点第52期的投票里，Stock以绝对优势胜出。今天，我就来和大家一块看一个可以选股、分析、看K线，回测、交易、做策略的量化好帮手。\n#github #量化交易 #股票 #金融 #程序员",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/d4138c23e0734b07a6871975c175ecd1~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=2R6EDBQY8ecVIYFtXuR9G0nGx1U%3D",
     "id": "7450714405383277839"
   },
   {
     "href": "https://www.douyin.com/video/7450340195104230682",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-p-0015/o8gvysAE0kBIPIQVG7hu6ipypBP27iEZATAiu~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=hAuoYQB3R855v3axX1JPTwdANUE%3D",
+    "likeCount": 369,
+    "title": "GitHub copilot免费了 GitHub copilot宣布免费可用，AI编程助手越来越卷了#人工智能 #程序员 #软件开发 #GitHub #ai",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-p-0015/o8gvysAE0kBIPIQVG7hu6ipypBP27iEZATAiu~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=44C8%2FG1TQKuuVjZqPtt%2FT6%2FGyN0%3D",
     "id": "7450340195104230682"
   },
   {
     "href": "https://www.douyin.com/video/7448513801197997322",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/96ba3ed4572d45f3ace10f351f1e1bd7~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=s4LDSr%2FDriG007t6Nes4Bgn%2BWhg%3D",
+    "likeCount": 686,
+    "title": "「Github一周热点53期」Rust 重写 SQLite GitHub 一周热点汇总第53期(2024/12/08-12/14），本期内容包括Rust 重写的 SQLite，文档解析器，零知识虚拟机，轻量级数据库 GUI和跨平台开发框架，一起来看具体内容吧。\n#github #数据库 #AI #rust #区块链",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/96ba3ed4572d45f3ace10f351f1e1bd7~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=EgvAptBK7BnBCYdjvHddXihCMxw%3D",
     "id": "7448513801197997322"
   },
   {
     "href": "https://www.douyin.com/video/7447481664990645542",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/1894fb9cab204e0a8147e80306ba6635~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=Cs770h1NOJu9WaImo5Zn7PSL6XI%3D",
+    "likeCount": 415,
+    "title": "22年磨一剑？！22年才发1.0版的开源项目，是什么样的 一个软件从0.1版本到1.0版本要经历多久？1年，2年，5年？如果我说是22年呢，今天我们就一块来看一款打磨了22年的开源CAD软件，freeCAD\n#计算机 #github #开源项目 #CAD #建模",
+    "thumbnail": "https://p9-pc-sign.douyinpic.com/tos-cn-i-dy/1894fb9cab204e0a8147e80306ba6635~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=fF%2FDnydToLnVtW3SxZM3%2BKoSlTY%3D",
     "id": "7447481664990645542"
   },
   {
     "href": "https://www.douyin.com/video/7445899087402093875",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/1625cc2b21c34ad4b168f0fd3b1cb9d2~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=W4Igyx8gaiZ%2FGmfWpn%2Bt2iklDC8%3D",
+    "likeCount": 652,
+    "title": "「Github一周热点52期」独立浏览器、AI 开发框架等 GitHub 一周热点汇总第52期(2024/12/01-12/07），本期内容包括独立浏览器、生产级 AI 应用开发框架、股票分析工具、react性能调试工具和告警管理和 AIOps 平台，一起来看具体内容吧。#程序员 #AI #浏览器 #量化交易 #github",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/1625cc2b21c34ad4b168f0fd3b1cb9d2~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=ER6HXwcWAy9H3BY0p0GRREP38aY%3D",
     "id": "7445899087402093875"
   },
   {
     "href": "https://www.douyin.com/video/7445533852996472074",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p9-pc-sign.douyinpic.com/tos-cn-i-dy/2719fb3892df4287a9fd4b6039022b1a~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=B%2FG8M9%2F5G3wEAEGiO%2B%2FHPXVyVQI%3D",
+    "likeCount": 361,
+    "title": "完全在浏览器中运行虚拟机，是怎么做到的？ 虚拟机你玩过吗？那如果是完全运行在浏览器里的虚拟机呢？今天我们就来深入拆解一个创新的开源项目，它把完整的Linux虚拟机搬进了浏览器，它就是：webVM\n#github #虚拟机 #浏览器 #WebAssembly #开发",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/2719fb3892df4287a9fd4b6039022b1a~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=%2Fl3unjOzEUpny2ZDqs3%2BXsnm6tc%3D",
     "id": "7445533852996472074"
   },
   {
     "href": "https://www.douyin.com/video/7445191817928133926",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/66e875deebaa4793b1e1623fae211688~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=5mUDoYI3s4%2FCL9zQzibRmm25Zi8%3D",
+    "likeCount": 198,
+    "title": "5分钟速通声音克隆！这可能是最简单的声音克隆部署教程 今天我将带你用最简单的方式带你上手声音克隆，如果你感冒了，说话不方便或者单纯的不想说话了，那都可以通过这种方式来让他替你发声。5分钟时间，用函数计算+GPT-sovits来克隆自己的声音。\n#AI  #github #声音克隆 #函数计算 #抖音知识年终大赏",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/66e875deebaa4793b1e1623fae211688~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=zhyOQjh0TETnCKOTRQI0ayLrcWI%3D",
     "id": "7445191817928133926"
   },
   {
     "href": "https://www.douyin.com/video/7443341076099845413",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/ef3fc1371c8947fe9654739f4a6d3e1a~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=jBZEawYCt0XM%2BDpKOYZ%2BwrCLqo0%3D",
+    "likeCount": 364,
+    "title": "「Github一周热点51期」AI调用工具、3D 建模器等 GitHub 一周热点汇总第51期(2024/11/24-11/30），本期内容包括数据AI统一调用工具、现代化的 CMS、文生图模型、去中心化的社交平台和3D 建模器，一起来看具体内容吧。\n#github #AI #人工智能 #CMS #CAD",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/ef3fc1371c8947fe9654739f4a6d3e1a~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=9oMq8DLCHpn6YF%2FCiuJ0SWsjsK8%3D",
     "id": "7443341076099845413"
   },
   {
     "href": "https://www.douyin.com/video/7441856449929612554",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/fa63ef0814904d41804a9e54878d4d3f~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=GHfo0vWTXXruy4LYtcOvmx5nLoI%3D",
+    "likeCount": 524,
+    "title": "99%的人不知道，如何给网页“插眼”，Faker都说好 Fake想知道草里有没有敌人会插个眼，想知道网站有没有内容变化也可以插个眼。\n#爬虫 #网页监控 #Python #playwright #github",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/fa63ef0814904d41804a9e54878d4d3f~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=L8GKhJYsXduTg2LIs6ms7Cd%2BbNs%3D",
     "id": "7441856449929612554"
   },
   {
     "href": "https://www.douyin.com/video/7440701052153908531",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/49701c34d75c42cda043135a5db0728b~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=ffC7znZ5SAimWfAgTL%2Bq0haSibM%3D",
+    "likeCount": 307,
+    "title": "「Github一周热点50期」数据工程师学习手册等 GitHub 一周热点汇总第50期(2024/11/17-11/23），本期内容包括数据工程师学习手册、浏览器运行虚拟机、多智能体角色模拟、黑客情报工具和Go语言开发脚手架，一起来看具体内容吧。\n#程序员 #人工智能 #黑客工具 #虚拟机 #开发工具",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/49701c34d75c42cda043135a5db0728b~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=U0oVHnPxoPW2y62xlzMCL4cv%2BZQ%3D",
     "id": "7440701052153908531"
   },
   {
     "href": "https://www.douyin.com/video/7438096619343482162",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/ce442ecd81ed4a108d647ba3dc78ee2d~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=E13PYtWtdApqH4SKSE4nsreQ0MQ%3D",
+    "likeCount": 1308,
+    "title": "「Github一周热点49期」Docker运行Window等 GitHub 一周热点汇总第49期(2024/11/10-11/16），本期内容包括Docker中运行Windows、文档解析工具、NextJS的AI模版、AI Agent系统框架和AI数据库工具，一起来看具体内容吧，视频制作不易，需要一个三连哈。\n#github #ai #人工智能 #Docker #数据库",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/ce442ecd81ed4a108d647ba3dc78ee2d~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=jtwDyevWRIxUkrbGIL9zvVwxVtA%3D",
     "id": "7438096619343482162"
   },
   {
     "href": "https://www.douyin.com/video/7435498012316536073",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/1d8b451bdb9946c0be44d2b3b87ec5f2~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=buVl09FLWf2aeGLV%2FyvZxG%2FEZsM%3D",
+    "likeCount": 919,
+    "title": "「Github一周热点48期」聚合 AI 、数据库编辑器等 GitHub 一周热点汇总第48期(2024/11/03-11/09），本期内容包括聚合 AI 平台、数据库图表编辑器、音频工具包、AI 开发平台和密钥检测工具，一起来看具体内容吧，视频制作不易，需要一个三连哈。\n#AI #github #数据库 #TTS #密钥",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/1d8b451bdb9946c0be44d2b3b87ec5f2~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=qCk5NnO8jvd91yWYcIQgmLqEAUM%3D",
     "id": "7435498012316536073"
   },
   {
     "href": "https://www.douyin.com/video/7432906175752047899",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/eb32138af2c847aeb5757ffda3af3aa1~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=YSGtXJM3nM%2Bw8HPJuI3nhvGRN9M%3D",
+    "likeCount": 764,
+    "title": "「Github一周热点47期」llama官方配套资料等 GitHub 一周热点汇总第47期(2024/10/27-11/02），本期内容包括llama官方配套资料、低代码框架、网页变化监控工具、工作流编排平台和我的世界AI工具，一起来看具体内容吧，视频制作不易需要一个三连哈。\n#github #人工智能 #大模型 #低代码 #我的世界",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/eb32138af2c847aeb5757ffda3af3aa1~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=MT4CJUdELyB3%2B9RP3hYaqAkZhsM%3D",
     "id": "7432906175752047899"
   },
   {
     "href": "https://www.douyin.com/video/7430699710572236070",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/1fa5e3cd301e44f8b45ddc8f8066b6f5~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=CVWx52HLHRPU4hCy6%2FBt1YgdIcA%3D",
+    "likeCount": 804,
+    "title": "「Github一周热点46期」大模型OCR、IPTV直播源等 GitHub 一周热点汇总第46期(2024/10/20-10/26），本期内容包括大模型OCR、IPTV直播源、工作流程自动化、下一代信息浏览器和下载金融数据工具，一起来看具体内容吧，视频制作不易需要一个三连哈。\n#人工智能 #ocr #AI #IPTV #rss",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/1fa5e3cd301e44f8b45ddc8f8066b6f5~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=YNvA53cFUCIjJnG12XoQ%2FBZmuuE%3D",
     "id": "7430699710572236070"
   },
   {
     "href": "https://www.douyin.com/video/7429938898005970213",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/9416795178964d98b24dba0ef044ab93~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=%2B%2FDPApO69Lq6Yi9zwIHWzvMBW9w%3D",
+    "likeCount": 226,
+    "title": "1亿张照片怎么存？6分钟速通OSS，变身云专家 如果有了1亿张照片，本地存不下了怎么办？那就放到云上吧！今天我就用一个视频带你速通云存储中的OSS对象存储，成为云计算专家。\n#云计算 #云存储 #对象存储 #阿里云 #OSS",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/9416795178964d98b24dba0ef044ab93~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=%2FBXvda1UKm6xxBgSkxJ4Z3DNyJ4%3D",
     "id": "7429938898005970213"
   },
   {
     "href": "https://www.douyin.com/video/7427706042345114917",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/cb2e6dbce93c432eb5dccc1ca3ed3e33~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=D24aX%2FtC2Pe4lq7kcZtbdPWp42g%3D",
+    "likeCount": 307,
+    "title": "「Github一周热点45期」OCR工具包、文件分享平台等 GitHub 一周热点汇总第45期(2024/10/13-10/19），本期内容包括OCR工具包、文件分享平台、开源调查问卷、编程AI助手和面部识别框架，一起来看具体内容吧，视频制作不易需要一个三连哈。#ai #OCR #人脸识别 #编程 #问卷调查",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/cb2e6dbce93c432eb5dccc1ca3ed3e33~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=c6G4sp3uZIG9q5FK9o3MueoETBY%3D",
     "id": "7427706042345114917"
   },
   {
     "href": "https://www.douyin.com/video/7425102501948525858",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/ie40af8236dc54320a1037c7d2745e5d4~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=z6h0S43mGXDmnQGr0LHeItq%2F97o%3D",
+    "likeCount": 521,
+    "title": "「Github一周热点44期」多语言算法库、可扩展区块链等 GitHub 一周热点汇总第44期(2024/10/06-10/12），本期内容包括多语言算法库、远程工作指南、可扩展区块链、一体化项目管理平台和数学动画引擎，一起来看具体内容吧，视频制作不易需要一个三连哈。#编程 #算法 #项目管理 #区块链 #动画",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/ie40af8236dc54320a1037c7d2745e5d4~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=yC9Vo6nDUe90ons5zZbmyu6pnvM%3D",
     "id": "7425102501948525858"
   },
   {
     "href": "https://www.douyin.com/video/7422599299902557480",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p11-sign.douyinpic.com/tos-cn-i-dy/cd91659fe5854767a968b72fa604ba80~noop.jpeg?biz_tag=aweme_video&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=optimized_cover&se=false&x-expires=1758200400&x-signature=sc24AeHFUqXOTrLD7iwldF0f8TY%3D",
+    "likeCount": 1402,
+    "title": "「Github一周热点43期」LLM的爬虫、网页变APP等 GitHub 一周热点汇总第43期(2024/09/29-10/05），本期内容包括面向LLM的爬虫、网页一键变APP、AI 屏幕录制、分布式AI推理框架和开源金融分析工具，一起来看具体内容吧，视频制作不易需要一个三连哈。#人工智能 #ai #爬虫 #rust #程序员",
+    "thumbnail": "https://p11-sign.douyinpic.com/tos-cn-i-dy/cd91659fe5854767a968b72fa604ba80~noop.jpeg?biz_tag=aweme_video&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=optimized_cover&se=false&x-expires=1771347600&x-signature=EDt1gHQzBTqo8xX26isu7lvTdKE%3D",
     "id": "7422599299902557480"
   },
   {
     "href": "https://www.douyin.com/video/7419919660650466594",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/i42850542051040a687b1e8a19b577a78~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=GdhXYZLpff9VENWgS8RKms8PKQk%3D",
+    "likeCount": 450,
+    "title": "「Github一周热点42期」AirDrop替代等5个项目 GitHub 一周热点汇总第42期(2024/09/22-09/28），本期内容包括计算机视觉工具库、CUDA互动学习、AirDrop替代、二维码传数据和 llama开发框架，一起来看具体内容吧，视频制作不易需要一个三连哈。\n#AirDrop #人工智能 #CUDA #深度学习 #二维码",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/i42850542051040a687b1e8a19b577a78~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=%2Fo12nJ1AbXotHgWg1HnXb%2BjAlRo%3D",
     "id": "7419919660650466594"
   },
   {
     "href": "https://www.douyin.com/video/7419539040875056419",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/iccf2db325abe4105a3dea8de1e9ea22f~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=36osElRr34YA7iJ7oMVY%2BCKne70%3D",
+    "likeCount": 1129,
+    "title": "玩转VPS必备的5个开源项目，5分钟带你变高手 今天分享5个玩转VPS必备的开源项目，如果你不知道怎么装修自己的VPS，那绝对要收藏\n#VPS #服务器 #运维 #github #开源",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/iccf2db325abe4105a3dea8de1e9ea22f~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=zIaG5CVnmQnyuHbRfrtjV3gzibs%3D",
     "id": "7419539040875056419"
   },
   {
     "href": "https://www.douyin.com/video/7417352871815040296",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/id9cd56b2b8a6449b8fed7a4ab4213436~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=iPo4gm1RolZwCZV8mKSWeg7jnf4%3D",
+    "likeCount": 512,
+    "title": "「Github一周热点41期」eBPF捕获工具、本地AWS等 GitHub 一周热点汇总第41期(2024/09/15-09/21），本期内容包括基于eBPF的捕获工具、DevOps脚本集合、CRM工具、数据库管理TUI和本地运行AWS，一起来看具体内容吧，视频制作不易帮忙点个赞哈。\n#ebpf #github #AI #crm #AWS",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/id9cd56b2b8a6449b8fed7a4ab4213436~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=B2yiBgsBCjHTeXRDlp%2FAz8iApN8%3D",
     "id": "7417352871815040296"
   },
   {
     "href": "https://www.douyin.com/video/7414699336648363327",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/ifb3f85f427b14650a40a2b64d9378f6f~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=KvaGZkoByLDybLQU7qE1NUnFSDM%3D",
+    "likeCount": 624,
+    "title": "「Github一周热点40期」私人ChatGPT、社媒工具等 GitHub 一周热点汇总第40期(2024/09/08-09/14），本期内容包括 私人ChatGPT、Web服务器、社媒管理工具、Windows增强工具集和UI 组件集合，一起来看具体内容吧，如果你喜欢每周的电子榨菜那给个三连哈。\n#chatgpt #人工智能 #AI #社交媒体 #github",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/ifb3f85f427b14650a40a2b64d9378f6f~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=lyj1iwiLpKyawCwrGiHzACGguNI%3D",
     "id": "7414699336648363327"
   },
   {
     "href": "https://www.douyin.com/video/7412128565199785279",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/i2ffee6d955204166a75b014e8619172c~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=JfK70tN5fujj%2BfDLiQOu8CnJ6Qc%3D",
+    "likeCount": 608,
+    "title": "「Github一周热点39期」开源RAG UI、AI证件照等 GitHub 一周热点汇总第39期(2024/09/01-09/07），本期内容包括开源RAG UI、AI证件照、Anthropic 的 AI 课程、开源免费ERP和基于 Docker 的 PaaS，一起来看具体内容吧，别忘了点个赞哈。\n#RAG #ai #人工智能 #GITHUB #ERP",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/i2ffee6d955204166a75b014e8619172c~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=jiBR01ADIkD3mXvOe%2Fr4UECY0K4%3D",
     "id": "7412128565199785279"
   },
   {
     "href": "https://www.douyin.com/video/7409537677252431119",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p9-pc-sign.douyinpic.com/tos-cn-i-dy/if3d6cb8d5c7845d9b126fb6d926139c8~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=B0xGhbzQMO3L8T66apgPyPV59lg%3D",
+    "likeCount": 572,
+    "title": "「Github一周热点38期」黑客工具箱、Notion平替等 GitHub 一周热点汇总第38期(2024/08/25-08/31) ，本期内容包括黑客工具箱、社媒账号搜索工具，Notion平替笔记，LLM开发框架和AI一键换脸，一起来看具体内容吧，顺便点个赞哈。\n#黑客 #github #人工智能 #Notion #llm",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/if3d6cb8d5c7845d9b126fb6d926139c8~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=RSpRBWorw0Y2opWELXDtJTJy1VU%3D",
     "id": "7409537677252431119"
   },
   {
     "href": "https://www.douyin.com/video/7406903817544994048",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/i2bbd5f10bc6d469d9aa28d305a888826~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=3W6kctbvECVU4phSjcWAHQ%2FLf1Q%3D",
+    "likeCount": 370,
+    "title": "「Github一周热点37期」开源身份认证、代理客户端 等 GitHub 一周热点汇总第37期(2024/08/18-08/24) ，本期内容包括开源身份认证、多平台代理客户端 、JS实用库、Python 包管理器和Transformer可视化工具，一起来看具体内容吧，顺便点个赞哈。\n#GitHub #人工智能 #身份认证 #transformer #python",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/i2bbd5f10bc6d469d9aa28d305a888826~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=dhsOx7zlYEIBRIh7wssC16IqVug%3D",
     "id": "7406903817544994048"
   },
   {
     "href": "https://www.douyin.com/video/7404012488762658088",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/i4936f7828ceb4cc1b362a6cf4c155558~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=P9iruIrDwh96gEdrwG%2BeMxd4pxk%3D",
+    "likeCount": 716,
+    "title": "「Github一周热点36期」实时视频换脸项目一周暴涨2万星 GitHub 一周热点汇总第36期(2024/08/11-08/17) ，本期内容包括实时视频换脸、新 Web 浏览器、无代码数据库、开源设计工具和开源密钥管理 ，一起来看具体内容吧，顺便点个赞哈。\n#AI #人工智能 #github #数据库 #视频换脸",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/i4936f7828ceb4cc1b362a6cf4c155558~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=7abDbyE0wYWn%2B63UEKdzpb%2Bmkss%3D",
     "id": "7404012488762658088"
   },
   {
     "href": "https://www.douyin.com/video/7401360944456125750",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/i7ef735da96074975b386da1316f412ae~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=yuBQfbIqQyBBjJURTDosNvbowik%3D",
+    "likeCount": 323,
+    "title": "「Github一周热点35期」文生视频模型等5个项目 GitHub 一周热点汇总第35期(2024/08/04-08/10) ，本期内容包括docker中运行MacOS，运行LLM的轻量库，文生视频模型，RSS 信息浏览器和自托管监控工具，一起来看具体内容吧，顺便点个赞哈。\n#docker #AIGC #大模型 #监控 #RSS",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/i7ef735da96074975b386da1316f412ae~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=H5bimiMrjY5vRBOpsdKLOTWb9M4%3D",
     "id": "7401360944456125750"
   },
   {
     "href": "https://www.douyin.com/video/7398799942459936012",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p9-pc-sign.douyinpic.com/tos-cn-i-dy/i563dad59ee504934ae05388131c57725~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=MZSHItgP5bdwXcfTTMjufuNnlUs%3D",
+    "likeCount": 273,
+    "title": "「Github一周热点34期」公考实践教程、实时交互数字人等 GitHub 一周热点汇总第34期(2024/07/28-08/03) ，本期内容包括程序员公考实践教程，深度数据包检测的规避程序 ，实时交互流式数字人，网络流量工具和Redis替代，一起来看具体内容吧，顺便点个赞哈。\n#AI #公考 #Redis #数字人 #网络工具",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/i563dad59ee504934ae05388131c57725~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=uFWgu4UDRWO18EqOUYUAaWz1lJc%3D",
     "id": "7398799942459936012"
   },
   {
     "href": "https://www.douyin.com/video/7396266681011604755",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/i13b8a17aa8e74d5fb41cabc784ea4639~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=Bb%2BzlKOEZM7b17OaTCszWy%2FQ6nc%3D",
+    "likeCount": 631,
+    "title": "「Github一周热点33期」AI agent的生产工具集等 GitHub 一周热点汇总第33期(2024/07/21-07/27) ，本期内容包括 AI agent 的生产工具集，Netflix 的工作流编排器，awesome，免费学习编程和一站式数据提取工具，一起来看具体内容吧，顺便点个赞哈。\n#AI #github #编程 #工作流 #数据提取",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/i13b8a17aa8e74d5fb41cabc784ea4639~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=oA6nK0ZtMzN3gf%2BmG%2FMtvhRg2v0%3D",
     "id": "7396266681011604755"
   },
   {
     "href": "https://www.douyin.com/video/7393625472216599849",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/ib5ecc6a3cf134bdba86e8682cc5a81c5~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=g%2B3fho%2BdVJ5a3FYvXvhtVarLn3g%3D",
+    "likeCount": 704,
+    "title": "「Github一周热点32期」动画图解算法教程等5个项目 GitHub 一周热点汇总第32期(2024/07/14-07/20) ，本期内容包括动画图解算法教程、用LLM写完整报告、爬虫和浏览器自动化库、自托管的AI编码助手和个性化AI记忆层，一起来看具体内容吧。\n#算法 #编程 #AI #GitHub #爬虫",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/ib5ecc6a3cf134bdba86e8682cc5a81c5~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=8Ck%2Fff1qkS%2FBYrilICDNbYktMBY%3D",
     "id": "7393625472216599849"
   },
   {
     "href": "https://www.douyin.com/video/7392915951957691689",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/i6907442a2ee040ffbcce20a35cf3e911~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=xmmBa2vORoZ01dYVcqC6WRNJM9Q%3D",
+    "likeCount": 953,
+    "title": "NO1的开源WAF竟是国产？！5分钟带你速通WAF 当我们的网站上线后首先会遇到什么，可能不一定是自己的客户，而是来自网络的攻击。今天我用一个视频带你了解安全领域：WAF，并动手实操NO1的开源Waf：雷池，而且，它还是国产的开源项目。\n#WAF#信息安全 #防火墙 #雷池 #GitHub",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/i6907442a2ee040ffbcce20a35cf3e911~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=mEsl9Z0CgTJ5fZyxwgyZxkdzBWc%3D",
     "id": "7392915951957691689"
   },
   {
     "href": "https://www.douyin.com/video/7391027924272418059",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p9-pc-sign.douyinpic.com/tos-cn-i-dy/i502d0f8232e847e89a5a0d6f9c08d9d4~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=x0FvJEi%2BqqbOYIej8PFLHKN%2Fhg0%3D",
+    "likeCount": 988,
+    "title": "「Github一周热点31期」自己动手实现热门技术、TTS等 GitHub 一周热点汇总第31期(2024/07/07-07/13) ，本期包括动手实现热门技术、文本转语音工具、Rust的游戏引擎、一键部署GraphRAG和headless富文本编辑器，一起来看具体内容吧。\n#github #tts #rust #游戏引擎 #rag",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/i502d0f8232e847e89a5a0d6f9c08d9d4~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=Qa8UC6aOjliDjBcf6zw2xfhiLaY%3D",
     "id": "7391027924272418059"
   },
   {
     "href": "https://www.douyin.com/video/7388423225052532007",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/id9495439719d45cbbed4831400f8310d~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=zMT9BG76fLTHZ9ORJHs2S5snT78%3D",
+    "likeCount": 1048,
+    "title": "Github一周热点30期：Imhex辑器、知识图RAG等 GitHub 一周热点汇总第30期(2024/06/30-07/06) ，本期包括十六进制编辑器、基于图的RAG、30天学Python、量化金融的Python包和用企业数据定制 AI的平台，一起来看具体内容吧。\n1、 项目名称：ImHex - 十六进制编辑器\n2、项目名称：graphrag -  基于图的RAG\n3、项目名称：30-Days-Of-Python -  30天学Python\n4、项目名称：gs-quant - 量化金融的Python包\n5、项目名称：mindsdb - 用企业数据定制 AI的平台\n#GitHub #开源 #二进制 #AI #人工智能",
+    "thumbnail": "https://p9-pc-sign.douyinpic.com/tos-cn-i-dy/id9495439719d45cbbed4831400f8310d~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=IHI84YdfzoS7cuhiU%2B%2BvmUqXRc8%3D",
     "id": "7388423225052532007"
   },
   {
     "href": "https://www.douyin.com/video/7387621330838949183",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/id6622abb89004096ba94ed70f766d4ef~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=gYZl%2FGOIMjOxLbpEC532%2BbXYdDE%3D",
+    "likeCount": 204,
+    "title": "Agent开发大提速！深度体验GLM-4-alltools 最近大家肯定都听说了OpenAI将要禁止中国的API调用，很多开发者都被迫面临迁移，国内的大模型也都有了一些动作。不久前智谱的开发者日上，就发布了AllTools 智能体 API，再次提升了agent的开发体验，今天我们就体验下它用起来如何。\n#人工智能 #大模型 #agent #开发者 #编程",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/id6622abb89004096ba94ed70f766d4ef~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=fm9wsndRfC3KoAXO9r9OftMWt%2BA%3D",
     "id": "7387621330838949183"
   },
   {
     "href": "https://www.douyin.com/video/7386154389213285668",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/i2a6f6d57c5e14315af06e4a2c34a1aa3~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=dpsLclU88%2FA954q9NZpIaOqwJ2c%3D",
+    "likeCount": 538,
+    "title": "「Github一周热点29」新的扩散引擎、终端文件管理器等 GitHub 一周热点汇总第29期(2024/06/23-06/29) ，本期包括新的Diffusion引擎、awesome软件架构、超快的终端文件管理器、程序员饭方法指南和Win11实用工具，一起来看内容吧。\n1、项目名称：DiffSynth-Studio - Diffusion引擎\n2、项目名称：awesome-software-architecture - awesome软件架构\n3、项目名称：yazi - 超快的终端文件管理器\n4、项目名称：HowToCook - 程序员在家做饭方法指南\n5、项目名称：winutil - Win11实用工具\n#GitHub #开源 #stablediffusion  #人工智能 #文件管理",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/i2a6f6d57c5e14315af06e4a2c34a1aa3~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=%2FTLo0kOzYbtHPqS8YH9wUSrZtpE%3D",
     "id": "7386154389213285668"
   },
   {
     "href": "https://www.douyin.com/video/7385737249549208843",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/id7b140571bbd4fa2aab7f3fbaa8f2306~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=wo7mKurpHwnHPTIsf2%2B23BMdfjk%3D",
+    "likeCount": 401,
+    "title": "90%的人不知道，轻量服务器和云服务器的区别？5分钟带你速通 云服务器是云计算最基础的内容之一，用过的朋友们应该也听过一个产品：轻量应⽤服务器。它的价格比一般云服务器价格更便宜，看起来非常诱人。但是我翻阅了各大厂商的文档，发现都没有很清楚的说明白到底轻量应⽤服务器和云服务的差别在哪。那你可能就会疑惑了，这里面会有会有什么问题？今天我用一个视频带你搞懂轻量应⽤服务器，我会从产品功能、购买形态、付费方式等方面解析，它到底轻在哪？\n#云计算 #云服务器 #轻量云服务器 #阿里云 #科普",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/id7b140571bbd4fa2aab7f3fbaa8f2306~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=DnUWXEXjSg3GGnfj0Jyr2AExIbw%3D",
     "id": "7385737249549208843"
   },
   {
     "href": "https://www.douyin.com/video/7383187262013541644",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/i0dffd7015f2a49e99c2f9fbbd304ecb0~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=otbf%2BieXg26MSGRyLy8kcTyZiAs%3D",
+    "likeCount": 339,
+    "title": "Github一周热点28：最强SDGui，Mac窗口管理等 1 ComfyUI\n项目名称：ComfyUI - 最强SD GUI\n2 LibreChat\n项目名称：LibreChat - 增强型 ChatGPT\n3 Loop\n项目名称：Loop - Mac 窗口管理工具\n4 omnivore\n项目名称：omnivore - 稍后再读\n5 ente\n项目名称：ente - 照片管理\n#人工智能 #Mac应用 #comfyui #稍后阅读 #GPT",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/i0dffd7015f2a49e99c2f9fbbd304ecb0~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=b8N7yGfKsSyp8hh22jLNsNEr2jQ%3D",
     "id": "7383187262013541644"
   },
   {
     "href": "https://www.douyin.com/video/7380722934123466020",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/i536b51266aed4629bbfdd1a4fe77fe3f~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=GS93ZYwJXQrV2v6OkCqHprHEN%2FM%3D",
+    "likeCount": 528,
+    "title": "「Github一周热点27」服务器应用管理、AIGC课程等 GitHub 一周热点汇总第27期(2024/06/09-06/15) ，本期内容包括服务器应用管理面板、AIGC 课程、PDF转markdown、浏览器中运行transformers和命令行里的AI助理，一起来看内容吧。\n1、coolify - 服务器应用管理面板\n2、项目名称：generative-ai-for-beginners -AIGC 课程\n3、项目名称：marker - PDF转markdown\n4、项目名称：transformers.js - 浏览器运行transformers\n5、项目名称：aider - 命令行里的 AI 助理\n#运维工具 #服务器管理 #transformer #人工智能 #PDF工具",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/i536b51266aed4629bbfdd1a4fe77fe3f~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=xJqtLYTlyD7QgmHTqpMNjE5ei%2BU%3D",
     "id": "7380722934123466020"
   },
   {
     "href": "https://www.douyin.com/video/7380008348810333479",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/if377963e9ac348afb5477b9da15ffa0b~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=LvRGwsIakw5vYV5LZK5lEb2q8sE%3D",
+    "likeCount": 239,
+    "title": "想做精美的用户引导效果，只需要4kb的开源项目 今天我们分享的开源项目，可以帮助你快速开发互动式的用户引导，在GitHub超过20K Star的开源项目：driver.js\n#前端开发 #程序员 #用户引导 #JavaScript #编程",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/if377963e9ac348afb5477b9da15ffa0b~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=inpnek8FnHqFB0YmScZng2UmxA4%3D",
     "id": "7380008348810333479"
   },
   {
     "href": "https://www.douyin.com/video/7379798403661827367",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/i5002d896460e4cd98b855f4fe6ff08c4~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=M%2BQbwdQ0vXhOOaCSRfrrnfBEqKc%3D",
+    "likeCount": 2984,
+    "title": "Qwen2大模型保姆级部署教程，快速上手最强国产大模型 最近，被国内外网友崔更的Qwen大模型发布了V2版本。\n今天我们就用一起视频，带大家看看这次的升级重点，并手把手教你如何自己部署一套Qwen2，包括本地部署和云上部署，然后你就可以自己开始使用探索了。\n#大模型 #qwen2 #Ollama #人工智能 #国产大模型",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/i5002d896460e4cd98b855f4fe6ff08c4~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=AVwrVxrc9nDzWtFCjFbFVUk5u94%3D",
     "id": "7379798403661827367"
   },
   {
     "href": "https://www.douyin.com/video/7378341057978797375",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p96-sign.douyinpic.com/tos-cn-i-dy/i59309f7ad6bb40ab8fa6ad165fe3d9e6~noop.jpeg?biz_tag=aweme_video&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=optimized_cover&se=false&x-expires=1758200400&x-signature=uPw7E327TJLMaWkx126bt%2BdPEwY%3D",
+    "likeCount": 354,
+    "title": "GitHub 一周热点汇总第26期 GitHub 一周热点汇总第26期(2024/06/02-06/08) ，这周主打一个实用，包括了：Mac 菜单栏管理工具、端侧多模态大模型、高性能分析数据库、产品分析平台和文件同步工具。端午到了，其实我也特别好奇一个问题，粽子你吃甜的还是咸的？\n1、Ice - Mac 菜单栏管理\n2、MiniCPM-V - 端侧多模态大模型\n3、duckdb - 高性能分析数据库\n4、posthog - 产品分析平台\n5、syncthing - 文件同步\n#GitHub #大模型   #文件同步#mac #程序员",
+    "thumbnail": "https://p11-sign.douyinpic.com/tos-cn-i-dy/i59309f7ad6bb40ab8fa6ad165fe3d9e6~noop.jpeg?biz_tag=aweme_video&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=optimized_cover&se=false&x-expires=1771347600&x-signature=sWhganDTY%2BgEf1JHcnghb%2FsNuI0%3D",
     "id": "7378341057978797375"
   },
   {
     "href": "https://www.douyin.com/video/7377591029731577107",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/ifb79b2bd533242ae80ec2b6680d98f16~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=5tl6fJWbiYpRcWSV4VZhomu5gko%3D",
+    "likeCount": 2228,
+    "title": "AI时代新爬虫：网站自动转LLM数据 爬虫不是一个新东西，在大模型的时代，爬虫也有了很多新的发展。\n今天我们分享的开源项目，它能一键将网页内容转换为大模型-ready的数据。它就是：firecrawl。\n#llm #爬虫 #GitHub #开源工具 #人工智能",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/ifb79b2bd533242ae80ec2b6680d98f16~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=MynsaVrv40EtMR9s4FuF%2FAbTbJ4%3D",
     "id": "7377591029731577107"
   },
   {
     "href": "https://www.douyin.com/video/7375411182741605686",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/i3a495fc65b384b99b75a37cdfef29b82~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=QYUSpni56uciBFbYnUWvJs9U%2FNs%3D",
+    "likeCount": 631,
+    "title": "「Github一周热点25」对话场景TTS模型等5个项目 GitHub 一周热点汇总第25期(2024/05/26-06/01) ，本周内容包括了对话效果超好的文本转语音模型，AI第二大脑，极客时间电子书，AI 搜索引擎和开源企业文档。一起来看具体内容吧。\n #github #开源 #AI #TTS #人工智能",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/i3a495fc65b384b99b75a37cdfef29b82~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=jaRiVIhEhg3n5NvtCGsK7LKc%2BhI%3D",
     "id": "7375411182741605686"
   },
   {
     "href": "https://www.douyin.com/video/7373134736987868427",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/ia0c3c0b8b2a449118c11d0408e6db80e~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=M%2BXc%2BsPN3wG7lVXCdPuvHifTPzg%3D",
+    "likeCount": 5170,
+    "title": "Github一周热点24期：桌面ChatGPT，低代码平台等 GitHub 一周热点汇总第24期(2024/05/19-05/25) ，本周内容包括了桌面版ChatGPT，低代码平台，可视爬虫，网页一键转LLM数据和改良版VIM。一起来看具体内容吧。\n#人工智能 #ChatGPT #低代码 #爬虫 #vim",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/ia0c3c0b8b2a449118c11d0408e6db80e~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=ntKJmQ7E%2Bkm60eFGuQOENNWyQ6U%3D",
     "id": "7373134736987868427"
   },
   {
     "href": "https://www.douyin.com/video/7371384564100451638",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/i213a2850514c4872829838837980e35c~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=sQlHLW1T4lUZVRki5lhAMHsv9dg%3D",
+    "likeCount": 608,
+    "title": "王牌模型大降价？通义千问真的杀疯了 现在的大模型已不满足于卷性能，还要卷价格。要说卷王，还得是看阿里，就在大家还在回味刚刚发布的通义千问2.5时，阿里云反手又来了一个大降价。今天，阿里云发出绝对重磅信息！通义千问GPT-4级主力模型Qwen-Long，API输入价格从0.02元/千tokens降至0.0005元/千tokens，直降97%。降价后约为GPT-4价格的1/400，击穿全球底价。#大模型 #gpt4 #通义千问 #通义千问降价 #AI",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/i213a2850514c4872829838837980e35c~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=O9ajxOYVJuejbVbAgD75Rn8tako%3D",
     "id": "7371384564100451638"
   },
   {
     "href": "https://www.douyin.com/video/7370522376615841035",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/id1f1c981f49a4f939fb1f4cb96436175~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=bQ17GHZzYUJ91nWlzq5z60Sm%2Bq8%3D",
+    "likeCount": 1058,
+    "title": "Github一周热点23期：IT工具箱，AI开发框架等 GitHub 一周热点汇总第22期(2024/05/12-05/18) ，本周内容的AI含量终于降低了，一起来看具体内容吧。\n1 it-tools\n项目名称：it-tools - IT工具箱\n2 hydra\n项目名称：hydra - 游戏启动器\n3 phidata\n项目名称：phidata - AI助手开发框架\n4 AFFiNE\n项目名称：AFFiNE - 知识库平台\n5 IC-Light\n项目名称：IC-Light - 控制图像中的光\n#ai #github #开源  #开发工具 #编程 @大话西游手游",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/id1f1c981f49a4f939fb1f4cb96436175~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=rqzNw9hlygZiNISOW93wdvIrGvE%3D",
     "id": "7370522376615841035"
   },
   {
     "href": "https://www.douyin.com/video/7367962693401185574",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-pk90l89vgd/7e51b29259024b4d9b264334a4b342db~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=%2BaLS0wt9NS%2BrN8VKquMoXrv10Ys%3D",
+    "likeCount": 403,
+    "title": "「Github一周热点22」全新神经网络架构爆火！ #ai #人工智能 #GitHub #开源 #爬虫",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-pk90l89vgd/7e51b29259024b4d9b264334a4b342db~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=5OEwKP95l217ZtPIrN%2FTa6mghbI%3D",
     "id": "7367962693401185574"
   },
   {
     "href": "https://www.douyin.com/video/7366917168295873801",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p9-pc-sign.douyinpic.com/tos-cn-i-pk90l89vgd/631506a0a75745d2bdeecee237fc0029~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=EO1iPfMr%2B8vEYgDceSHnUeFXNbA%3D",
+    "likeCount": 408,
+    "title": "架构师必备，5个用代码生成架构图的开源工具 #架构 #架构图 #开源 #github #diagram",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-pk90l89vgd/631506a0a75745d2bdeecee237fc0029~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=7hrZNvQOevADpop5kGkNvtVMQGk%3D",
     "id": "7366917168295873801"
   },
   {
     "href": "https://www.douyin.com/video/7365029287830867241",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-pk90l89vgd/7d79e4ef77fd4c869782ef61ad901e19~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=EjJf1s7UBuRpVjmlFkkZNtLTnwA%3D",
+    "likeCount": 390,
+    "title": "「Github一周热点21」AI 能力会不会成为作恶工具？ #github #AI #人工智能  #视频换脸",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-pk90l89vgd/7d79e4ef77fd4c869782ef61ad901e19~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=FbeE7IYQz%2BDLyQQZ%2B9hz2uIXLGg%3D",
     "id": "7365029287830867241"
   },
   {
     "href": "https://www.douyin.com/video/7362740126327262518",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-pk90l89vgd/ec5d9c0672754b1999fdacd21d77818c~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=bFLRioDBf7xralBY1Ah4r%2FWgFuk%3D",
+    "likeCount": 587,
+    "title": "「Github一周热点20」本地大模型运行工具等5个火爆项目 #人工智能  #llm #crm  #开源",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-pk90l89vgd/ec5d9c0672754b1999fdacd21d77818c~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=Kxsmc0xQQ3n0zyODDaqIH088Xeg%3D",
     "id": "7362740126327262518"
   },
   {
     "href": "https://www.douyin.com/video/7359856017879928083",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p9-pc-sign.douyinpic.com/tos-cn-i-pk90l89vgd/d9eff99836e3465980454c9b210072a1~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=%2FmVeSr%2B3U%2BbnM1GZY36h9vEU3sY%3D",
+    "likeCount": 183,
+    "title": "Github一周热点19，这5个项目值得收藏 #大模型 #Llama3 #人工智能 #AI #LLM #数据库",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-pk90l89vgd/d9eff99836e3465980454c9b210072a1~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=mFAIVgk5VHiwnFNvW4mDCAXLQ00%3D",
     "id": "7359856017879928083"
   },
   {
     "href": "https://www.douyin.com/video/7354665269073087755",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/0b9e66d604814583801d32e6e8401454~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=SjMbRi2NhExDV3zF0dUCoohalpg%3D",
+    "likeCount": 214,
+    "title": "GitHub 一周热点汇总第17期 GitHub 一周热点汇总第17期(2024/03/31-04/06) ，这一周又快变成AI热点项目汇总了，这里我还剔除了上周就已上榜的openDevin，一起看看都有哪些热门项目吧。#ai #人工智能 #github优质项目 #开源",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/0b9e66d604814583801d32e6e8401454~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=9vjxzPMDc6PnQjjOgkOEsXWy3Eg%3D",
     "id": "7354665269073087755"
   },
   {
     "href": "https://www.douyin.com/video/7352378002170334483",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-pk90l89vgd/51e0ee3a4a7e427a8fcc031d0c9747cd~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=rh5Lt0s4nMbocG7f10bHu2zpMRI%3D",
+    "likeCount": 223,
+    "title": "GitHub 一周热点汇总第16期 #GitHub #开源 #人工智能 #AI #大模型 #编程",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-pk90l89vgd/51e0ee3a4a7e427a8fcc031d0c9747cd~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=YGhDVS9YrsnlFo1e9T5kFqWGCiY%3D",
     "id": "7352378002170334483"
   },
   {
     "href": "https://www.douyin.com/video/7349784652875435283",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-pk90l89vgd/a9caa17448cd43a687e46aba23b0781c~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=PZdcp8lC616FQDyOzcIfOllpYb0%3D",
+    "likeCount": 138,
+    "title": "GitHub 一周热点汇总第15期 #GitHub #开源 #人工智能 #大模型 #AI #编程",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-pk90l89vgd/a9caa17448cd43a687e46aba23b0781c~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=CPAEPAmZN%2FaAnDjo83vpVa9zudk%3D",
     "id": "7349784652875435283"
   },
   {
     "href": "https://www.douyin.com/video/7320923395250539811",
-    "likeCount": 0,
-    "title": "无标题",
-    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/id16809d362114804ac21c50cf9fa2197~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2072350800&x-signature=soXyNInpmnWVie%2Fvgz58fDxXYh8%3D",
+    "likeCount": 286,
+    "title": "GitHub 一周热点汇总 第4期 GitHub一周热点汇总第四期 (2023/12/24-12/30)，梳理每周热门的GitHub项目，了解热点技术趋势，掌握前沿科技方向，发掘更多商机。#github优质项目 #开源项目",
+    "thumbnail": "https://p3-pc-sign.douyinpic.com/tos-cn-i-dy/id16809d362114804ac21c50cf9fa2197~tplv-dy-cropcenter:323:430.jpeg?biz_tag=pcweb_cover&from=327834062&lk3s=138a59ce&s=PackSourceEnum_PUBLISH&sc=cover&se=true&sh=323_430&x-expires=2085498000&x-signature=DfmwBXQMg3Z6xuST0mku1nFwC2Y%3D",
     "id": "7320923395250539811"
   }
 ]
