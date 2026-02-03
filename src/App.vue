@@ -561,9 +561,6 @@ onMounted(async () => {
             <!-- Toolbar -->
             <div class="toolbar">
               <div class="toolbar-left">
-                <Button variant="default" size="sm" :icon="Upload" @click="importJsonFiles">
-                  导入
-                </Button>
                 <Button variant="ghost" size="sm" :icon="RefreshCw" @click="reloadDb">
                   刷新
                 </Button>
@@ -667,7 +664,7 @@ onMounted(async () => {
               >
                 <el-table-column type="selection" width="55" align="center" />
                 <el-table-column prop="id" label="视频ID" width="160" show-overflow-tooltip />
-                <el-table-column label="标题" min-width="220">
+                <el-table-column label="标题" min-width="220" show-overflow-tooltip>
                   <template #default="{ row }">
                     <div class="title-cell">
                       <div class="title-text">{{ row.title || "无标题" }}</div>
