@@ -1,15 +1,15 @@
 {
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "tauri-template",
+  "version": "0.1.0",
+  "identifier": "com.t-liaochunxin.tauri-template",
   "build": {
-    "beforeDevCommand": "npm run dev --prefix app",
-    "beforeBuildCommand": "npm run build --prefix app",
-    "devPath": "http://localhost:1420",
-    "distDir": "../app/dist"
+    "beforeDevCommand": "pnpm dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "pnpm build",
+    "frontendDist": "../dist"
   },
-  "package": {
-    "productName": "抖音UP主视频管理器",
-    "version": "0.1.0"
-  },
-  "tauri": {
+  "app": {
     "windows": [
       {
         "title": "抖音UP主视频管理器",
@@ -18,22 +18,19 @@
         "resizable": true
       }
     ],
-    "allowlist": {
-      "all": false,
-      "fs": {
-        "all": true
-      },
-      "path": {
-        "all": true
-      }
-    },
     "security": {
       "csp": null
-    },
-    "bundle": {
-      "active": true,
-      "identifier": "com.example.video-manager",
-      "targets": "all"
     }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
   }
 }

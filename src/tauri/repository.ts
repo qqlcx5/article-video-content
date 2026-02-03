@@ -2,15 +2,14 @@ import type { IVideoRepository } from "../repository";
 import type { ILocalVideo } from "../types";
 import { parseLocalVideosFromUnknown, serializeLocalVideos } from "../local-db";
 
-type FsV1 = typeof import("@tauri-apps/api/fs");
 type PathApi = typeof import("@tauri-apps/api/path");
 
 type FsApi = {
   readTextFile: (path: string) => Promise<string>;
   writeTextFile: (path: string, contents: string) => Promise<void>;
   exists?: (path: string) => Promise<boolean>;
-  createDir?: (path: string, options?: { recursive?: boolean }) => Promise<void>;
-  removeFile?: (path: string) => Promise<void>;
+  mkdir?: (path: string, options?: { recursive?: boolean }) => Promise<void>;
+  remove?: (path: string) => Promise<void>;
   rename?: (oldPath: string, newPath: string) => Promise<void>;
 };
 
@@ -26,14 +25,21 @@ function isNotFoundError(error: unknown): boolean {
 }
 
 async function loadFs(): Promise<FsApi> {
-  const mod = (await import(/* @vite-ignore */ "@tauri-apps/api/fs")) as unknown as FsV1;
+  const mod = (await import(/* @vite-ignore */ "@tauri-apps/plugin-fs")) as unknown as {
+    readTextFile: (path: string) => Promise<string>;
+    writeTextFile: (path: string, contents: string) => Promise<void>;
+    exists?: (path: string) => Promise<boolean>;
+    mkdir?: (path: string, options?: { recursive?: boolean }) => Promise<void>;
+    rename?: (oldPath: string, newPath: string) => Promise<void>;
+    remove?: (path: string) => Promise<void>;
+  };
   return {
     readTextFile: mod.readTextFile,
     writeTextFile: mod.writeTextFile,
     exists: mod.exists,
-    createDir: mod.createDir,
-    rename: mod.renameFile,
-    removeFile: mod.removeFile
+    mkdir: mod.mkdir,
+    rename: mod.rename,
+    remove: mod.remove
   };
 }
 
@@ -43,14 +49,14 @@ async function loadPathApi(): Promise<PathApi> {
 
 async function ensureDirForFile(filePath: string, fsApi: FsApi, pathApi: PathApi) {
   const dir = await Promise.resolve(pathApi.dirname(filePath));
-  const mkdirFn = fsApi.createDir;
+  const mkdirFn = fsApi.mkdir;
   if (!mkdirFn) return;
   await mkdirFn(dir, { recursive: true });
 }
 
 async function removeTempFileBestEffort(tempPath: string, fsApi: FsApi): Promise<void> {
-  if (fsApi.removeFile) {
-    await fsApi.removeFile(tempPath).catch(() => undefined);
+  if (fsApi.remove) {
+    await fsApi.remove(tempPath).catch(() => undefined);
   }
 }
 

@@ -1,11 +1,24 @@
-node_modules/
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# Local state
-data/db.json
-data/app_database.json
-data/crawler_result.json
-data/*.lock
-.cargo-local
+node_modules
+dist
+dist-ssr
+*.local
 
-# Generated content (commit if you want)
-content/
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

@@ -1,19 +1,29 @@
 {
-  "name": "article-video-content",
-  "version": "0.1.0",
+  "name": "tauri-template",
   "private": true,
-  "type": "commonjs",
+  "version": "0.1.0",
+  "type": "module",
   "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "test": "npm run build && node --test dist/test",
-    "sync": "npm run build && node dist/scripts/sync-cli.js",
-    "export:script": "npm run build && node dist/scripts/request-script-cli.js",
-    "dev:ui": "npm run dev --prefix app",
-    "build:ui": "npm run build --prefix app"
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.3.1",
+    "@tauri-apps/api": "^2",
+    "@tauri-apps/plugin-dialog": "^2",
+    "@tauri-apps/plugin-fs": "^2",
+    "@tauri-apps/plugin-opener": "^2",
+    "element-plus": "^2.7.8",
+    "vue": "^3.5.13"
   },
   "devDependencies": {
-    "@types/node": "^20.11.30",
-    "@tauri-apps/api": "^1.5.3",
-    "typescript": "^5.6.3"
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@types/node": "^22.13.1",
+    "typescript": "~5.6.2",
+    "vite": "^6.0.3",
+    "vue-tsc": "^2.1.10",
+    "@tauri-apps/cli": "^2"
   }
 }
