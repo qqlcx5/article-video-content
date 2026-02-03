@@ -24,8 +24,6 @@ import {
   Trash2,
   Download,
   ExternalLink,
-  ChevronLeft,
-  ChevronRight,
   RotateCcw,
 } from "lucide-vue-next";
 import Button from "./components/ui/Button.vue";
@@ -78,8 +76,8 @@ const selectedRows = ref<ILocalVideo[]>([]);
 const lastImport = ref<ImportSummary | null>(null);
 
 // 分页
-const pageSize = 50;
 const currentPage = ref(1);
+const pageSize = ref(50);
 
 const upList = computed(() => {
   const items = Object.values(db.value.ups);
@@ -133,13 +131,13 @@ watch(
 
 // 分页后的视频
 const paginatedVideos = computed(() => {
-  const start = (currentPage.value - 1) * pageSize;
-  const end = start + pageSize;
+  const start = (currentPage.value - 1) * pageSize.value;
+  const end = start + pageSize.value;
   return filteredVideos.value.slice(start, end);
 });
 
 const totalPages = computed(() => {
-  return Math.ceil(filteredVideos.value.length / pageSize);
+  return Math.ceil(filteredVideos.value.length / pageSize.value);
 });
 
 // 当前UP主的统计
@@ -468,6 +466,16 @@ function goToPage(page: number) {
   selectedRows.value = [];
 }
 
+function handlePageChange(page: number) {
+  goToPage(page);
+}
+
+function handleSizeChange(size: number) {
+  pageSize.value = size;
+  currentPage.value = 1;
+  selectedRows.value = [];
+}
+
 onMounted(async () => {
   await reloadDb();
 });
@@ -650,16 +658,16 @@ onMounted(async () => {
             <div class="video-table-wrapper" v-loading="isLoading || isSwitchingUp">
               <el-table
                 :data="paginatedVideos"
-                height="calc(100vh - 340px)"
+                height="calc(100vh - 380px)"
                 border
                 stripe
                 row-key="id"
                 :row-class-name="videoRowClassName"
                 @selection-change="onSelectionChange"
               >
-                <el-table-column type="selection" width="44" />
-                <el-table-column label="视频ID" prop="id" width="180" />
-                <el-table-column label="标题" min-width="260">
+                <el-table-column type="selection" width="55" align="center" />
+                <el-table-column prop="id" label="视频ID" width="160" show-overflow-tooltip />
+                <el-table-column label="标题" min-width="220">
                   <template #default="{ row }">
                     <div class="title-cell">
                       <div class="title-text">{{ row.title || "无标题" }}</div>
@@ -667,7 +675,7 @@ onMounted(async () => {
                     </div>
                   </template>
                 </el-table-column>
-                <el-table-column label="状态" width="120">
+                <el-table-column label="状态" width="80" align="center">
                   <template #default="{ row }">
                     <span v-if="row.localStatus === 'lost'" class="status-tag status-warn">
                       已删
@@ -675,73 +683,63 @@ onMounted(async () => {
                     <span v-else class="status-tag status-ok">正常</span>
                   </template>
                 </el-table-column>
-                <el-table-column label="点赞" prop="likeCount" width="80" sortable />
-                <el-table-column label="已使用" width="90">
+                <el-table-column prop="likeCount" label="点赞" width="90" align="right" sortable />
+                <el-table-column label="已使用" width="80" align="center">
                   <template #default="{ row }">
                     <span v-if="row.isUsed" class="status-tag status-info">✓</span>
                     <span v-else class="text-zinc-400">—</span>
                   </template>
                 </el-table-column>
-                <el-table-column label="最近出现" width="140">
+                <el-table-column label="最近出现" width="155" align="center">
                   <template #default="{ row }">{{ formatLocalTime(row.lastSeen) }}</template>
                 </el-table-column>
-                <el-table-column label="操作" width="140" fixed="right">
+                <el-table-column label="操作" width="170" fixed="right" align="center">
                   <template #default="{ row }">
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      :icon="ExternalLink"
-                      :disabled="!row.href"
-                      @click="openVideoLink(row)"
-                    >
-                      打开
-                    </Button>
-                    <Button
-                      v-if="row.isHidden"
-                      variant="ghost"
-                      size="sm"
-                      :icon="RotateCcw"
-                      @click="restoreOneVideo(row)"
-                      class="text-green-600"
-                    >
-                      恢复
-                    </Button>
-                    <Button
-                      v-else
-                      variant="ghost"
-                      size="sm"
-                      @click="hideOneVideo(row)"
-                      class="text-red-600"
-                    >
-                      删除
-                    </Button>
+                    <div class="table-actions-cell">
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        :icon="ExternalLink"
+                        :disabled="!row.href"
+                        @click="openVideoLink(row)"
+                      >
+                        打开
+                      </Button>
+                      <Button
+                        v-if="row.isHidden"
+                        variant="ghost"
+                        size="sm"
+                        :icon="RotateCcw"
+                        @click="restoreOneVideo(row)"
+                        class="text-green-600"
+                      >
+                        恢复
+                      </Button>
+                      <Button
+                        v-else
+                        variant="ghost"
+                        size="sm"
+                        @click="hideOneVideo(row)"
+                        class="text-red-600"
+                      >
+                        删除
+                      </Button>
+                    </div>
                   </template>
                 </el-table-column>
               </el-table>
 
               <!-- Pagination -->
-              <div v-if="totalPages > 1" class="pagination">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  :icon="ChevronLeft"
-                  :disabled="currentPage === 1"
-                  @click="goToPage(currentPage - 1)"
-                >
-                  上一页
-                </Button>
-                <span class="pagination-info">
-                  {{ currentPage }} / {{ totalPages }}
-                </span>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  :icon="ChevronRight"
-                  :disabled="currentPage === totalPages"
-                  @click="goToPage(currentPage + 1)"
-                >
-                  下一页
-                </Button>
+              <div class="pagination">
+                <el-pagination
+                  v-model:current-page="currentPage"
+                  :page-size="pageSize"
+                  :total="filteredVideos.length"
+                  :page-sizes="[20, 50, 100, 200]"
+                  layout="total, sizes, prev, pager, next, jumper"
+                  @size-change="handleSizeChange"
+                  @current-change="handlePageChange"
+                />
               </div>
             </div>
           </template>
@@ -1027,18 +1025,21 @@ onMounted(async () => {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
   margin-top: 12px;
   padding-top: 12px;
   border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-.pagination-info {
-  font-size: 13px;
-  font-weight: 500;
-  color: #71717A;
-  min-width: 60px;
-  text-align: center;
+:deep(.el-pagination) {
+  justify-content: center;
+}
+
+:deep(.el-pagination .el-pager li) {
+  border-radius: 6px;
+}
+
+:deep(.el-pagination .el-pager li.is-active) {
+  background-color: #18181B;
 }
 
 .title-cell {
@@ -1059,6 +1060,13 @@ onMounted(async () => {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.table-actions-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
 }
 
 .status-tag {
