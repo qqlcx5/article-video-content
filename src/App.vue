@@ -21,6 +21,7 @@ import {
   Delete,
   Download,
   Refresh,
+  RefreshRight,
   Search,
   Setting,
   UploadFilled,
@@ -400,7 +401,7 @@ onMounted(async () => {
 
           <div class="aside-actions">
             <el-button :icon="UploadFilled" type="primary" plain @click="importJsonFiles">
-              导入新UP主 / 更新JSON
+              + 导入新UP主
             </el-button>
             <el-button :icon="Refresh" plain @click="reloadDb">刷新列表</el-button>
           </div>
@@ -448,6 +449,12 @@ onMounted(async () => {
           <div class="toolbar">
             <div class="toolbar-left">
               <el-button :icon="UploadFilled" @click="importJsonFiles">导入JSON</el-button>
+              <el-tooltip content="暂不做抖音端请求检测（后续按你的插件脚本方案接入）" placement="top">
+                <span>
+                  <el-button :icon="Search" disabled>检测状态</el-button>
+                </span>
+              </el-tooltip>
+              <el-button :icon="RefreshRight" @click="importJsonFiles">对比更新</el-button>
               <el-button :icon="Delete" :disabled="selectedRows.length === 0" @click="hideSelectedVideos">
                 删除选中
               </el-button>
