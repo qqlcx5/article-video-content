@@ -1,0 +1,39 @@
+{
+  "build": {
+    "beforeDevCommand": "npm run dev --prefix app",
+    "beforeBuildCommand": "npm run build --prefix app",
+    "devPath": "http://localhost:1420",
+    "distDir": "../app/dist"
+  },
+  "package": {
+    "productName": "抖音UP主视频管理器",
+    "version": "0.1.0"
+  },
+  "tauri": {
+    "windows": [
+      {
+        "title": "抖音UP主视频管理器",
+        "width": 1280,
+        "height": 820,
+        "resizable": true
+      }
+    ],
+    "allowlist": {
+      "all": false,
+      "fs": {
+        "all": true
+      },
+      "path": {
+        "all": true
+      }
+    },
+    "security": {
+      "csp": null
+    },
+    "bundle": {
+      "active": true,
+      "identifier": "com.example.video-manager",
+      "targets": "all"
+    }
+  }
+}

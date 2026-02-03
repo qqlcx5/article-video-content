@@ -2,8 +2,10 @@ node_modules/
 
 # Local state
 data/db.json
+data/app_database.json
+data/crawler_result.json
 data/*.lock
+.cargo-local
 
 # Generated content (commit if you want)
 content/
-
