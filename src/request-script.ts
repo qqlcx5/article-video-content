@@ -32,7 +32,7 @@ export function generateRequestScript(
     title: String(v.title ?? "")
   }));
 
-  return `// 由“抖音UP主视频管理器”生成
+  return `// 由“抖音UP主视频管理”生成
 // 运行环境：Node.js 18+（全局 fetch）
 // 使用说明：填好 CONFIG 里的 token / topic 配置后，执行：node request.js
 

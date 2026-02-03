@@ -487,7 +487,7 @@ onMounted(async () => {
     <aside class="sidebar">
       <!-- Header -->
       <div class="sidebar-header">
-        <h1 class="app-title">抖音UP主视频管理器</h1>
+        <h1 class="app-title">抖音UP主视频管理</h1>
       </div>
 
       <!-- UP List -->
