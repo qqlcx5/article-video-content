@@ -7,10 +7,16 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Build outputs
 node_modules
 dist
 dist-ssr
 *.local
+src-tauri/target
+
+# Temporary files
+tmpclaude-*
+*.tmp
 
 # Editor directories and files
 .vscode/*
