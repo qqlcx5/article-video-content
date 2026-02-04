@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "tauri-template",
+  "productName": "video-manager-desktop",
   "version": "0.1.0",
-  "identifier": "com.t-liaochunxin.tauri-template",
+  "identifier": "com.t-liaochunxin.video-manager-desktop",
   "build": {
     "beforeDevCommand": "pnpm dev",
     "devUrl": "http://localhost:1420",

@@ -4019,7 +4019,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "tauri-template"
+name = "video-manager-desktop"
 version = "0.1.0"
 dependencies = [
  "base64 0.22.1",

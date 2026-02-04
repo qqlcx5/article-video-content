@@ -1,5 +1,5 @@
 [package]
-name = "tauri-template"
+name = "video-manager-desktop"
 version = "0.1.0"
 description = "A Tauri App"
 authors = ["you"]
