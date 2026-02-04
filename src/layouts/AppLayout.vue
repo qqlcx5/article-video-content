@@ -48,7 +48,7 @@ const navItems = computed(() => props.navItems || defaultNavItems);
       <!-- Sidebar Header -->
       <div class="sidebar-header">
         <div class="app-title">
-          <span class="title-text">抖音UP主视频管理</span>
+          <span class="title-text">短视频管理</span>
         </div>
       </div>
 

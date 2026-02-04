@@ -118,7 +118,7 @@ watch(
     const keyword = searchText.value.trim().toLowerCase();
 
     const result = up.videos
-      .filter((v) => (showHidden.value ? true : !v.isHidden))
+      .filter((v) => (showHidden.value ? v.isHidden : !v.isHidden))
       .filter((v) => (showUsedOnly.value ? v.isUsed : true))
       .filter((v) => (showLostOnly.value ? v.localStatus === "lost" : true))
       .filter((v) => {
@@ -546,7 +546,7 @@ defineExpose({
               </label>
               <label class="filter-toggle">
                 <input type="checkbox" v-model="showHidden" />
-                <span>显示已删除</span>
+                <span>仅已删除</span>
               </label>
             </div>
           </div>
@@ -594,7 +594,7 @@ defineExpose({
               @selection-change="onSelectionChange"
             >
               <el-table-column type="selection" width="55" align="center" />
-              <el-table-column prop="id" label="视频ID" width="160" show-overflow-tooltip />
+              <el-table-column prop="id" label="ID" width="80" show-overflow-tooltip />
               <el-table-column label="标题" min-width="220" show-overflow-tooltip>
                 <template #default="{ row }">
                   <div class="title-cell">
@@ -618,10 +618,10 @@ defineExpose({
                   <span v-else class="text-zinc-400">—</span>
                 </template>
               </el-table-column>
-              <el-table-column label="最近出现" width="155" align="center">
+              <el-table-column label="最近出现" width="130" align="center">
                 <template #default="{ row }">{{ formatLocalTime(row.lastSeen) }}</template>
               </el-table-column>
-              <el-table-column label="操作" width="170" fixed="right" align="center">
+              <el-table-column label="操作" width="150" fixed="right" align="center">
                 <template #default="{ row }">
                   <div class="table-actions-cell">
                     <Button
@@ -637,7 +637,6 @@ defineExpose({
                       v-if="row.isHidden"
                       variant="ghost"
                       size="sm"
-                      :icon="RotateCcw"
                       @click="restoreOneVideo(row)"
                       class="text-green-600"
                     >

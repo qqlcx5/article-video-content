@@ -631,7 +631,7 @@ function formatFileName(filename: string): string {
           <div class="about-content">
             <div class="about-item">
               <span class="about-label">应用名称</span>
-              <span class="about-value">抖音UP主视频管理器</span>
+              <span class="about-value">短视频管理</span>
             </div>
             <div class="about-item">
               <span class="about-label">版本</span>

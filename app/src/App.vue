@@ -221,7 +221,7 @@ function onExportRequestScript() {
   <div class="page">
     <header class="header">
       <div class="title">
-        <div class="name">抖音UP主视频管理</div>
+        <div class="name">短视频管理</div>
         <div class="sub">
           运行环境：<b>{{ isTauriRuntime() ? "Tauri" : "Web" }}</b>
           <span v-if="lastImportCount !== null">｜本次导入 {{ lastImportCount }} 条</span>

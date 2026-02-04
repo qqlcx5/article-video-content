@@ -73,9 +73,9 @@ async function handleDeleteUp(up: UpInfo, event: Event) {
     <!-- Sidebar -->
     <aside class="sidebar">
       <!-- Header -->
-      <div class="sidebar-header">
-        <h1 class="app-title">抖音UP主视频管理</h1>
-      </div>
+      <!-- <div class="sidebar-header">
+        <h1 class="app-title">短视频管理</h1>
+      </div> -->
 
       <!-- Navigation -->
       <div class="sidebar-nav">
