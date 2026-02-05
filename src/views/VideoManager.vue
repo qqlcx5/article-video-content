@@ -23,6 +23,7 @@ import {
   ExternalLink,
   RotateCcw,
   Sparkles,
+  FileText,
 } from "lucide-vue-next";
 import Button from "../components/ui/Button.vue";
 import Card from "../components/ui/Card.vue";
@@ -457,26 +458,32 @@ async function generateAiNote(): Promise<void> {
   }
 
   // 检查AI配置
-  const aiConfigStr = localStorage.getItem("aiApiConfig");
-  if (!aiConfigStr) {
-    ElMessage.warning("请先在设置中配置AI API。");
+  let aiConfig;
+  try {
+    const aiConfigStr = localStorage.getItem("aiApiConfig");
+    if (!aiConfigStr) {
+      ElMessage.warning("请先在设置中配置AI API。");
+      return;
+    }
+    aiConfig = JSON.parse(aiConfigStr);
+  } catch (e) {
+    ElMessage.error("读取AI配置失败，请重新配置。");
     return;
   }
 
-  const aiConfig = JSON.parse(aiConfigStr);
   if (!aiConfig.url || !aiConfig.token) {
-    ElMessage.warning("请先在设置中配置完整的AI API信息。");
+    ElMessage.warning("请先在设置中配置完整的AI API信息（API地址和Token）。");
     return;
   }
+
+  isGeneratingAiNote.value = true;
 
   try {
-    isGeneratingAiNote.value = true;
-
     // 生成输出路径
     const outputFileName = `ai_note_${video.id}_${Date.now()}.md`;
     const outputPath = `ai_notes/${outputFileName}`;
 
-    ElMessage.info("正在生成AI笔记，请稍候...");
+    ElMessage.info("正在生成AI笔记，这可能需要一些时间...");
 
     // 调用后端命令生成笔记
     const { invoke } = await import("@tauri-apps/api/core");
@@ -491,17 +498,86 @@ async function generateAiNote(): Promise<void> {
       }
     });
 
-    ElMessage.success(`AI笔记生成成功！\n保存位置: ${resultPath}`);
+    // 更新视频记录：添加笔记路径并标记为已用
+    const up = currentUp.value;
+    if (up) {
+      try {
+        const repo = await createTauriAppDatabaseRepository();
+        const updatedVideo = { ...video, aiNotePath: resultPath, isUsed: true };
+        const updatedVideos = up.videos.map(v => v.id === video.id ? updatedVideo : v);
+        const updatedUp = { ...up, videos: updatedVideos };
 
-    // 生成成功后，显示笔记内容
-    const noteContent = await readTextFile(resultPath);
+        // 更新数据库
+        const newDb = {
+          ...props.db,
+          ups: { ...props.db.ups, [updatedUp.key]: updatedUp }
+        };
+        await repo.save(newDb);
+        emit("update:db", newDb);
+      } catch (dbError) {
+        console.error("更新数据库失败:", dbError);
+        // 即使数据库更新失败，也继续显示笔记
+      }
+    }
+
+    ElMessage.success(`AI笔记生成成功！已自动标记为已用。`);
+
+    // 读取并显示笔记内容
+    try {
+      const noteContent = await readTextFile(resultPath);
+      currentNoteContent.value = noteContent;
+      currentNoteTitle.value = video.title || "未命名视频";
+      showNoteDialog.value = true;
+    } catch (readError) {
+      console.error("读取笔记文件失败:", readError);
+      ElMessage.warning("笔记已生成，但读取文件失败。路径: " + resultPath);
+    }
+  } catch (e) {
+    // 错误已经在后端处理并返回详细消息，直接显示
+    const errorMessage = String(e);
+    console.error("生成AI笔记失败:", errorMessage);
+
+    // 显示详细的错误消息
+    if (errorMessage.includes("403") || errorMessage.includes("认证失败")) {
+      ElMessage.error({
+        message: "API 认证失败！\n\n请检查：\n1. Token 是否正确\n2. Token 是否已过期\n3. 是否有正确的访问权限",
+        duration: 5000
+      });
+    } else if (errorMessage.includes("401")) {
+      ElMessage.error({
+        message: "API 未授权！\n\n请检查 Token 是否已配置。",
+        duration: 5000
+      });
+    } else if (errorMessage.includes("网络") || errorMessage.includes("连接")) {
+      ElMessage.error({
+        message: "网络连接失败！\n\n请检查网络连接和API地址是否正确。",
+        duration: 5000
+      });
+    } else {
+      ElMessage.error({
+        message: `生成失败：${errorMessage}`,
+        duration: 5000
+      });
+    }
+  } finally {
+    isGeneratingAiNote.value = false;
+  }
+}
+
+// 查看已有笔记
+async function viewAiNote(video: ILocalVideo): Promise<void> {
+  if (!video.aiNotePath) {
+    ElMessage.warning("该视频还没有生成AI笔记。");
+    return;
+  }
+
+  try {
+    const noteContent = await readTextFile(video.aiNotePath);
     currentNoteContent.value = noteContent;
     currentNoteTitle.value = video.title || "未命名视频";
     showNoteDialog.value = true;
   } catch (e) {
-    ElMessage.error(`生成失败：${String(e)}`);
-  } finally {
-    isGeneratingAiNote.value = false;
+    ElMessage.error(`读取笔记失败：${String(e)}\n文件路径: ${video.aiNotePath}`);
   }
 }
 
@@ -704,7 +780,7 @@ defineExpose({
               <el-table-column label="最近出现" width="130" align="center">
                 <template #default="{ row }">{{ formatLocalTime(row.lastSeen) }}</template>
               </el-table-column>
-              <el-table-column label="操作" width="150" fixed="right" align="center">
+              <el-table-column label="操作" width="200" fixed="right" align="center">
                 <template #default="{ row }">
                   <div class="table-actions-cell">
                     <Button
@@ -715,6 +791,16 @@ defineExpose({
                       @click="openVideoLink(row)"
                     >
                       打开
+                    </Button>
+                    <Button
+                      v-if="row.aiNotePath"
+                      variant="ghost"
+                      size="sm"
+                      :icon="FileText"
+                      @click="viewAiNote(row)"
+                      class="text-purple-600"
+                    >
+                      笔记
                     </Button>
                     <Button
                       v-if="row.isHidden"

@@ -13,4 +13,5 @@ export interface ILocalVideo extends ICrawlerVideo {
   isHidden: boolean;
   localStatus: LocalStatus;
   lastSeen: number;
+  aiNotePath?: string; // AI 笔记文件路径（可选）
 }

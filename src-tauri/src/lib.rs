@@ -289,15 +289,60 @@ struct SseDataContent {
 
 #[tauri::command]
 async fn generate_ai_note(request: AiNoteRequest) -> Result<String, String> {
+    // 直接调用内部函数，不使用 catch_unwind 和 block_on
+    generate_ai_note_internal(request).await
+}
+
+async fn generate_ai_note_internal(request: AiNoteRequest) -> Result<String, String> {
+    eprintln!("=== 开始生成 AI 笔记 ===");
+    eprintln!("API URL: {}", request.api_url);
+    eprintln!("视频 URL: {}", request.video_url);
+    eprintln!("视频标题: {}", request.video_title);
+    eprintln!("输出路径: {}", request.output_path);
+
+    // 参数验证
+    if request.api_url.trim().is_empty() {
+        eprintln!("错误: API URL 为空");
+        return Err("API 地址不能为空".to_string());
+    }
+    if request.token.trim().is_empty() {
+        eprintln!("错误: Token 为空");
+        return Err("Authorization Token 不能为空".to_string());
+    }
+    if request.video_url.trim().is_empty() {
+        eprintln!("错误: 视频 URL 为空");
+        return Err("视频 URL 不能为空".to_string());
+    }
+
+    eprintln!("✓ 参数验证通过");
+
     // 创建输出目录
     let output_path = PathBuf::from(&request.output_path);
+    eprintln!("完整输出路径: {:?}", output_path);
+
     if let Some(parent) = output_path.parent() {
-        std::fs::create_dir_all(parent).map_err(|e| format!("创建目录失败: {}", e))?;
+        eprintln!("创建目录: {:?}", parent);
+        match std::fs::create_dir_all(parent) {
+            Ok(_) => eprintln!("✓ 目录创建成功"),
+            Err(e) => {
+                eprintln!("✗ 创建目录失败: {}", e);
+                return Err(format!("创建目录失败: {}", e));
+            }
+        }
     }
 
     // 创建或清空输出文件
-    let mut file = File::create(&output_path)
-        .map_err(|e| format!("创建文件失败: {}", e))?;
+    eprintln!("创建文件: {:?}", output_path);
+    let mut file = match File::create(&output_path) {
+        Ok(f) => {
+            eprintln!("✓ 文件创建成功");
+            f
+        }
+        Err(e) => {
+            eprintln!("✗ 创建文件失败: {}", e);
+            return Err(format!("创建文件失败: {}", e));
+        }
+    };
 
     // 写入元数据
     let metadata = format!(
@@ -306,10 +351,17 @@ async fn generate_ai_note(request: AiNoteRequest) -> Result<String, String> {
         request.video_url,
         chrono::Local::now().format("%Y-%m-%d %H:%M:%S")
     );
-    file.write_all(metadata.as_bytes())
-        .map_err(|e| format!("写入元数据失败: {}", e))?;
+
+    match file.write_all(metadata.as_bytes()) {
+        Ok(_) => eprintln!("✓ 元数据写入成功"),
+        Err(e) => {
+            eprintln!("✗ 写入元数据失败: {}", e);
+            return Err(format!("写入元数据失败: {}", e));
+        }
+    }
 
     // 准备请求数据
+    eprintln!("准备 API 请求...");
     let request_body = serde_json::json!({
         "attachments": [{
             "size": 100,
@@ -322,12 +374,27 @@ async fn generate_ai_note(request: AiNoteRequest) -> Result<String, String> {
         "note_type": "link",
         "source": "web"
     });
+    eprintln!("请求体准备完成");
 
-    // 创建 HTTP 客户端
-    let client = reqwest::Client::new();
+    // 创建 HTTP 客户端，设置超时
+    eprintln!("创建 HTTP 客户端...");
+    let client = match reqwest::Client::builder()
+        .timeout(std::time::Duration::from_secs(120))
+        .build()
+    {
+        Ok(c) => {
+            eprintln!("✓ HTTP 客户端创建成功");
+            c
+        }
+        Err(e) => {
+            eprintln!("✗ 创建 HTTP 客户端失败: {}", e);
+            return Err(format!("创建 HTTP 客户端失败: {}", e));
+        }
+    };
 
     // 发送 SSE 请求
-    let response = client
+    eprintln!("发送 API 请求到: {}", request.api_url);
+    let response = match client
         .post(&request.api_url)
         .header("Authorization", format!("Bearer {}", request.token))
         .header("Content-Type", "application/json")
@@ -335,59 +402,147 @@ async fn generate_ai_note(request: AiNoteRequest) -> Result<String, String> {
         .json(&request_body)
         .send()
         .await
-        .map_err(|e| format!("请求失败: {}", e))?;
+    {
+        Ok(resp) => {
+            eprintln!("✓ 收到响应，状态码: {}", resp.status());
+            resp
+        }
+        Err(e) => {
+            eprintln!("✗ 网络请求失败: {}", e);
+            return Err(format!("网络请求失败: {}。\n请检查：\n1. API 地址是否正确\n2. 网络连接是否正常\n3. Token 是否有效", e));
+        }
+    };
 
-    if !response.status().is_success() {
-        return Err(format!("API 返回错误: HTTP {}", response.status()));
+    let status = response.status();
+    eprintln!("HTTP 状态码: {}", status);
+
+    if !status.is_success() {
+        let error_body = match response.text().await {
+            Ok(body) => {
+                eprintln!("错误响应体: {}", body);
+                body
+            }
+            Err(e) => {
+                eprintln!("读取错误响应失败: {}", e);
+                format!("(无法读取错误响应: {})", e)
+            }
+        };
+
+        let error_msg = if status.as_u16() == 403 {
+            format!("API 认证失败 (403)。\n请检查 Token 是否正确或已过期。\n服务器返回: {}", error_body)
+        } else if status.as_u16() == 401 {
+            format!("API 未授权 (401)。\n请检查 Token 是否已配置。\n服务器返回: {}", error_body)
+        } else {
+            format!("API 返回错误: HTTP {} - {}", status, error_body)
+        };
+
+        eprintln!("✗ {}", error_msg);
+        return Err(error_msg);
     }
 
-    // 读取 SSE 流
+    eprintln!("✓ API 请求成功，开始读取响应...");
+
+    // 读取 SSE 流 - 使用 try_blocks 或直接读取
     let mut current_instruction = String::new();
     let mut current_summary_title = String::new();
     let mut current_content = String::new();
+    let mut line_count = 0;
+    let mut data_count = 0;
+    let mut parse_error_count = 0;
 
-    let bytes = response.bytes().await
-        .map_err(|e| format!("读取响应失败: {}", e))?;
+    eprintln!("开始读取响应体...");
 
-    let text = String::from_utf8(bytes.to_vec())
-        .map_err(|e| format!("解析响应失败: {}", e))?;
+    // 直接读取响应体到字符串
+    let text = match response.text().await {
+        Ok(t) => {
+            eprintln!("✓ 读取响应成功，长度: {} 字符", t.len());
+            t
+        }
+        Err(e) => {
+            eprintln!("✗ 读取响应失败: {}", e);
+            return Err(format!(
+                "读取API响应失败: {}。\n可能原因：\n1. 网络连接不稳定\n2. API服务器响应超时\n3. 响应数据过大",
+                e
+            ));
+        }
+    };
 
-    // 解析 SSE 事件
+    // 解析 SSE 事件（带边界检查）
+    eprintln!("开始解析 SSE 事件...");
+    let mut line_count = 0;
+    let mut data_count = 0;
+    let mut parse_error_count = 0;
+
     for line in text.lines() {
-        if line.starts_with("data:") {
-            let json_str = line[5..].trim();
-            if let Ok(sse_data) = serde_json::from_str::<SseData>(json_str) {
-                if sse_data.code == 200 {
-                    if let Some(data_content) = sse_data.data {
-                        match sse_data.msg_type {
-                            1 => {
-                                // 内容增量
-                                if let Ok(msg_obj) = serde_json::from_str::<serde_json::Value>(&data_content.msg) {
-                                    if let Some(instruction) = msg_obj.get("instruction").and_then(|v| v.as_str()) {
-                                        current_instruction.push_str(instruction);
-                                    }
-                                    if let Some(summary_title) = msg_obj.get("summary_title").and_then(|v| v.as_str()) {
-                                        current_summary_title.push_str(summary_title);
-                                    }
-                                    if let Some(content) = msg_obj.get("content").and_then(|v| v.as_str()) {
-                                        current_content.push_str(content);
+        line_count += 1;
+
+        // 安全的字符串切片：检查长度
+        if line.len() > 5 && line.starts_with("data:") {
+            // 使用 get 方法安全地获取子字符串
+            let json_str = match line.get(5..) {
+                Some(s) => s,
+                None => continue
+            };
+
+            let json_str = json_str.trim();
+
+            if json_str.is_empty() {
+                continue;
+            }
+
+            data_count += 1;
+
+            // 安全地解析 JSON
+            match serde_json::from_str::<SseData>(json_str) {
+                Ok(sse_data) => {
+                    if sse_data.code == 200 {
+                        if let Some(data_content) = sse_data.data {
+                            match sse_data.msg_type {
+                                1 => {
+                                    // 内容增量
+                                    if let Ok(msg_obj) = serde_json::from_str::<serde_json::Value>(&data_content.msg) {
+                                        if let Some(instruction) = msg_obj.get("instruction").and_then(|v| v.as_str()) {
+                                            current_instruction.push_str(instruction);
+                                        }
+                                        if let Some(summary_title) = msg_obj.get("summary_title").and_then(|v| v.as_str()) {
+                                            current_summary_title.push_str(summary_title);
+                                        }
+                                        if let Some(content) = msg_obj.get("content").and_then(|v| v.as_str()) {
+                                            current_content.push_str(content);
+                                        }
                                     }
                                 }
+                                104 => {
+                                    // 完整内容 - 忽略，我们使用增量构建的内容
+                                }
+                                6 => {
+                                    // 进度消息
+                                    eprintln!("  进度: {}", data_content.msg);
+                                }
+                                _ => {}
                             }
-                            104 => {
-                                // 完整内容 - 忽略，我们使用增量构建的内容
-                            }
-                            6 => {
-                                // 进度消息
-                                eprintln!("进度: {}", data_content.msg);
-                            }
-                            _ => {}
                         }
                     }
+                }
+                Err(e) => {
+                    parse_error_count += 1;
+                    if parse_error_count <= 3 {
+                        eprintln!("  解析失败 (#{}) {}: {}", parse_error_count, "json", e);
+                    }
+                    // JSON 解析失败，跳过该行
+                    continue;
                 }
             }
         }
     }
+
+    eprintln!("✓ SSE 解析完成:");
+    eprintln!("    总行数: {}", line_count);
+    eprintln!("    data 行数: {}", data_count);
+    eprintln!("    解析失败数: {}", parse_error_count);
+    eprintln!("    instruction 长度: {}", current_instruction.len());
+    eprintln!("    summary 长度: {}", current_summary_title.len());
+    eprintln!("    content 长度: {}", current_content.len());
 
     // 构建最终的 Markdown 内容
     let final_content = format!(
@@ -395,18 +550,44 @@ async fn generate_ai_note(request: AiNoteRequest) -> Result<String, String> {
         current_instruction, current_summary_title, current_content
     );
 
+    eprintln!("最终内容长度: {} 字节", final_content.len());
+
     // 写入最终内容
     let write_content = format!(
         "{}{}",
         metadata, final_content
     );
 
+    eprintln!("准备写入文件...");
+
     // 重新打开文件并写入最终内容
-    let mut file = File::create(&output_path)
-        .map_err(|e| format!("重新打开文件失败: {}", e))?;
-    file.write_all(write_content.as_bytes())
-        .map_err(|e| format!("写入内容失败: {}", e))?;
-    file.flush().map_err(|e| format!("刷新缓冲失败: {}", e))?;
+    let mut file = match File::create(&output_path) {
+        Ok(f) => f,
+        Err(e) => {
+            eprintln!("✗ 重新打开文件失败: {}", e);
+            return Err(format!("重新打开文件失败: {}", e));
+        }
+    };
+
+    match file.write_all(write_content.as_bytes()) {
+        Ok(_) => {}
+        Err(e) => {
+            eprintln!("✗ 写入内容失败: {}", e);
+            return Err(format!("写入内容失败: {}", e));
+        }
+    }
+
+    match file.flush() {
+        Ok(_) => {
+            eprintln!("✓ 文件写入成功");
+        }
+        Err(e) => {
+            eprintln!("✗ 刷新缓冲失败: {}", e);
+            return Err(format!("刷新缓冲失败: {}", e));
+        }
+    }
+
+    eprintln!("=== AI 笔记生成完成 ===");
 
     Ok(output_path.to_string_lossy().to_string())
 }
