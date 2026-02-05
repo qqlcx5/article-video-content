@@ -50,6 +50,21 @@ const webdavConfig = reactive({
 const isTestingWebdav = ref(false);
 const webdavConnected = ref(false);
 
+// AI API 配置
+const aiApiConfig = reactive({
+  url: "https://get-notes.luojilab.com/voicenotes/web/notes/stream",
+  token: "",
+  promptTemplate: `**这个问题，世界上谁最懂？TA 会怎么说? 写出他们的思考过程？**
+
+最强大脑、顶级专家、世界级、best minds
+
+## 原则
+1. **找真正最懂的** — 不是找"合适的"，是找"最强的"
+2. **基于真实** — 模拟要基于 TA 公开的思想、著作、言论
+3. **引用原话** — 尽可能用 TA 说过的话`
+});
+const isSavingAiConfig = ref(false);
+
 // 数据库统计
 const dbStats = reactive({
   totalUps: 0,
@@ -74,6 +89,53 @@ function updateStats() {
 
 // 初始化时更新统计
 updateStats();
+
+// 加载 AI API 配置
+async function loadAiApiConfig() {
+  try {
+    const configStr = localStorage.getItem("aiApiConfig");
+    if (configStr) {
+      const config = JSON.parse(configStr);
+      Object.assign(aiApiConfig, config);
+    }
+  } catch (e) {
+    console.error("加载AI配置失败:", e);
+  }
+}
+
+// 保存 AI API 配置
+async function saveAiApiConfig() {
+  try {
+    isSavingAiConfig.value = true;
+
+    if (!aiApiConfig.url) {
+      ElMessage.warning("请输入 API 地址");
+      return;
+    }
+
+    if (!aiApiConfig.token) {
+      ElMessage.warning("请输入 Authorization Token");
+      return;
+    }
+
+    if (!aiApiConfig.promptTemplate) {
+      ElMessage.warning("请输入 Prompt 模板");
+      return;
+    }
+
+    // 保存到 localStorage
+    localStorage.setItem("aiApiConfig", JSON.stringify(aiApiConfig));
+
+    ElMessage.success("AI API 配置已保存");
+  } catch (e) {
+    ElMessage.error(`保存失败：${String(e)}`);
+  } finally {
+    isSavingAiConfig.value = false;
+  }
+}
+
+// 初始化时加载配置
+loadAiApiConfig();
 
 // 导出完整数据库
 async function exportFullDatabase() {
@@ -618,6 +680,63 @@ function formatFileName(filename: string): string {
         </template>
       </Card>
 
+      <!-- AI API Configuration -->
+      <Card class="mb-4">
+        <template #default>
+          <div class="card-header">
+            <div class="card-title">
+              <Database :size="18" />
+              <span>AI 笔记生成配置</span>
+            </div>
+          </div>
+
+          <div class="ai-api-config">
+            <div class="form-group">
+              <label class="form-label">API 地址</label>
+              <Input
+                v-model="aiApiConfig.url"
+                placeholder="https://get-notes.luojilab.com/voicenotes/web/notes/stream"
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Authorization Token</label>
+              <Input
+                v-model="aiApiConfig.token"
+                type="password"
+                placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsInZlciI6Mn0..."
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Prompt 模板</label>
+              <textarea
+                v-model="aiApiConfig.promptTemplate"
+                class="form-textarea"
+                rows="8"
+                placeholder="输入 AI 笔记生成的 Prompt 模板..."
+              />
+            </div>
+
+            <div class="action-buttons">
+              <Button
+                variant="default"
+                :loading="isSavingAiConfig"
+                @click="saveAiApiConfig"
+              >
+                保存配置
+              </Button>
+            </div>
+          </div>
+
+          <div class="action-section">
+            <h3 class="section-title">使用说明</h3>
+            <p class="action-hint">
+              配置 AI API 后，在视频管理页面选中视频，点击"生成AI笔记"按钮即可生成笔记。
+              生成的笔记将保存在应用数据目录的 ai_notes 文件夹中。
+            </p>
+          </div>
+        </template>
+      </Card>
+
       <!-- About -->
       <Card>
         <template #default>
@@ -903,6 +1022,35 @@ function formatFileName(filename: string): string {
   font-size: 12px;
   font-weight: 500;
   color: #71717A;
+}
+
+.ai-api-config {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+  background: #F9F9FB;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.form-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  font-size: 13px;
+  font-family: inherit;
+  line-height: 1.6;
+  resize: vertical;
+  background: #FFFFFF;
+  transition: all 0.2s;
+}
+
+.form-textarea:focus {
+  outline: none;
+  border-color: #18181B;
+  box-shadow: 0 0 0 3px rgba(24, 24, 27, 0.1);
 }
 
 .file-list {

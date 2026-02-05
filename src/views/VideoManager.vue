@@ -22,6 +22,7 @@ import {
   Download,
   ExternalLink,
   RotateCcw,
+  Sparkles,
 } from "lucide-vue-next";
 import Button from "../components/ui/Button.vue";
 import Card from "../components/ui/Card.vue";
@@ -82,6 +83,10 @@ const showUsedOnly = ref(false);
 const showLostOnly = ref(false);
 const selectedRows = ref<ILocalVideo[]>([]);
 const lastImport = ref<ImportSummary | null>(null);
+const isGeneratingAiNote = ref(false);
+const showNoteDialog = ref(false);
+const currentNoteContent = ref("");
+const currentNoteTitle = ref("");
 
 // 分页
 const currentPage = ref(1);
@@ -433,6 +438,73 @@ async function openVideoLink(video: ILocalVideo) {
   });
 }
 
+async function generateAiNote(): Promise<void> {
+  const ids = uniqStrings(selectedRows.value.map((r) => r.id));
+  if (ids.length === 0) {
+    ElMessage.warning("请先勾选要生成笔记的视频。");
+    return;
+  }
+
+  if (ids.length > 1) {
+    ElMessage.warning("一次只能为一个视频生成AI笔记。");
+    return;
+  }
+
+  const video = selectedRows.value[0];
+  if (!video.href) {
+    ElMessage.warning("该视频没有链接信息。");
+    return;
+  }
+
+  // 检查AI配置
+  const aiConfigStr = localStorage.getItem("aiApiConfig");
+  if (!aiConfigStr) {
+    ElMessage.warning("请先在设置中配置AI API。");
+    return;
+  }
+
+  const aiConfig = JSON.parse(aiConfigStr);
+  if (!aiConfig.url || !aiConfig.token) {
+    ElMessage.warning("请先在设置中配置完整的AI API信息。");
+    return;
+  }
+
+  try {
+    isGeneratingAiNote.value = true;
+
+    // 生成输出路径
+    const outputFileName = `ai_note_${video.id}_${Date.now()}.md`;
+    const outputPath = `ai_notes/${outputFileName}`;
+
+    ElMessage.info("正在生成AI笔记，请稍候...");
+
+    // 调用后端命令生成笔记
+    const { invoke } = await import("@tauri-apps/api/core");
+    const resultPath = await invoke<string>("generate_ai_note", {
+      request: {
+        api_url: aiConfig.url,
+        token: aiConfig.token,
+        video_url: video.href,
+        video_title: video.title || "未命名视频",
+        prompt_template: aiConfig.promptTemplate || "",
+        output_path: outputPath
+      }
+    });
+
+    ElMessage.success(`AI笔记生成成功！\n保存位置: ${resultPath}`);
+
+    // 生成成功后，显示笔记内容
+    const noteContent = await readTextFile(resultPath);
+    currentNoteContent.value = noteContent;
+    currentNoteTitle.value = video.title || "未命名视频";
+    showNoteDialog.value = true;
+  } catch (e) {
+    ElMessage.error(`生成失败：${String(e)}`);
+  } finally {
+    isGeneratingAiNote.value = false;
+  }
+}
+
 function videoRowClassName({ row }: { row: ILocalVideo }) {
   const classes: string[] = [];
   if (row.localStatus === "lost") classes.push("row-lost");
@@ -530,6 +602,17 @@ defineExpose({
                 @click="markSelectedUsed(false)"
               >
                 取消已用
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                :icon="Sparkles"
+                :disabled="selectedRows.length !== 1"
+                :loading="isGeneratingAiNote"
+                @click="generateAiNote"
+                class="text-purple-600"
+              >
+                生成AI笔记
               </Button>
               <Button variant="ghost" size="sm" :icon="Download" @click="exportReport">
                 导出
@@ -672,6 +755,21 @@ defineExpose({
         </template>
       </Card>
     </div>
+
+    <!-- AI Note Viewer Dialog -->
+    <el-dialog
+      v-model="showNoteDialog"
+      :title="`AI笔记 - ${currentNoteTitle}`"
+      width="80%"
+      :close-on-click-modal="false"
+    >
+      <div class="note-content">
+        <pre class="note-text">{{ currentNoteContent }}</pre>
+      </div>
+      <template #footer>
+        <Button variant="ghost" @click="showNoteDialog = false">关闭</Button>
+      </template>
+    </el-dialog>
   </div>
 </template>
 
@@ -955,5 +1053,22 @@ defineExpose({
 :deep(.el-checkbox__input.is-checked .el-checkbox__inner) {
   background-color: #18181B;
   border-color: #18181B;
+}
+
+.note-content {
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.note-text {
+  margin: 0;
+  padding: 16px;
+  background: #F9F9FB;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
 }
 </style>

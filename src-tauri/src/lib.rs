@@ -1,5 +1,8 @@
 use serde::{Deserialize, Serialize};
 use base64::Engine;
+use std::path::PathBuf;
+use std::fs::File;
+use std::io::Write;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct WebdavConfig {
@@ -247,6 +250,167 @@ async fn webdav_download(config: WebdavConfig, filename: String) -> Result<Strin
     Ok(content)
 }
 
+// ============ AI Note Generation ============
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct AiNoteRequest {
+    pub api_url: String,
+    pub token: String,
+    pub video_url: String,
+    pub video_title: String,
+    pub prompt_template: String,
+    pub output_path: String,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct AiNoteProgress {
+    pub status: String,
+    pub message: String,
+    pub content_length: usize,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+struct SseData {
+    code: i32,
+    msg_type: i32,
+    #[serde(default)]
+    data: Option<SseDataContent>,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+struct SseDataContent {
+    #[serde(default)]
+    msg: String,
+    #[serde(default)]
+    note_id: Option<String>,
+    #[serde(default)]
+    link_title: Option<String>,
+}
+
+#[tauri::command]
+async fn generate_ai_note(request: AiNoteRequest) -> Result<String, String> {
+    // 创建输出目录
+    let output_path = PathBuf::from(&request.output_path);
+    if let Some(parent) = output_path.parent() {
+        std::fs::create_dir_all(parent).map_err(|e| format!("创建目录失败: {}", e))?;
+    }
+
+    // 创建或清空输出文件
+    let mut file = File::create(&output_path)
+        .map_err(|e| format!("创建文件失败: {}", e))?;
+
+    // 写入元数据
+    let metadata = format!(
+        "# {}\n\n> 视频链接: {}\n> 生成时间: {}\n\n---\n\n",
+        request.video_title,
+        request.video_url,
+        chrono::Local::now().format("%Y-%m-%d %H:%M:%S")
+    );
+    file.write_all(metadata.as_bytes())
+        .map_err(|e| format!("写入元数据失败: {}", e))?;
+
+    // 准备请求数据
+    let request_body = serde_json::json!({
+        "attachments": [{
+            "size": 100,
+            "type": "link",
+            "title": "",
+            "url": request.video_url
+        }],
+        "content": request.prompt_template,
+        "entry_type": "ai",
+        "note_type": "link",
+        "source": "web"
+    });
+
+    // 创建 HTTP 客户端
+    let client = reqwest::Client::new();
+
+    // 发送 SSE 请求
+    let response = client
+        .post(&request.api_url)
+        .header("Authorization", format!("Bearer {}", request.token))
+        .header("Content-Type", "application/json")
+        .header("Accept", "text/event-stream")
+        .json(&request_body)
+        .send()
+        .await
+        .map_err(|e| format!("请求失败: {}", e))?;
+
+    if !response.status().is_success() {
+        return Err(format!("API 返回错误: HTTP {}", response.status()));
+    }
+
+    // 读取 SSE 流
+    let mut current_instruction = String::new();
+    let mut current_summary_title = String::new();
+    let mut current_content = String::new();
+
+    let bytes = response.bytes().await
+        .map_err(|e| format!("读取响应失败: {}", e))?;
+
+    let text = String::from_utf8(bytes.to_vec())
+        .map_err(|e| format!("解析响应失败: {}", e))?;
+
+    // 解析 SSE 事件
+    for line in text.lines() {
+        if line.starts_with("data:") {
+            let json_str = line[5..].trim();
+            if let Ok(sse_data) = serde_json::from_str::<SseData>(json_str) {
+                if sse_data.code == 200 {
+                    if let Some(data_content) = sse_data.data {
+                        match sse_data.msg_type {
+                            1 => {
+                                // 内容增量
+                                if let Ok(msg_obj) = serde_json::from_str::<serde_json::Value>(&data_content.msg) {
+                                    if let Some(instruction) = msg_obj.get("instruction").and_then(|v| v.as_str()) {
+                                        current_instruction.push_str(instruction);
+                                    }
+                                    if let Some(summary_title) = msg_obj.get("summary_title").and_then(|v| v.as_str()) {
+                                        current_summary_title.push_str(summary_title);
+                                    }
+                                    if let Some(content) = msg_obj.get("content").and_then(|v| v.as_str()) {
+                                        current_content.push_str(content);
+                                    }
+                                }
+                            }
+                            104 => {
+                                // 完整内容 - 忽略，我们使用增量构建的内容
+                            }
+                            6 => {
+                                // 进度消息
+                                eprintln!("进度: {}", data_content.msg);
+                            }
+                            _ => {}
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // 构建最终的 Markdown 内容
+    let final_content = format!(
+        "{}\n\n## 摘要\n\n{}\n\n## 内容\n\n{}",
+        current_instruction, current_summary_title, current_content
+    );
+
+    // 写入最终内容
+    let write_content = format!(
+        "{}{}",
+        metadata, final_content
+    );
+
+    // 重新打开文件并写入最终内容
+    let mut file = File::create(&output_path)
+        .map_err(|e| format!("重新打开文件失败: {}", e))?;
+    file.write_all(write_content.as_bytes())
+        .map_err(|e| format!("写入内容失败: {}", e))?;
+    file.flush().map_err(|e| format!("刷新缓冲失败: {}", e))?;
+
+    Ok(output_path.to_string_lossy().to_string())
+}
+
 #[tauri::command]
 fn greet(name: &str) -> String {
     format!("Hello, {}! You've been greeted from Rust!", name)
@@ -263,7 +427,8 @@ pub fn run() {
             webdav_test_connection,
             webdav_upload,
             webdav_list_files,
-            webdav_download
+            webdav_download,
+            generate_ai_note
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
