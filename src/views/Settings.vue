@@ -50,6 +50,20 @@ const webdavConfig = reactive({
 const isTestingWebdav = ref(false);
 const webdavConnected = ref(false);
 
+// S3 兼容存储配置
+const s3Config = reactive({
+  bucket: "cherry-studio",
+  region: "cn-south-1",
+  accessKeyId: "JlZCYlupd9dy-ZwT-5g3WDR_AmUTgQPa1U23-UX8",
+  secretAccessKey: "tUF3njBtLrVdXKs3G0m5Ptx4X8o50big3Zb1lEhF",
+  endpoint: "http://appx.s3.cn-south-1.qiniucs.com", // 非AWS S3需要配置，如阿里云OSS、腾讯云COS、Cloudflare R2
+  customDomain: "" // 可选：自定义域名
+});
+const isTestingS3 = ref(false);
+const s3Connected = ref(false);
+const s3FileList = ref<Array<{ name: string; size: number; lastModified: string }>>([]);
+const showS3FileList = ref(false);
+
 // AI API 配置
 const aiApiConfig = reactive({
   url: "https://get-notes.luojilab.com/voicenotes/web/notes/stream",
@@ -136,6 +150,202 @@ async function saveAiApiConfig() {
 
 // 初始化时加载配置
 loadAiApiConfig();
+
+// 加载 S3 配置
+async function loadS3Config() {
+  try {
+    const configStr = localStorage.getItem("s3Config");
+    if (configStr) {
+      const config = JSON.parse(configStr);
+      Object.assign(s3Config, config);
+    }
+  } catch (e) {
+    console.error("加载S3配置失败:", e);
+  }
+}
+
+// 保存 S3 配置
+async function saveS3Config() {
+  try {
+    localStorage.setItem("s3Config", JSON.stringify(s3Config));
+  } catch (e) {
+    console.error("保存S3配置失败:", e);
+  }
+}
+
+// 测试 S3 连接
+async function testS3Connection() {
+  if (!s3Config.bucket) {
+    ElMessage.warning("请先输入 Bucket 名称");
+    return;
+  }
+  if (!s3Config.accessKeyId || !s3Config.secretAccessKey) {
+    ElMessage.warning("请先输入 Access Key ID 和 Secret Access Key");
+    return;
+  }
+
+  try {
+    isTestingS3.value = true;
+    const result = await invoke<string>("s3_test_connection", {
+      config: s3Config
+    });
+    if (result === "success") {
+      s3Connected.value = true;
+      await saveS3Config();
+      ElMessage.success("S3 存储连接成功！");
+    } else {
+      s3Connected.value = false;
+      ElMessage.error(`S3 连接失败：${result}`);
+    }
+  } catch (e) {
+    s3Connected.value = false;
+    ElMessage.error(`S3 连接失败：${String(e)}`);
+  } finally {
+    isTestingS3.value = false;
+  }
+}
+
+// 导出到 S3
+async function exportToS3() {
+  if (!s3Connected.value) {
+    ElMessage.warning("请先测试 S3 连接");
+    return;
+  }
+
+  try {
+    isExporting.value = true;
+
+    const exportData = {
+      version: "1.0",
+      exportedAt: new Date().toISOString(),
+      stats: {
+        totalUps: dbStats.totalUps,
+        totalVideos: dbStats.totalVideos,
+        hiddenVideos: dbStats.hiddenVideos,
+        usedVideos: dbStats.usedVideos,
+        lostVideos: dbStats.lostVideos
+      },
+      data: props.db
+    };
+
+    const jsonData = JSON.stringify(exportData, null, 2);
+    const filename = `up_videos_backup_${Date.now()}.json`;
+
+    const success = await invoke<boolean>("s3_upload", {
+      config: s3Config,
+      filename,
+      content: jsonData
+    });
+
+    if (success) {
+      ElMessage.success(`已导出到 S3：${filename}`);
+    } else {
+      ElMessage.error("导出失败：服务器返回错误");
+    }
+  } catch (e) {
+    ElMessage.error(`导出失败：${String(e)}`);
+  } finally {
+    isExporting.value = false;
+  }
+}
+
+// 从 S3 导入
+async function importFromS3() {
+  if (!s3Connected.value) {
+    ElMessage.warning("请先测试 S3 连接");
+    return;
+  }
+
+  try {
+    isImporting.value = true;
+
+    const files = await invoke<Array<{ name: string; size: number; lastModified: string }>>("s3_list_files", {
+      config: s3Config
+    });
+
+    if (!files || files.length === 0) {
+      ElMessage.info("S3 上没有找到备份文件");
+      return;
+    }
+
+    files.sort((a, b) => b.name.localeCompare(a.name));
+    s3FileList.value = files;
+    showS3FileList.value = true;
+  } catch (e) {
+    ElMessage.error(`获取文件列表失败：${String(e)}`);
+  } finally {
+    isImporting.value = false;
+  }
+}
+
+// 下载并恢复选中的 S3 备份
+async function restoreFromS3(file: { name: string; size: number; lastModified: string }) {
+  try {
+    isImporting.value = true;
+    showS3FileList.value = false;
+
+    await ElMessageBox.confirm(
+      `从 S3 导入备份文件 ${file.name} 将覆盖当前数据，是否继续？`,
+      "确认导入",
+      {
+        type: "warning",
+        confirmButtonText: "继续",
+        cancelButtonText: "取消"
+      }
+    );
+
+    const jsonData = await invoke<string>("s3_download", {
+      config: s3Config,
+      filename: file.name
+    });
+
+    const imported = JSON.parse(jsonData);
+
+    if (!imported.data || !imported.data.ups) {
+      ElMessage.error("备份文件格式不正确");
+      return;
+    }
+
+    const repo = await createTauriAppDatabaseRepository();
+    await repo.save(imported.data);
+
+    emit("reloadDb");
+    ElMessage.success(`已从 S3 导入：${file.name}`);
+  } catch (e) {
+    if (e !== "cancel") {
+      ElMessage.error(`导入失败：${String(e)}`);
+    }
+  } finally {
+    isImporting.value = false;
+  }
+}
+
+// 格式化 S3 文件时间
+function formatS3FileTime(timeStr: string): string {
+  try {
+    const date = new Date(timeStr);
+    return date.toLocaleString("zh-CN", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit"
+    });
+  } catch {
+    return timeStr;
+  }
+}
+
+// 格式化文件大小
+function formatFileSize(bytes: number): string {
+  if (bytes < 1024) return bytes + " B";
+  if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(2) + " KB";
+  return (bytes / (1024 * 1024)).toFixed(2) + " MB";
+}
+
+// 初始化时加载 S3 配置
+loadS3Config();
 
 // 导出完整数据库
 async function exportFullDatabase() {
@@ -680,6 +890,108 @@ function formatFileName(filename: string): string {
         </template>
       </Card>
 
+      <!-- S3 兼容存储备份 -->
+      <Card class="mb-4">
+        <template #default>
+          <div class="card-header">
+            <div class="card-title">
+              <Cloud :size="18" />
+              <span>S3 兼容存储备份</span>
+            </div>
+            <div :class="['status-badge', s3Connected ? 'status-ok' : 'status-off']">
+              <CloudOff v-if="!s3Connected" :size="14" />
+              <Check v-else :size="14" />
+              <span>{{ s3Connected ? "已连接" : "未连接" }}</span>
+            </div>
+          </div>
+
+          <div class="s3-config">
+            <div class="form-group">
+              <label class="form-label">Bucket 名称</label>
+              <Input v-model="s3Config.bucket" placeholder="my-bucket" :disabled="s3Connected" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Region（区域）</label>
+              <Input v-model="s3Config.region" placeholder="us-east-1" :disabled="s3Connected" />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Access Key ID</label>
+                <Input
+                  v-model="s3Config.accessKeyId"
+                  placeholder="AKIAIOSFODNN7EXAMPLE"
+                  :disabled="s3Connected"
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Secret Access Key</label>
+                <Input
+                  v-model="s3Config.secretAccessKey"
+                  type="password"
+                  placeholder="wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
+                  :disabled="s3Connected"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Endpoint（可选，非 AWS S3 必填）</label>
+              <Input
+                v-model="s3Config.endpoint"
+                placeholder="https://oss-cn-hangzhou.aliyuncs.com"
+                :disabled="s3Connected"
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label">自定义域名（可选）</label>
+              <Input
+                v-model="s3Config.customDomain"
+                placeholder="https://cdn.example.com"
+                :disabled="s3Connected"
+              />
+            </div>
+
+            <div class="action-buttons">
+              <Button
+                variant="default"
+                :icon="RefreshCw"
+                :loading="isTestingS3"
+                @click="testS3Connection"
+              >
+                测试连接
+              </Button>
+            </div>
+          </div>
+
+          <div class="action-section">
+            <h3 class="section-title">云备份操作</h3>
+            <div class="action-buttons">
+              <Button
+                variant="default"
+                :icon="Upload"
+                :loading="isExporting"
+                :disabled="!s3Connected"
+                @click="exportToS3"
+              >
+                导出到云端
+              </Button>
+              <Button
+                variant="default"
+                :icon="Download"
+                :loading="isImporting"
+                :disabled="!s3Connected"
+                @click="importFromS3"
+              >
+                从云端恢复
+              </Button>
+            </div>
+            <p class="action-hint">
+              支持 AWS S3 API 兼容的对象存储服务，包括 AWS S3、Cloudflare R2、阿里云 OSS、腾讯云 COS 等。
+              Endpoint 为非 AWS S3 服务的 API 地址。
+            </p>
+          </div>
+        </template>
+      </Card>
+
       <!-- AI API Configuration -->
       <Card class="mb-4">
         <template #default>
@@ -791,6 +1103,35 @@ function formatFileName(filename: string): string {
       </div>
       <template #footer>
         <Button variant="ghost" @click="showWebdavFileList = false">取消</Button>
+      </template>
+    </el-dialog>
+
+    <!-- S3 文件列表弹窗 -->
+    <el-dialog
+      v-model="showS3FileList"
+      title="选择要恢复的备份文件"
+      width="600px"
+      :close-on-click-modal="false"
+    >
+      <div class="file-list">
+        <div
+          v-for="file in s3FileList"
+          :key="file.name"
+          class="file-item"
+          @click="restoreFromS3(file)"
+        >
+          <div class="file-info">
+            <Download :size="20" />
+            <div class="file-details">
+              <div class="file-name">{{ formatS3FileTime(file.lastModified) }}</div>
+              <div class="file-original">{{ file.name }} · {{ formatFileSize(file.size) }}</div>
+            </div>
+          </div>
+          <Upload :size="18" />
+        </div>
+      </div>
+      <template #footer>
+        <Button variant="ghost" @click="showS3FileList = false">取消</Button>
       </template>
     </el-dialog>
   </div>
@@ -997,6 +1338,16 @@ function formatFileName(filename: string): string {
 }
 
 .webdav-config {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+  background: #F9F9FB;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.s3-config {
   display: flex;
   flex-direction: column;
   gap: 12px;
