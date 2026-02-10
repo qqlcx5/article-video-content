@@ -594,10 +594,7 @@ async fn generate_ai_note_internal(request: AiNoteRequest) -> Result<String, Str
 
 // ============ S3 兼容存储 ============
 
-use hmac::{Hmac, Mac};
-use sha2::{Sha256, Digest};
-
-type HmacSha256 = Hmac<Sha256>;
+use s3::{AddressingStyle, Auth, Client, Credentials};
 
 #[derive(Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -612,6 +609,8 @@ pub struct S3Config {
     pub endpoint: String,
     #[serde(default)]
     pub custom_domain: String,
+    #[serde(default)]
+    pub addressing_style: String,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -621,11 +620,25 @@ pub struct S3File {
     pub last_modified: String,
 }
 
+fn normalize_endpoint(raw: &str) -> String {
+    let trimmed = raw.trim().trim_end_matches('/');
+    if trimmed.is_empty() {
+        return String::new();
+    }
+    if trimmed.starts_with("http://") || trimmed.starts_with("https://") {
+        trimmed.to_string()
+    } else {
+        format!("https://{}", trimmed)
+    }
+}
+
 // 获取 S3 endpoint
 fn get_s3_endpoint(config: &S3Config) -> String {
-    if !config.endpoint.is_empty() {
-        config.endpoint.clone()
-    } else if !config.region.is_empty() && config.region.starts_with("cn-") {
+    if !config.custom_domain.trim().is_empty() {
+        normalize_endpoint(&config.custom_domain)
+    } else if !config.endpoint.trim().is_empty() {
+        normalize_endpoint(&config.endpoint)
+    } else if !config.region.trim().is_empty() && config.region.starts_with("cn-") {
         // 中国区域
         format!("https://s3.{}.amazonaws.com", config.region)
     } else {
@@ -634,81 +647,35 @@ fn get_s3_endpoint(config: &S3Config) -> String {
     }
 }
 
-// 获取当前时间格式化为 ISO 8601
-fn get_iso_time() -> (String, String) {
-    use chrono::Utc;
-    let now = Utc::now();
-    let date_stamp = now.format("%Y%m%d").to_string();
-    let time_stamp = now.format("%Y%m%dT%H%M%SZ").to_string();
-    (date_stamp, time_stamp)
-}
+fn build_s3_client(config: &S3Config) -> Result<Client, String> {
+    let endpoint = get_s3_endpoint(config);
+    if endpoint.is_empty() {
+        return Err("S3 endpoint 不能为空".to_string());
+    }
 
-// SHA256 哈希
-fn hash_sha256(data: &str) -> String {
-    let mut hasher = Sha256::new();
-    hasher.update(data.as_bytes());
-    hex::encode(hasher.finalize())
-}
+    let region = if config.region.trim().is_empty() {
+        "us-east-1".to_string()
+    } else {
+        config.region.clone()
+    };
 
-// HMAC-SHA256 签名
-fn hmac_sha256(key: &[u8], data: &str) -> String {
-    let mut mac = HmacSha256::new_from_slice(key)
-        .expect("HMAC can take key of any size");
-    mac.update(data.as_bytes());
-    let result = mac.finalize();
-    hex::encode(result.into_bytes())
-}
-
-// 生成 AWS Signature V4 签名
-fn sign_v4(
-    method: &str,
-    service: &str,
-    region: &str,
-    host: &str,
-    path: &str,
-    query: &str,
-    access_key_id: &str,
-    secret_access_key: &str,
-    payload_hash: &str,
-    time_stamp: &str,
-    date_stamp: &str,
-) -> String {
-    // 1. 创建 canonical request
-    let canonical_uri = if path.is_empty() { "/" } else { path };
-    let canonical_query = if query.is_empty() { "" } else { query };
-    let canonical_headers = format!("host:{}\nx-amz-content-sha256:{}\nx-amz-date:{}", host, payload_hash, time_stamp);
-    let signed_headers = "host;x-amz-content-sha256;x-amz-date";
-
-    let canonical_request = format!(
-        "{}\n{}\n{}\n{}\n{}\n{}",
-        method, canonical_uri, canonical_query, canonical_headers, signed_headers, payload_hash
-    );
-
-    // 2. 创建 string to sign
-    let algorithm = "AWS4-HMAC-SHA256";
-    let credential_scope = format!("{}/{}/{}/aws4_request", date_stamp, region, service);
-    let string_to_sign = format!(
-        "{}\n{}\n{}\n{}",
-        algorithm,
-        time_stamp,
-        credential_scope,
-        hash_sha256(&canonical_request)
-    );
-
-    // 3. 计算签名密钥
-    let k_date = hmac_sha256(format!("AWS4{}", secret_access_key).as_bytes(), date_stamp);
-    let k_region = hmac_sha256(&hex::decode(k_date).unwrap(), region);
-    let k_service = hmac_sha256(&hex::decode(k_region).unwrap(), service);
-    let k_signing = hmac_sha256(&hex::decode(k_service).unwrap(), "aws4_request");
-
-    // 4. 计算签名
-    let signature = hmac_sha256(&hex::decode(k_signing).unwrap(), &string_to_sign);
-
-    // 5. 创建 authorization header
-    format!(
-        "{} Credential={}/{}, SignedHeaders={}, Signature={}",
-        algorithm, access_key_id, credential_scope, signed_headers, signature
+    let credentials = Credentials::new(
+        config.access_key_id.clone(),
+        config.secret_access_key.clone(),
     )
+    .map_err(|e| format!("无效的访问密钥: {}", e))?;
+
+    Client::builder(&endpoint)
+        .map_err(|e| format!("无效的 S3 endpoint: {}", e))?
+        .region(region)
+        .auth(Auth::Static(credentials))
+        .addressing_style(match config.addressing_style.as_str() {
+            "virtual" | "virtual-host" | "virtual-hosted" => AddressingStyle::VirtualHosted,
+            "auto" => AddressingStyle::Auto,
+            _ => AddressingStyle::Path,
+        })
+        .build()
+        .map_err(|e| format!("创建 S3 客户端失败: {}", e))
 }
 
 #[tauri::command]
@@ -718,70 +685,17 @@ async fn s3_test_connection(config: S3Config) -> Result<String, String> {
     eprintln!("Region: {}", config.region);
     eprintln!("Endpoint: {}", config.endpoint);
 
-    let endpoint = get_s3_endpoint(&config);
-    let url = if config.custom_domain.is_empty() {
-        format!("{}/{}?max-keys=1", endpoint, config.bucket)
-    } else {
-        format!("{}?max-keys=1", config.custom_domain)
-    };
+    let client = build_s3_client(&config)?;
+    let result = client.buckets().head(&config.bucket).send().await;
 
-    eprintln!("请求 URL: {}", url);
-
-    // 解析 URL
-    let parsed_url = url::Url::parse(&url).map_err(|e| format!("无效的 URL: {}", e))?;
-    let host = parsed_url.host_str().unwrap_or("");
-    let path = parsed_url.path();
-    let query = parsed_url.query().unwrap_or("");
-
-    let region = if config.region.is_empty() {
-        "us-east-1"
-    } else {
-        &config.region
-    };
-
-    let (date_stamp, time_stamp) = get_iso_time();
-    let payload_hash = hash_sha256("");
-
-    let authorization = sign_v4(
-        "GET",
-        "s3",
-        region,
-        host,
-        path,
-        query,
-        &config.access_key_id,
-        &config.secret_access_key,
-        &payload_hash,
-        &time_stamp,
-        &date_stamp,
-    );
-
-    let client = reqwest::Client::new();
-    let response = client
-        .get(&url)
-        .header("Host", host)
-        .header("x-amz-content-sha256", &payload_hash)
-        .header("x-amz-date", &time_stamp)
-        .header("Authorization", &authorization)
-        .send()
-        .await;
-
-    match response {
-        Ok(resp) => {
-            let status = resp.status();
-            eprintln!("响应状态: {}", status);
-            if status.is_success() {
-                eprintln!("✓ S3 连接成功");
-                Ok("success".to_string())
-            } else {
-                let body = resp.text().await.unwrap_or_default();
-                eprintln!("✗ S3 连接失败: {}", body);
-                Err(format!("HTTP {}: {}", status.as_u16(), body))
-            }
+    match result {
+        Ok(_) => {
+            eprintln!("✓ S3 连接成功");
+            Ok("success".to_string())
         }
         Err(e) => {
-            eprintln!("✗ 请求失败: {}", e);
-            Err(format!("请求失败: {}", e))
+            eprintln!("✗ S3 连接失败: {}", e);
+            Err(format!("连接失败: {}", e))
         }
     }
 }
@@ -791,69 +705,23 @@ async fn s3_upload(config: S3Config, filename: String, content: String) -> Resul
     eprintln!("=== 上传到 S3 ===");
     eprintln!("文件名: {}", filename);
 
-    let endpoint = get_s3_endpoint(&config);
-    let url = if config.custom_domain.is_empty() {
-        format!("{}/{}/{}", endpoint, config.bucket, filename)
-    } else {
-        format!("{}/{}", config.custom_domain, filename)
-    };
-
-    eprintln!("上传 URL: {}", url);
-
-    let parsed_url = url::Url::parse(&url).map_err(|e| format!("无效的 URL: {}", e))?;
-    let host = parsed_url.host_str().unwrap_or("");
-    let path = parsed_url.path();
-
-    let region = if config.region.is_empty() {
-        "us-east-1"
-    } else {
-        &config.region
-    };
-
-    let (date_stamp, time_stamp) = get_iso_time();
-    let payload_hash = hash_sha256(&content);
-
-    let authorization = sign_v4(
-        "PUT",
-        "s3",
-        region,
-        host,
-        path,
-        "",
-        &config.access_key_id,
-        &config.secret_access_key,
-        &payload_hash,
-        &time_stamp,
-        &date_stamp,
-    );
-
-    let client = reqwest::Client::new();
-    let response = client
-        .put(&url)
-        .header("Host", host)
-        .header("x-amz-content-sha256", &payload_hash)
-        .header("x-amz-date", &time_stamp)
-        .header("Authorization", &authorization)
-        .body(content)
+    let client = build_s3_client(&config)?;
+    let result = client
+        .objects()
+        .put(&config.bucket, &filename)
+        .content_type("application/json")
+        .body_bytes(content.into_bytes())
         .send()
         .await;
 
-    match response {
-        Ok(resp) => {
-            let status = resp.status();
-            eprintln!("响应状态: {}", status);
-            if status.is_success() {
-                eprintln!("✓ 上传成功");
-                Ok(true)
-            } else {
-                let body = resp.text().await.unwrap_or_default();
-                eprintln!("✗ 上传失败: {}", body);
-                Err(format!("HTTP {}: {}", status.as_u16(), body))
-            }
+    match result {
+        Ok(_) => {
+            eprintln!("✓ 上传成功");
+            Ok(true)
         }
         Err(e) => {
-            eprintln!("✗ 请求失败: {}", e);
-            Err(format!("请求失败: {}", e))
+            eprintln!("✗ 上传失败: {}", e);
+            Err(format!("上传失败: {}", e))
         }
     }
 }
@@ -862,131 +730,38 @@ async fn s3_upload(config: S3Config, filename: String, content: String) -> Resul
 async fn s3_list_files(config: S3Config) -> Result<Vec<S3File>, String> {
     eprintln!("=== 列出 S3 文件 ===");
 
-    let endpoint = get_s3_endpoint(&config);
-    let url = if config.custom_domain.is_empty() {
-        format!("{}/{}?max-keys=1000", endpoint, config.bucket)
-    } else {
-        format!("{}?max-keys=1000", config.custom_domain)
-    };
+    let client = build_s3_client(&config)?;
+    let mut pager = client
+        .objects()
+        .list_v2(&config.bucket)
+        .max_keys(1000)
+        .pager();
 
-    eprintln!("请求 URL: {}", url);
+    let mut files = Vec::new();
+    while let Some(page) = pager.next_page().await.map_err(|e| format!("列出文件失败: {}", e))? {
+        for obj in page.contents {
+            if obj.key.contains("up_videos_backup_") && obj.key.ends_with(".json") {
+                let last_modified = obj
+                    .last_modified
+                    .as_deref()
+                    .and_then(|dt_str| {
+                        chrono::DateTime::parse_from_rfc3339(dt_str)
+                            .map(|dt| dt.format("%Y-%m-%d %H:%M:%S").to_string())
+                            .ok()
+                    })
+                    .unwrap_or_default();
 
-    let parsed_url = url::Url::parse(&url).map_err(|e| format!("无效的 URL: {}", e))?;
-    let host = parsed_url.host_str().unwrap_or("");
-    let path = parsed_url.path();
-    let query = parsed_url.query().unwrap_or("");
-
-    let region = if config.region.is_empty() {
-        "us-east-1"
-    } else {
-        &config.region
-    };
-
-    let (date_stamp, time_stamp) = get_iso_time();
-    let payload_hash = hash_sha256("");
-
-    let authorization = sign_v4(
-        "GET",
-        "s3",
-        region,
-        host,
-        path,
-        query,
-        &config.access_key_id,
-        &config.secret_access_key,
-        &payload_hash,
-        &time_stamp,
-        &date_stamp,
-    );
-
-    let client = reqwest::Client::new();
-    let response = client
-        .get(&url)
-        .header("Host", host)
-        .header("x-amz-content-sha256", &payload_hash)
-        .header("x-amz-date", &time_stamp)
-        .header("Authorization", &authorization)
-        .send()
-        .await;
-
-    match response {
-        Ok(resp) => {
-            let status = resp.status();
-            eprintln!("响应状态: {}", status);
-            if !status.is_success() {
-                let body = resp.text().await.unwrap_or_default();
-                eprintln!("✗ 列出文件失败: {}", body);
-                return Err(format!("HTTP {}: {}", status.as_u16(), body));
+                files.push(S3File {
+                    name: obj.key,
+                    size: obj.size as i64,
+                    last_modified,
+                });
             }
-
-            let body = resp.text().await.map_err(|e| format!("读取响应失败: {}", e))?;
-            eprintln!("响应体长度: {}", body.len());
-
-            // 解析 XML 响应
-            let mut files = Vec::new();
-
-            // 简单的 XML 解析 - 查找 <Key> 标签
-            let mut start = 0;
-            let body_str = body.as_str();
-
-            while let Some(key_start) = body_str[start..].find("<Key>") {
-                let key_abs_start = start + key_start + 5;
-                if let Some(key_end) = body_str[key_abs_start..].find("</Key>") {
-                    let key = body_str[key_abs_start..key_abs_start + key_end].trim();
-
-                    // 只返回备份文件
-                    if key.contains("up_videos_backup_") && key.ends_with(".json") {
-                        // 查找对应的 <Size> 和 <LastModified>
-                        let search_after = key_abs_start + key_end;
-                        let size = body_str[search_after..]
-                            .find("<Size>")
-                            .and_then(|size_start| {
-                                let size_abs = search_after + size_start + 6;
-                                body_str[size_abs..].find("</Size>").map(|size_end| {
-                                    body_str[size_abs..size_abs + size_end]
-                                        .trim()
-                                        .parse::<i64>()
-                                        .unwrap_or(0)
-                                })
-                            })
-                            .unwrap_or(0);
-
-                        let last_modified = body_str[search_after..]
-                            .find("<LastModified>")
-                            .and_then(|lm_start| {
-                                let lm_abs = search_after + lm_start + 14;
-                                body_str[lm_abs..].find("</LastModified>").map(|lm_end| {
-                                    let dt_str = body_str[lm_abs..lm_abs + lm_end].trim();
-                                    // 解析并重新格式化时间
-                                    chrono::DateTime::parse_from_rfc3339(dt_str)
-                                        .map(|dt| dt.format("%Y-%m-%d %H:%M:%S").to_string())
-                                        .unwrap_or_else(|_| dt_str.to_string())
-                                })
-                            })
-                            .unwrap_or_default();
-
-                        files.push(S3File {
-                            name: key.to_string(),
-                            size,
-                            last_modified,
-                        });
-                        eprintln!("找到文件: {} ({} bytes)", key, size);
-                    }
-
-                    start = key_abs_start + key_end;
-                } else {
-                    break;
-                }
-            }
-
-            eprintln!("✓ 共找到 {} 个备份文件", files.len());
-            Ok(files)
-        }
-        Err(e) => {
-            eprintln!("✗ 请求失败: {}", e);
-            Err(format!("请求失败: {}", e))
         }
     }
+
+    eprintln!("✓ 共找到 {} 个备份文件", files.len());
+    Ok(files)
 }
 
 #[tauri::command]
@@ -994,69 +769,20 @@ async fn s3_download(config: S3Config, filename: String) -> Result<String, Strin
     eprintln!("=== 从 S3 下载 ===");
     eprintln!("文件名: {}", filename);
 
-    let endpoint = get_s3_endpoint(&config);
-    let url = if config.custom_domain.is_empty() {
-        format!("{}/{}/{}", endpoint, config.bucket, filename)
-    } else {
-        format!("{}/{}", config.custom_domain, filename)
-    };
+    let client = build_s3_client(&config)?;
+    let result = client.objects().get(&config.bucket, &filename).send().await;
 
-    eprintln!("下载 URL: {}", url);
-
-    let parsed_url = url::Url::parse(&url).map_err(|e| format!("无效的 URL: {}", e))?;
-    let host = parsed_url.host_str().unwrap_or("");
-    let path = parsed_url.path();
-
-    let region = if config.region.is_empty() {
-        "us-east-1"
-    } else {
-        &config.region
-    };
-
-    let (date_stamp, time_stamp) = get_iso_time();
-    let payload_hash = hash_sha256("");
-
-    let authorization = sign_v4(
-        "GET",
-        "s3",
-        region,
-        host,
-        path,
-        "",
-        &config.access_key_id,
-        &config.secret_access_key,
-        &payload_hash,
-        &time_stamp,
-        &date_stamp,
-    );
-
-    let client = reqwest::Client::new();
-    let response = client
-        .get(&url)
-        .header("Host", host)
-        .header("x-amz-content-sha256", &payload_hash)
-        .header("x-amz-date", &time_stamp)
-        .header("Authorization", &authorization)
-        .send()
-        .await;
-
-    match response {
-        Ok(resp) => {
-            let status = resp.status();
-            eprintln!("响应状态: {}", status);
-            if !status.is_success() {
-                let body = resp.text().await.unwrap_or_default();
-                eprintln!("✗ 下载失败: {}", body);
-                return Err(format!("HTTP {}: {}", status.as_u16(), body));
-            }
-
-            let content = resp.text().await.map_err(|e| format!("读取响应失败: {}", e))?;
+    match result {
+        Ok(obj) => {
+            let bytes = obj.bytes().await.map_err(|e| format!("读取响应失败: {}", e))?;
+            let content = String::from_utf8(bytes.to_vec())
+                .map_err(|e| format!("响应内容不是有效 UTF-8: {}", e))?;
             eprintln!("✓ 下载成功，大小: {} bytes", content.len());
             Ok(content)
         }
         Err(e) => {
-            eprintln!("✗ 请求失败: {}", e);
-            Err(format!("请求失败: {}", e))
+            eprintln!("✗ 下载失败: {}", e);
+            Err(format!("下载失败: {}", e))
         }
     }
 }

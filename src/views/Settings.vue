@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, reactive } from "vue";
+import { ref, reactive, nextTick } from "vue";
 import { ElMessage, ElMessageBox } from "element-plus";
 import {
   Database,
@@ -57,7 +57,8 @@ const s3Config = reactive({
   accessKeyId: "JlZCYlupd9dy-ZwT-5g3WDR_AmUTgQPa1U23-UX8",
   secretAccessKey: "tUF3njBtLrVdXKs3G0m5Ptx4X8o50big3Zb1lEhF",
   endpoint: "http://appx.s3.cn-south-1.qiniucs.com", // 非AWS S3需要配置，如阿里云OSS、腾讯云COS、Cloudflare R2
-  customDomain: "" // 可选：自定义域名
+  customDomain: "", // 可选：自定义域名
+  addressingStyle: "path" // path | virtual
 });
 const isTestingS3 = ref(false);
 const s3Connected = ref(false);
@@ -88,6 +89,26 @@ const dbStats = reactive({
   lostVideos: 0,
   dbSize: "0 MB"
 });
+
+const settingsSections = [
+  { id: "overview", label: "概览" },
+  { id: "data", label: "数据管理" },
+  { id: "webdav", label: "WebDAV" },
+  { id: "s3", label: "S3 备份" },
+  { id: "ai", label: "AI 笔记" },
+  { id: "about", label: "关于" }
+];
+const activeSection = ref(settingsSections[0].id);
+
+function scrollToSection(id: string) {
+  activeSection.value = id;
+  nextTick(() => {
+    const el = document.getElementById(`settings-section-${id}`);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+}
 
 // 更新统计信息
 function updateStats() {
@@ -668,6 +689,23 @@ function formatFileName(filename: string): string {
 
     <!-- Content -->
     <div class="content-body">
+      <div class="settings-layout">
+        <aside class="settings-subnav">
+          <button
+            v-for="section in settingsSections"
+            :key="section.id"
+            :class="[
+              'subnav-item',
+              activeSection === section.id ? 'subnav-item-active' : ''
+            ]"
+            @click="scrollToSection(section.id)"
+          >
+            <span>{{ section.label }}</span>
+          </button>
+        </aside>
+
+        <div class="settings-content">
+          <section id="settings-section-overview" class="settings-section">
       <!-- Database Stats -->
       <Card class="mb-4">
         <template #default>
@@ -734,7 +772,9 @@ function formatFileName(filename: string): string {
           </div>
         </template>
       </Card>
+          </section>
 
+          <section id="settings-section-data" class="settings-section">
       <!-- Data Management -->
       <Card class="mb-4">
         <template #default>
@@ -796,7 +836,9 @@ function formatFileName(filename: string): string {
           </div>
         </template>
       </Card>
+          </section>
 
+          <section id="settings-section-webdav" class="settings-section">
       <!-- WebDAV Backup -->
       <Card class="mb-4">
         <template #default>
@@ -889,7 +931,9 @@ function formatFileName(filename: string): string {
           </div>
         </template>
       </Card>
+          </section>
 
+          <section id="settings-section-s3" class="settings-section">
       <!-- S3 兼容存储备份 -->
       <Card class="mb-4">
         <template #default>
@@ -909,6 +953,36 @@ function formatFileName(filename: string): string {
             <div class="form-group">
               <label class="form-label">Bucket 名称</label>
               <Input v-model="s3Config.bucket" placeholder="my-bucket" :disabled="s3Connected" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">地址风格</label>
+              <div class="segmented-control">
+                <button
+                  type="button"
+                  :class="[
+                    'segmented-btn',
+                    s3Config.addressingStyle === 'path' ? 'segmented-btn-active' : ''
+                  ]"
+                  :disabled="s3Connected"
+                  @click="s3Config.addressingStyle = 'path'"
+                >
+                  Path-Style
+                </button>
+                <button
+                  type="button"
+                  :class="[
+                    'segmented-btn',
+                    s3Config.addressingStyle === 'virtual' ? 'segmented-btn-active' : ''
+                  ]"
+                  :disabled="s3Connected"
+                  @click="s3Config.addressingStyle = 'virtual'"
+                >
+                  Virtual-Host
+                </button>
+              </div>
+              <p class="form-hint">
+                Path-Style: endpoint/bucket/key；Virtual-Host: bucket.endpoint/key
+              </p>
             </div>
             <div class="form-group">
               <label class="form-label">Region（区域）</label>
@@ -991,7 +1065,9 @@ function formatFileName(filename: string): string {
           </div>
         </template>
       </Card>
+          </section>
 
+          <section id="settings-section-ai" class="settings-section">
       <!-- AI API Configuration -->
       <Card class="mb-4">
         <template #default>
@@ -1048,7 +1124,9 @@ function formatFileName(filename: string): string {
           </div>
         </template>
       </Card>
+          </section>
 
+          <section id="settings-section-about" class="settings-section">
       <!-- About -->
       <Card>
         <template #default>
@@ -1075,6 +1153,9 @@ function formatFileName(filename: string): string {
           </div>
         </template>
       </Card>
+          </section>
+        </div>
+      </div>
     </div>
 
     <!-- WebDAV 文件列表弹窗 -->
@@ -1177,6 +1258,80 @@ function formatFileName(filename: string): string {
   flex: 1;
   padding: 14px;
   overflow-y: auto;
+}
+
+.settings-layout {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.settings-subnav {
+  width: 180px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: sticky;
+  top: 12px;
+  max-height: calc(100vh - 120px);
+}
+
+.subnav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border: none;
+  background: transparent;
+  color: #71717A;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: left;
+}
+
+.subnav-item:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  color: #18181B;
+}
+
+.subnav-item-active {
+  background-color: rgba(0, 0, 0, 0.08);
+  color: #18181B;
+  font-weight: 600;
+}
+
+.settings-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.settings-section {
+  scroll-margin-top: 12px;
+}
+
+@media (max-width: 960px) {
+  .settings-layout {
+    flex-direction: column;
+  }
+
+  .settings-subnav {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    position: static;
+  }
+
+  .subnav-item {
+    flex: 0 0 auto;
+  }
 }
 
 .mb-4 {
@@ -1373,6 +1528,48 @@ function formatFileName(filename: string): string {
   font-size: 12px;
   font-weight: 500;
   color: #71717A;
+}
+
+.form-hint {
+  font-size: 11px;
+  color: #71717A;
+  margin: 4px 0 0;
+}
+
+.segmented-control {
+  display: inline-flex;
+  gap: 6px;
+  padding: 4px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+}
+
+.segmented-btn {
+  padding: 6px 10px;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #71717A;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.segmented-btn:hover {
+  background: rgba(0, 0, 0, 0.04);
+  color: #18181B;
+}
+
+.segmented-btn:disabled {
+  cursor: not-allowed;
+  color: #A1A1AA;
+}
+
+.segmented-btn-active {
+  background: rgba(0, 0, 0, 0.08);
+  color: #18181B;
 }
 
 .ai-api-config {
