@@ -24,6 +24,7 @@ import {
   RotateCcw,
   Sparkles,
   FileText,
+  Zap,
 } from "lucide-vue-next";
 import Button from "../components/ui/Button.vue";
 import Card from "../components/ui/Card.vue";
@@ -85,6 +86,15 @@ const showLostOnly = ref(false);
 const selectedRows = ref<ILocalVideo[]>([]);
 const lastImport = ref<ImportSummary | null>(null);
 const isGeneratingAiNote = ref(false);
+const isBatchGenerating = ref(false);
+const batchProgress = ref({
+  current: 0,
+  total: 0,
+  percent: 0,
+  message: ''
+});
+const batchResults = ref<any[]>([]);
+const showBatchDialog = ref(false);
 const showNoteDialog = ref(false);
 const currentNoteContent = ref("");
 const currentNoteTitle = ref("");
@@ -564,6 +574,146 @@ async function generateAiNote(): Promise<void> {
   }
 }
 
+// 批量生成AI笔记
+async function generateBatchAiNotes(): Promise<void> {
+  const ids = uniqStrings(selectedRows.value.map((r) => r.id));
+  if (ids.length === 0) {
+    ElMessage.warning("请先勾选要生成笔记的视频。");
+    return;
+  }
+
+  // 检查AI配置
+  let aiConfig;
+  try {
+    const aiConfigStr = localStorage.getItem("aiApiConfig");
+    if (!aiConfigStr) {
+      ElMessage.warning("请先在设置中配置AI API。");
+      return;
+    }
+    aiConfig = JSON.parse(aiConfigStr);
+  } catch (e) {
+    ElMessage.error("读取AI配置失败，请重新配置。");
+    return;
+  }
+
+  if (!aiConfig.url || !aiConfig.token) {
+    ElMessage.warning("请先在设置中配置完整的AI API信息（API地址和Token）。");
+    return;
+  }
+
+  const confirmed = await ElMessageBox.confirm(
+    `将为 ${ids.length} 个视频生成AI笔记，可能需要较长时间。继续吗？`,
+    "批量生成确认",
+    { type: "info", confirmButtonText: "开始生成", cancelButtonText: "取消" }
+  )
+    .then(() => true)
+    .catch(() => false);
+
+  if (!confirmed) return;
+
+  isBatchGenerating.value = true;
+  batchProgress.value = {
+    current: 0,
+    total: ids.length,
+    percent: 0,
+    message: '准备中...'
+  };
+  batchResults.value = [];
+
+  try {
+    const { invoke } = await import("@tauri-apps/api/core");
+    const { listen } = await import("@tauri-apps/api/event");
+
+    // 监听进度事件
+    const unlisten = await listen('note-progress', (event: any) => {
+      const progress = event.payload as any;
+      batchProgress.value = {
+        current: progress.current,
+        total: progress.total,
+        percent: Math.round(progress.percent * 10) / 10,
+        message: progress.success ? `完成: ${progress.title}` : `失败: ${progress.title}`
+      };
+    });
+
+    // 准备批量请求数据
+    const videos = selectedRows.value.map(video => ({
+      video_url: video.href || '',
+      video_title: video.title || "未命名视频",
+      prompt_template: aiConfig.promptTemplate || "",
+      output_path: `ai_notes/batch_${video.id}_${Date.now()}.md`
+    }));
+
+    ElMessage.info("开始批量生成AI笔记...");
+
+    // 调用后端批量生成命令
+    const result = await invoke<any>("generate_ai_note_batch", {
+      request: {
+        api_url: aiConfig.url,
+        token: aiConfig.token,
+        videos: videos
+      }
+    });
+
+    // 保存结果
+    batchResults.value = result.results;
+
+    // 更新数据库
+    const up = currentUp.value;
+    if (up) {
+      try {
+        const repo = await createTauriAppDatabaseRepository();
+        let updatedVideos = up.videos;
+
+        for (const videoResult of result.results) {
+          const video = selectedRows.value.find(v => v.title === videoResult.title);
+          if (video && videoResult.success) {
+            updatedVideos = updatedVideos.map(v =>
+              v.id === video.id
+                ? { ...v, aiNotePath: videoResult.output_file, isUsed: true }
+                : v
+            );
+          }
+        }
+
+        const updatedUp = { ...up, videos: updatedVideos };
+        const newDb = {
+          ...props.db,
+          ups: { ...props.db.ups, [updatedUp.key]: updatedUp }
+        };
+        await repo.save(newDb);
+        emit("update:db", newDb);
+      } catch (dbError) {
+        console.error("更新数据库失败:", dbError);
+      }
+    }
+
+    unlisten();
+
+    ElMessage.success(
+      `批量生成完成！成功 ${result.success_count} 个，失败 ${result.failed_count} 个。`
+    );
+    showBatchDialog.value = true;
+
+  } catch (e) {
+    const errorMessage = String(e);
+    console.error("批量生成失败:", errorMessage);
+
+    if (errorMessage.includes("403") || errorMessage.includes("认证失败")) {
+      ElMessage.error({
+        message: "API 认证失败！请检查Token是否正确或已过期。",
+        duration: 5000
+      });
+    } else {
+      ElMessage.error({
+        message: `批量生成失败：${errorMessage}`,
+        duration: 5000
+      });
+    }
+  } finally {
+    isBatchGenerating.value = false;
+  }
+}
+
 // 查看已有笔记
 async function viewAiNote(video: ILocalVideo): Promise<void> {
   if (!video.aiNotePath) {
@@ -689,6 +839,17 @@ defineExpose({
                 class="text-purple-600"
               >
                 生成AI笔记
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                :icon="Zap"
+                :disabled="selectedRows.length === 0"
+                :loading="isBatchGenerating"
+                @click="generateBatchAiNotes"
+                class="text-indigo-600"
+              >
+                批量生成({{ selectedRows.length }})
               </Button>
               <Button variant="ghost" size="sm" :icon="Download" @click="exportReport">
                 导出
@@ -854,6 +1015,70 @@ defineExpose({
       </div>
       <template #footer>
         <Button variant="ghost" @click="showNoteDialog = false">关闭</Button>
+      </template>
+    </el-dialog>
+
+    <!-- Batch Generation Progress Dialog -->
+    <el-dialog
+      v-model="isBatchGenerating"
+      title="批量生成AI笔记"
+      width="600px"
+      :close-on-click-modal="false"
+      :show-close="false"
+    >
+      <div class="batch-progress-container">
+        <div class="batch-progress-info">
+          <p class="batch-progress-text">
+            正在处理：{{ batchProgress.current }} / {{ batchProgress.total }}
+          </p>
+          <p class="batch-progress-percent">{{ batchProgress.percent.toFixed(1) }}%</p>
+        </div>
+        <div class="progress-bar-wrapper">
+          <div class="progress-bar-bg">
+            <div
+              class="progress-bar-fill"
+              :style="{ width: batchProgress.percent + '%' }"
+            />
+          </div>
+        </div>
+        <p class="batch-progress-message">{{ batchProgress.message }}</p>
+      </div>
+    </el-dialog>
+
+    <!-- Batch Generation Results Dialog -->
+    <el-dialog
+      v-model="showBatchDialog"
+      title="批量生成结果"
+      width="700px"
+    >
+      <div class="batch-results-container">
+        <div class="batch-results-summary">
+          <p class="batch-summary-text">
+            总计: {{ batchResults.length }} |
+            成功: <span class="text-green-600">{{ batchResults.filter(r => r.success).length }}</span> |
+            失败: <span class="text-red-600">{{ batchResults.filter(r => !r.success).length }}</span>
+          </p>
+        </div>
+        <div class="batch-results-list">
+          <div
+            v-for="(result, index) in batchResults"
+            :key="index"
+            class="batch-result-item"
+            :class="{ success: result.success, error: !result.success }"
+          >
+            <div class="result-status">
+              {{ result.success ? '✅' : '❌' }}
+            </div>
+            <div class="result-content">
+              <p class="result-title">{{ result.title }}</p>
+              <p v-if="result.success" class="result-file">{{ result.output_file }}</p>
+              <p v-else class="result-error">{{ result.error }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <template #footer>
+        <Button variant="ghost" @click="showBatchDialog = false">关闭</Button>
       </template>
     </el-dialog>
   </div>
@@ -1156,5 +1381,137 @@ defineExpose({
   white-space: pre-wrap;
   word-wrap: break-word;
   font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+/* Batch Generation Styles */
+.batch-progress-container {
+  padding: 20px 0;
+}
+
+.batch-progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.batch-progress-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #18181B;
+  margin: 0;
+}
+
+.batch-progress-percent {
+  font-size: 16px;
+  font-weight: 600;
+  color: #6366F1;
+  margin: 0;
+}
+
+.progress-bar-wrapper {
+  margin-bottom: 12px;
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 24px;
+  background: #F9F9FB;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #6366F1 0%, #8B5CF6 100%);
+  transition: width 0.3s ease;
+  border-radius: 12px;
+}
+
+.batch-progress-message {
+  font-size: 13px;
+  color: #71717A;
+  text-align: center;
+  margin: 0;
+}
+
+.batch-results-container {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.batch-results-summary {
+  padding: 12px;
+  background: #F9F9FB;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.batch-summary-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #18181B;
+  margin: 0;
+}
+
+.batch-results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.batch-result-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.batch-result-item.success {
+  background: rgba(34, 197, 94, 0.05);
+  border-color: rgba(34, 197, 94, 0.2);
+}
+
+.batch-result-item.error {
+  background: rgba(239, 68, 68, 0.05);
+  border-color: rgba(239, 68, 68, 0.2);
+}
+
+.result-status {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.result-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.result-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #18181B;
+  margin: 0 0 4px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.result-file,
+.result-error {
+  font-size: 12px;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.result-file {
+  color: #16A34A;
+}
+
+.result-error {
+  color: #DC2626;
 }
 </style>

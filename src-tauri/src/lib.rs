@@ -3,6 +3,9 @@ use base64::Engine;
 use std::path::PathBuf;
 use std::fs::File;
 use std::io::Write;
+use std::process::Command;
+use std::sync::Arc;
+use tokio::sync::Semaphore;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct WebdavConfig {
@@ -592,6 +595,177 @@ async fn generate_ai_note_internal(request: AiNoteRequest) -> Result<String, Str
     Ok(output_path.to_string_lossy().to_string())
 }
 
+// ============ 批量 AI 笔记生成 ============
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct BatchNoteRequest {
+    pub api_url: String,
+    pub token: String,
+    pub videos: Vec<VideoNoteRequest>,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct VideoNoteRequest {
+    pub video_url: String,
+    pub video_title: String,
+    pub prompt_template: String,
+    pub output_path: String,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct BatchNoteResult {
+    pub total: usize,
+    pub success_count: usize,
+    pub failed_count: usize,
+    pub results: Vec<SingleNoteResult>,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct SingleNoteResult {
+    pub title: String,
+    pub success: bool,
+    pub output_file: Option<String>,
+    pub error: Option<String>,
+}
+
+#[tauri::command]
+async fn generate_ai_note_batch(
+    request: BatchNoteRequest,
+    app_window: tauri::Window,
+) -> Result<BatchNoteResult, String> {
+    eprintln!("=== 开始批量生成 AI 笔记 ===");
+    eprintln!("总视频数: {}", request.videos.len());
+
+    let total = request.videos.len();
+    let mut results = Vec::with_capacity(total);
+
+    // 限制并发数为 3（避免过多并发导致API限流）
+    let semaphore = Arc::new(Semaphore::new(3));
+    let mut tasks = Vec::new();
+
+    for (index, video_req) in request.videos.into_iter().enumerate() {
+        let permit = semaphore.clone().acquire_owned().await.unwrap();
+        let api_url = request.api_url.clone();
+        let token = request.token.clone();
+        let window = app_window.clone();
+
+        let task = tokio::spawn(async move {
+            let _permit = permit; // 持有信号量
+
+            // 调用Python脚本生成单个笔记
+            let result = generate_single_note_py(
+                &api_url,
+                &token,
+                &video_req.video_url,
+                &video_req.video_title,
+                &video_req.prompt_template,
+                &video_req.output_path,
+            ).await;
+
+            // 发送进度到前端
+            let _ = window.emit("note-progress", json::object! {
+                "current": index + 1,
+                "total": total,
+                "title": video_req.video_title,
+                "success": result.success,
+                "percent": ((index + 1) as f64 / total as f64) * 100.0
+            });
+
+            result
+        });
+
+        tasks.push(task);
+    }
+
+    // 等待所有任务完成
+    for task in tasks {
+        let result = task.await.unwrap();
+        results.push(result);
+    }
+
+    let success_count = results.iter().filter(|r| r.success).count();
+    let failed_count = total - success_count;
+
+    eprintln!("=== 批量生成完成 ===");
+    eprintln!("成功: {}, 失败: {}", success_count, failed_count);
+
+    Ok(BatchNoteResult {
+        total,
+        success_count,
+        failed_count,
+        results,
+    })
+}
+
+async fn generate_single_note_py(
+    api_url: &str,
+    token: &str,
+    video_url: &str,
+    video_title: &str,
+    prompt_template: &str,
+    output_path: &str,
+) -> SingleNoteResult {
+    let mut script_path = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
+    script_path.push("scripts");
+    script_path.push("generate_note.py");
+
+    eprintln!("调用Python脚本: {:?}", script_path);
+    eprintln!("视频: {}", video_title);
+
+    let output = match Command::new("python")
+        .arg(&script_path)
+        .arg(prompt_template)
+        .arg(video_url)
+        .arg(video_title)
+        .arg(output_path)
+        .arg(token)
+        .output()
+    {
+        Ok(o) => o,
+        Err(e) => {
+            eprintln!("启动Python失败: {}", e);
+            return SingleNoteResult {
+                title: video_title.to_string(),
+                success: false,
+                output_file: None,
+                error: Some(format!("启动Python失败: {}", e)),
+            };
+        }
+    };
+
+    // 解析进度信息（stderr）
+    if !output.stderr.is_empty() {
+        let stderr_str = String::from_utf8_lossy(&output.stderr);
+        for line in stderr_str.lines() {
+            if let Ok(progress) = serde_json::from_str::<serde_json::Value>(line) {
+                if progress["type"] == "progress" {
+                    eprintln!("  进度: {}% - {}", progress["percent"], progress["message"]);
+                }
+            }
+        }
+    }
+
+    // 解析最终结果（stdout）
+    if !output.stdout.is_empty() {
+        let stdout_str = String::from_utf8_lossy(&output.stdout);
+        if let Ok(result) = serde_json::from_str::<serde_json::Value>(&stdout_str) {
+            return SingleNoteResult {
+                title: video_title.to_string(),
+                success: result["success"].as_bool().unwrap_or(false),
+                output_file: result["output_file"].as_str().map(|s| s.to_string()),
+                error: result["error"].as_str().map(|s| s.to_string()),
+            };
+        }
+    }
+
+    SingleNoteResult {
+        title: video_title.to_string(),
+        success: false,
+        output_file: None,
+        error: Some("解析输出失败".to_string()),
+    }
+}
+
 // ============ S3 兼容存储 ============
 
 use s3::{AddressingStyle, Auth, Client, Credentials};
@@ -805,6 +979,7 @@ pub fn run() {
             webdav_list_files,
             webdav_download,
             generate_ai_note,
+            generate_ai_note_batch,
             s3_test_connection,
             s3_upload,
             s3_list_files,

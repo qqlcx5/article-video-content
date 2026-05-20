@@ -29,3 +29,4 @@ base64 = "0.22"
 urlencoding = "2.1"
 chrono = "0.4"
 s3 = "0.1.8"
+tokio = { version = "1", features = ["full"] }
